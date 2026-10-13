@@ -14,5 +14,10 @@
   "beta_ocean": -0.23825044161918743,
   "gamma_land": 0.3638859171165791,
   "gamma_ocean": 0.01099693976563082
+ },
+ "nu_evidence": {
+  "gamma_land_without": -50.00918986975457,
+  "gamma_land_with": -62.72771746183246,
+  "tcre_change_first_order": 0.03931121571291141
  }
 }

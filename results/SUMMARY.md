@@ -100,7 +100,18 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 - In the lookup table the permafrost flag is set for exactly three models, CESM2, NorESM2-LM and CMCC-ESM2, which all use the CLM land model and also carry the nitrogen and fire flags. The permafrost effect is therefore not separable from a CLM-family offset in this design.
 
-<!-- A6 -->
+- Synthetic truth experiments (12 replicates per scenario; data generated on the real 13-model lookup table with model-level process scatter at a quarter of the upstream σ_process_struct, structural biases of 8 PgC K⁻¹ and noise of 5 PgC K⁻¹; refitted with the upstream additive process model and the upstream γ_L priors; all fits r̂ ≤ 1.01, 1 divergence in 36 fits; `results/m6_identifiability.csv`, `fig_m6_identifiability.png`):
+
+  | scenario | δ_N (truth → mean estimate, 90 % coverage) | δ_permafrost | δ_fire | δ_veg |
+  |---|---|---|---|---|
+  | S1 data from the model's own structure | 10 → 12.4 (100 %) | −30 → −36.4 (100 %) | −5 → −0.5 (100 %) | 5 → 0.1 (100 %) |
+  | S2 CLM-family offset ±15, no permafrost effect | 10 → 13.2 (100 %) | 0 → −29.4 (0 %) | −5 → 0.4 | 5 → 0.3 |
+  | S3 ε channel, no direct nitrogen effect on γ | 0 → 8.5 (0 %) | −30 → −35.0 | −5 → −0.4 | 5 → −0.1 |
+
+- δ_permafrost returns about −30 PgC K⁻¹ (the prior median) whether the truth is −30 or 0, and absorbs a CLM-family offset; its prior (negative-definite) excludes zero, so a zero effect can never be covered. With three flagged models that share one land model, the design cannot identify it.
+- δ_fire and δ_veg shrink to zero with posterior sd equal to the prior sd (about 9 against 10): not identified, though nominally covered because the intervals are wide.
+- δ_N is recovered when the data follow the model's structure, but when the nitrogen effect acts on β and reaches γ only through the COU−BGC interaction term (S3), it is attributed to a direct δ_N of +8.5 ± 5.4 with zero coverage. The separate η (β) and δ (γ) parameterisation double-counts the ε channel.
+- Paired-experiment ν evidence (computed in upstream `data_utils.load_process_evidence` but not used in the notebook): ν_N = +7.2 (ACCESS-ESM CN−C) and +0.2 (UKESM1-1 ctrl−nonlim), ν_fire = −13.0, ν_veg = +1.2 PgC K⁻¹. Added as pseudo-observations (σ 5) on the summed tropical and extratropical δ_p, they change the real-data posterior of δ_N from 18.4 ± 10.2 to 7.0 ± 2.4 and of δ_fire from 0.6 ± 12.9 to −11.2 ± 4.6, and γ_L from −50.0 to −62.7 PgC K⁻¹ (about +0.04 K EgC⁻¹ in TCRE, first order at TCR 1.7 K). δ_permafrost is unchanged (−29 ± 22): no paired experiment informs it. These experiments come from models already in the ensemble (ACCESS, UKESM).
 
 ## M6 / A7. State dependence, 2× to 4×CO₂ (`scripts/m6_state_dependence.py`)
 
