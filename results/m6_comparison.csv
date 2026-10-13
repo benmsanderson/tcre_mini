@@ -1,0 +1,7 @@
+line,mean,p05,p17,p50,p83,p95
+(i) raw CMIP6 1pctCO2 (11 models),1.736,1.249,1.354,1.619,2.111,2.369
+(ii) process framework as published,1.773,1.065,1.340,1.737,2.196,2.585
+"(iii) framework, joint land + TCR–carbon covariance",1.730,1.104,1.365,1.733,2.084,2.342
+"(iv) TCR × R, R unconstrained",1.503,0.958,1.179,1.495,1.827,2.074
+"(v) TCR × R, R | ocean sink 1960–2014",1.544,1.015,1.237,1.540,1.850,2.071
+"(vi) historical attribution (DAMIP, quoted)",1.386,1.245,1.304,1.385,1.470,1.528

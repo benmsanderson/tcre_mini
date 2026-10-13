@@ -45,9 +45,10 @@ def main():
     except Exception:
         pass
     a5 = json.load(open(RESULTS / "m5.json"))["perfect_model"]
-    v = [r for r in a5 if r["target"] == "R" and r["H"] == "H_ocean" and not r["lfo"] and r["obs_err"] == 1.0
-         and r["mode"] == "H_only"][0]
-    skill["(v) TCR × R, R | ocean sink 1960–2014"] = f"perfect-model CRPSS {v['crpss_vs_ensemble']:+.2f}"
+    pick = lambda mode: [r for r in a5 if r["target"] == "R" and r["H"] == "H_ocean" and not r["lfo"]
+                         and r["obs_err"] == 1.0 and r["mode"] == mode][0]["crpss_vs_ensemble"]
+    skill["(v) TCR × R, R | ocean sink 1960–2014"] = (f"perfect-model CRPSS {pick('substitute'):+.2f} (R | TCR, H); "
+                                                      f"{pick('H_only'):+.2f} (R | H)")
     rows = []
     fig, ax = plt.subplots(figsize=(7.2, 3.4))
     for i, (lab, s) in enumerate(lines.items()):
@@ -64,7 +65,7 @@ def main():
     ax.set_yticks(range(len(lines)), list(lines))
     ax.invert_yaxis()
     ax.set_xlabel("TCRE (K EgC$^{-1}$); bars 5–95 % (thin) and 17–83 % (thick), circle median")
-    ax.set_xlim(0.6, 3.6)
+    ax.set_xlim(0.6, 4.2)
     pl.save(fig, RESULTS / "fig_m6_comparison.png")
     df = pd.DataFrame(rows)
     df.to_csv(RESULTS / "m6_comparison.csv", index=False, float_format="%.3f")
