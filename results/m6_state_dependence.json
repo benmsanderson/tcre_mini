@@ -1,0 +1,77 @@
+{
+ "gamma_land_coubgc": {
+  "mean_change": -10.354478742780543,
+  "n_more_negative": 9,
+  "n": 11,
+  "mean_2x": -33.578850512837796,
+  "mean_4x": -43.93332925561834
+ },
+ "gamma_ocean_coubgc": {
+  "mean_change": -7.957415868431744,
+  "n_more_negative": 11,
+  "n": 11,
+  "mean_2x": -8.776996707396851,
+  "mean_4x": -16.734412575828593
+ },
+ "gamma_land_rad": {
+  "mean_change": -14.926473309512316,
+  "n_more_negative": 11,
+  "n": 11,
+  "mean_2x": -38.44024215215017,
+  "mean_4x": -53.36671546166249
+ },
+ "gamma_ocean_rad": {
+  "mean_change": -1.2743919450396968,
+  "n_more_negative": 9,
+  "n": 11,
+  "mean_2x": -3.720432077569377,
+  "mean_4x": -4.994824022609075
+ },
+ "beta_land_coubgc": {
+  "mean_change": -0.21686336144660923,
+  "n_more_negative": 10,
+  "n": 11,
+  "mean_2x": 1.2161415117402137,
+  "mean_4x": 0.9992781502936048
+ },
+ "beta_ocean_coubgc": {
+  "mean_change": -0.11481299560309509,
+  "n_more_negative": 11,
+  "n": 11,
+  "mean_2x": 0.9190760291599106,
+  "mean_4x": 0.8042630335568156
+ },
+ "gamma_land_upcsv": {
+  "mean_change": -12.888143763424978,
+  "n_more_negative": 9,
+  "n": 11,
+  "mean_2x": -29.26659237669156,
+  "mean_4x": -42.15473614011654
+ },
+ "eps_land_scaled": {
+  "mean_2x": 0.02024818181222219,
+  "mean_4x": 0.010153959235871162,
+  "corr_2x_4x": 0.9082350722962084
+ },
+ "eps_ocean_scaled": {
+  "mean_2x": -0.016477130433596235,
+  "mean_4x": -0.014226052352439051,
+  "corr_2x_4x": 0.9072741704608549
+ },
+ "transfer_2x_to_4x": {
+  "coubgc": {
+   "err_mean": -0.17284908690368794,
+   "err_sd": 0.08292151295044352,
+   "max_abs": 0.31153624419542414,
+   "worst": "UKESM1-0-LL",
+   "rel_err_mean": -0.10656374679953907
+  },
+  "bgcrad": {
+   "err_mean": -0.16368171661933492,
+   "err_sd": 0.07795638194370232,
+   "max_abs": 0.27898002951102874,
+   "worst": "IPSL-CM6A-LR",
+   "rel_err_mean": -0.10324729711320185
+  }
+ }
+}
