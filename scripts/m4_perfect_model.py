@@ -40,7 +40,8 @@ def run_one(m, mode, alpha):
         return
     r = pmod.fit_heldout(m, mode, alpha, seed=SEED, sampler=SAMPLER)
     np.savez_compressed(f, **{k: np.asarray(r[k], dtype="float32") for k in
-                              ("beta_land", "gamma_land", "beta_ocean", "gamma_ocean", "af", "tcre")})
+                              ("beta_land", "gamma_land", "beta_ocean", "gamma_ocean", "af", "tcre",
+                               "beta_land_flag", "gamma_land_flag", "af_flag", "tcre_flag")})
     json.dump(dict(model=m, mode=mode, heldout=r["heldout"], diagnostics=r["diagnostics"],
                    n_train_land=r["n_train_land"], n_train_ocean=r["n_train_ocean"]),
               open(OUT / f"{m}_{mode}.json", "w"), indent=1)
@@ -106,6 +107,9 @@ def main():
                 continue
             rows.append(dict(model=m, mode=mode, quantity=q, method="framework", **sc.summarise(d[q], y), **diag,
                              heldout=";".join(meta["heldout"])))
+            if f"{q}_flag" in d.files:
+                rows.append(dict(model=m, mode=mode, quantity=q, method="framework_flags",
+                                 **sc.summarise(d[f"{q}_flag"], y), **diag, heldout=";".join(meta["heldout"])))
         raw, re = baselines(T, m, meta["heldout"])
         for name, b in (("raw_ensemble", raw), ("random_effects", re)):
             rows.append(dict(model=m, mode=mode, quantity="tcre", method=name, truth=T.loc[m, "tcre"], **b,
@@ -132,11 +136,13 @@ def main():
                 cov90=("cov90", "mean"), mean_sd=("sd", "mean")).reset_index())
     skill = []
     for (mode, q), g in S.groupby(["mode", "quantity"]):
-        f = g[g.method == "framework"].set_index("model").crps
         r = g[g.method == "raw_ensemble"].set_index("model").crps
-        common = f.index.intersection(r.index)
-        skill.append(dict(mode=mode, quantity=q, crpss_vs_raw=float(1 - f[common].mean() / r[common].mean()),
-                          n_better=int((f[common] < r[common]).sum()), n=len(common)))
+        for meth in ("framework", "framework_flags"):
+            f = g[g.method == meth].set_index("model").crps
+            common = f.index.intersection(r.index)
+            if len(common):
+                skill.append(dict(mode=mode, quantity=q, method=meth, crpss_vs_raw=float(1 - f[common].mean() / r[common].mean()),
+                                  n_better=int((f[common] < r[common]).sum()), n=len(common)))
     pd.set_option("display.width", 200)
     print(agg.round(3).to_string(index=False))
     print(pd.DataFrame(skill).round(3).to_string(index=False))
@@ -149,11 +155,13 @@ def main():
     fig, axes = plt.subplots(1, len(args.modes), figsize=(3.6 * len(args.modes), 3.4), sharey=True, squeeze=False)
     for ax, mode in zip(axes[0], args.modes):
         g = S[(S.mode == mode) & (S.quantity == "tcre")]
-        for j, (meth, lab) in enumerate([("framework", "upstream framework"), ("raw_ensemble", "raw ensemble")]):
+        for j, (meth, lab) in enumerate([("framework", "framework, reported truth"),
+                                         ("framework_flags", "framework, model's own flags"),
+                                         ("raw_ensemble", "raw ensemble")]):
             h = g[g.method == meth].set_index("model").reindex(targets)
-            y = np.arange(len(targets)) + (j - 0.5) * 0.3
-            lo = h["p05"] if meth == "framework" else h["mean"] - 1.645 * h["sd"]
-            hi = h["p95"] if meth == "framework" else h["mean"] + 1.645 * h["sd"]
+            y = np.arange(len(targets)) + (j - 1) * 0.25
+            lo = h["p05"] if meth != "raw_ensemble" else h["mean"] - 1.645 * h["sd"]
+            hi = h["p95"] if meth != "raw_ensemble" else h["mean"] + 1.645 * h["sd"]
             ax.hlines(y, lo, hi, color=pl.SERIES[j], lw=2, label=f"{lab} 90 %")
             ax.plot(h["mean"], y, "o", ms=4, color=pl.SERIES[j])
         ax.plot(T.loc[targets, "tcre"], np.arange(len(targets)), "D", ms=5, color=pl.TEXT, label="actual")
@@ -161,7 +169,7 @@ def main():
         ax.invert_yaxis()
         ax.set_title({"loo": "leave one model out", "lfo": "leave one family out"}[mode])
         ax.set_xlabel("TCRE (K EgC$^{-1}$), α = model's own")
-    fig.legend(*axes[0][0].get_legend_handles_labels(), loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.08))
+    fig.legend(*axes[0][0].get_legend_handles_labels(), loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.1))
     pl.save(fig, RESULTS / "fig_m4_perfect_model.png")
 
 

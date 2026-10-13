@@ -10,6 +10,9 @@ For a held-out model m:
 3. refit the three upstream component models unchanged (patched builders);
 4. combine sample-wise as upstream, with alpha set to m's own TCR / dCa (so the test isolates the
    carbon-cycle part; the raw-ensemble baseline gets the same alpha).
+Two land outputs are scored: the reported truth (baseline * prod(eta) + sum(delta), "all processes on",
+what upstream reports for the real world) and the flag-conditional predictive for a new model with m's
+own process flags (tests the process regression out of sample).
 
 Families approximate shared components: UM-ACCESS (UM/JULES or CABLE lineage), NCAR (CLM land),
 NEMO-IPSL (NEMO ocean), each other model on its own.
@@ -84,6 +87,40 @@ def build_inputs(m: str, mode: str = "loo") -> dict:
     return inp
 
 
+def _post(idata, v):
+    x = idata.posterior[v].values
+    return x.reshape(x.shape[0] * x.shape[1], *x.shape[2:])
+
+
+def flag_predictive(m: str, gl, bl, pri_g: dict, pri_b: dict, seed: int = 0) -> dict:
+    """Posterior predictive of a new model with m's process flags (upstream generative structure):
+    X_m = baseline * exp(sum_p L_mp (log eta_p + e_p)) + sum_p L_mp (delta_p + e'_p) + bias_common + b_m + noise,
+    with fresh model-level effects e, e' ~ N(0, sigma_p), b_m ~ N(0, sigma_m), noise ~ N(0, likelihood_noise)."""
+    rng = np.random.default_rng(seed)
+    flags = ud.lookup_table().sel(model=m)
+    out = {}
+    # beta_land
+    procs = list(pri_b["eta"].keys())
+    L = np.array([float(flags.sel(process=p)) for p in procs])
+    log_eta = _post(bl.idata, "beta_land_log_eta")
+    n = log_eta.shape[0]
+    e = rng.normal(0, [pri_b["sigma_mult_struct"].get(p, 0.05) for p in procs], (n, len(procs)))
+    out["beta_land"] = (_post(bl.idata, "beta_land_unscaled") * np.exp(((log_eta + e) * L).sum(1))
+                        + _post(bl.idata, "beta_land_bias_common") + rng.normal(0, 1, n) * _post(bl.idata, "beta_land_sigma_m")
+                        + rng.normal(0, pri_b["likelihood_noise"], n))
+    # gamma_land tropics + extratropics
+    g = 0.0
+    procs_a = list(ud.lookup_table().process.values)
+    La = np.array([float(flags.sel(process=p)) for p in procs_a])
+    for c in ("gamma_land_tropics", "gamma_land_extratropics"):
+        d = _post(gl.idata, f"{c}_delta")
+        e = rng.normal(0, [pri_g["sigma_process_struct"].get(p, 5.0) for p in procs_a], d.shape)
+        g = g + (_post(gl.idata, f"{c}_unscaled") + ((d + e) * La).sum(1) + _post(gl.idata, f"{c}_bias_common")
+                 + rng.normal(0, 1, d.shape[0]) * _post(gl.idata, f"{c}_sigma_m") + rng.normal(0, pri_g["likelihood_noise"], d.shape[0]))
+    out["gamma_land"] = g
+    return out
+
+
 def fit_heldout(m: str, mode: str, alpha: float, seed: int = 0, sampler=None) -> dict:
     inp = build_inputs(m, mode)
     gl = up.fit_gamma_land(inp, seed=seed + 1, sampler=sampler)
@@ -91,7 +128,12 @@ def fit_heldout(m: str, mode: str, alpha: float, seed: int = 0, sampler=None) ->
     oc = up.fit_ocean(inp, seed=seed + 3, sampler=sampler)
     b = up.flat(bl.idata, "beta_land") + up.flat(oc.idata, "beta_ocean")
     g = up.flat(gl.idata, "gamma_land") + up.flat(oc.idata, "gamma_ocean")
+    fp = flag_predictive(m, gl, bl, up.priors.gamma_land, inp["priors_beta_land"], seed=seed + 9)
+    bf = fp["beta_land"] + up.flat(oc.idata, "beta_ocean")
+    gf = fp["gamma_land"] + up.flat(oc.idata, "gamma_ocean")
     return dict(
+        beta_land_flag=fp["beta_land"], gamma_land_flag=fp["gamma_land"],
+        af_flag=ud.K / (ud.K + bf + alpha * gf), tcre_flag=1e3 * alpha / (ud.K + bf + alpha * gf),
         model=m, mode=mode, heldout=inp["heldout"],
         beta_land=up.flat(bl.idata, "beta_land"), gamma_land=up.flat(gl.idata, "gamma_land"),
         beta_ocean=up.flat(oc.idata, "beta_ocean"), gamma_ocean=up.flat(oc.idata, "gamma_ocean"),
