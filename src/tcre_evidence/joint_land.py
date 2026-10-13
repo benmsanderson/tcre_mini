@@ -1,8 +1,10 @@
 """Joint land process model (A3): beta_L, gamma_L tropics and gamma_L extratropics in one PyMC model.
 
 Re-implements upstream build_beta_land_model and build_gamma_land_model (patched copy in
-upstream_patched) with one change: the per-model biases bias_m and common biases bias_common of the
-three components are correlated through a shared LKJ correlation matrix, instead of independent.
+upstream_patched) with one change: the per-model biases bias_m of the three components are correlated
+through an LKJ correlation matrix, instead of independent. The common biases stay independent, as
+upstream (their correlation is not identified from one ensemble; a first version that also correlated
+them did not converge: r-hat 1.58, 75 divergences).
 Priors, process structure, the IAV emergent constraint on gamma_L tropics, the nitrogen
 pseudo-observations on eta and the definition of the reported truth
 (X_true = baseline * prod(eta) + sum(delta), excluding biases) are as upstream.
@@ -51,7 +53,9 @@ def build_joint_land_model(beta_land: xr.DataArray, gamma_t: xr.DataArray, gamma
     pri_t["delta"]["permafrost"] = {"dist": "Normal", "mu": 0.0, "sigma": 1e-6}
     with pm.Model(coords={"model": models, "comp": list(COMPS)}) as model:
         # shared correlation of biases across the three components
-        R = pm.LKJCorr("bias_R", n=3, eta=lkj_eta, return_matrix=True)
+        r = pm.LKJCorr("bias_r", n=3, eta=lkj_eta)  # packed upper triangle (r01, r02, r12)
+        R = pm.Deterministic("bias_R", pt.stack([pt.stack([1.0, r[0], r[1]]), pt.stack([r[0], 1.0, r[2]]),
+                                                  pt.stack([r[1], r[2], 1.0])]))
         LR = pt.slinalg.cholesky(R)
         sig_struct = pt.stack([
             pm.HalfNormal("beta_land_sigma_struct", pri_beta["sigma_struct"]["sigma"]),
@@ -62,7 +66,7 @@ def build_joint_land_model(beta_land: xr.DataArray, gamma_t: xr.DataArray, gamma
         z_m = pm.Normal("bias_m_raw", 0, 1, shape=(M, 3))
         z_c = pm.Normal("bias_common_raw", 0, 1, shape=3)
         bias_m = pm.Deterministic("bias_m", (z_m @ LR.T) * sig_m, dims=("model", "comp"))
-        bias_c = pm.Deterministic("bias_common", (LR @ z_c) * sig_c, dims="comp")
+        bias_c = pm.Deterministic("bias_common", z_c * sig_c, dims="comp")
 
         # beta_L: multiplicative processes (as upstream)
         b0 = _baseline(pri_beta["baseline"], "beta_land_unscaled")

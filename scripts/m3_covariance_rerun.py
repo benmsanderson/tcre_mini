@@ -87,8 +87,11 @@ def main():
     out["diagnostics"] = {k: f.diagnostics for k, f in fits.items()}
     for k, d in out["diagnostics"].items():
         print(f"  {k:10s}", {a: round(b, 4) for a, b in d.items()})
-    R = jid.posterior["bias_R"].values.reshape(-1, 3, 3)
-    out["joint_land_bias_corr_posterior_mean"] = R.mean(0).tolist()
+    Rp = jid.posterior["bias_R"].values
+    out["joint_land_bias_corr_posterior_mean"] = (Rp.reshape(-1, 3, 3).mean(0).tolist() if Rp.shape[-1] == 3 and Rp.ndim == 4
+                                                  else Rp.reshape(-1, Rp.shape[-1]).mean(0).tolist())
+    dj = fits["joint_land"].diagnostics
+    out["joint_land_converged"] = bool(dj["rhat_max"] < 1.01 and dj["divergences"] == 0 and dj["ess_bulk_min"] > 400)
     bl_s, gl_s = up.flat(fits["beta_land"].idata, "beta_land"), up.flat(fits["gamma_land"].idata, "gamma_land")
     bj_s, gj_s = up.flat(jid, "beta_land"), up.flat(jid, "gamma_land")
     out["land_truth_posterior_corr"] = dict(separate=float(np.corrcoef(bl_s, gl_s)[0, 1]),
