@@ -1,0 +1,178 @@
+{
+  "2x_picontrol": {
+    "tcre_log_shares": {
+      "alpha": 0.8911776163392874,
+      "carbon": 0.10882238366071292,
+      "corr_alpha_carbon": 0.16748707481330624,
+      "sd_ln_alpha": 0.2186576657402771,
+      "sd_ln_carbon": 0.06200600359374734
+    },
+    "coubgc": {
+      "beta_cov_share": 1.4067863955124018,
+      "gamma_cov_share": -0.4067863955124018,
+      "land_cov_share": 0.8926607994819673,
+      "beta_indep_share": 0.7980869501120887
+    },
+    "courad": {
+      "beta_cov_share": 1.0573178105535526,
+      "gamma_cov_share": -0.05731781055355256,
+      "land_cov_share": 0.8926607994819676,
+      "beta_indep_share": 0.8062352494234246
+    },
+    "symmetric": {
+      "beta_cov_share": 1.2320521030329767,
+      "gamma_cov_share": -0.23205210303297674,
+      "land_cov_share": 0.8926607994819673,
+      "beta_indep_share": 0.833701742821893
+    },
+    "rad_reconstruction": {
+      "af_err_mean": 0.0038186612751866422,
+      "af_err_sd": 0.01922261466554941,
+      "tcre_err_mean": 0.018079249191898406,
+      "tcre_err_sd": 0.06164011541302019,
+      "n_within_0p05": 8,
+      "worst": "ACCESS-ESM1-5",
+      "worst_err": 0.1641070344795461
+    },
+    "eps": {
+      "eps_land_mean": 14.276572199365502,
+      "eps_land_std": 38.337122452328686,
+      "eps_ocean_mean": -8.800632239473678,
+      "eps_ocean_std": 3.4529923473850976,
+      "n_eps_land_pos": 7,
+      "n_eps_ocean_neg": 11
+    }
+  },
+  "2x_forced_start": {
+    "tcre_log_shares": {
+      "alpha": 0.9365571093463315,
+      "carbon": 0.06344289065366822,
+      "corr_alpha_carbon": -0.027479177364818877,
+      "sd_ln_alpha": 0.19926926999215375,
+      "sd_ln_carbon": 0.05447902251094145
+    },
+    "coubgc": {
+      "beta_cov_share": 1.4402753911071862,
+      "gamma_cov_share": -0.44027539110718616,
+      "land_cov_share": 0.8360586767066678,
+      "beta_indep_share": 0.7405599398891762
+    },
+    "courad": {
+      "beta_cov_share": 1.0793472853273356,
+      "gamma_cov_share": -0.07934728532733559,
+      "land_cov_share": 0.8360586767066678,
+      "beta_indep_share": 0.7053597286869882
+    },
+    "symmetric": {
+      "beta_cov_share": 1.2598113382172604,
+      "gamma_cov_share": -0.25981133821726043,
+      "land_cov_share": 0.8360586767066673,
+      "beta_indep_share": 0.7518484565376287
+    },
+    "rad_reconstruction": {
+      "af_err_mean": 0.00862077256080197,
+      "af_err_sd": 0.02266650605953227,
+      "tcre_err_mean": 0.031159440858324915,
+      "tcre_err_sd": 0.07122309491739919,
+      "n_within_0p05": 8,
+      "worst": "ACCESS-ESM1-5",
+      "worst_err": 0.20431354017882808
+    },
+    "eps": {
+      "eps_land_mean": 23.150669240230684,
+      "eps_land_std": 35.29551265539571,
+      "eps_ocean_mean": -6.5529944502409485,
+      "eps_ocean_std": 20.368031177879388,
+      "n_eps_land_pos": 8,
+      "n_eps_ocean_neg": 9
+    }
+  },
+  "4x_picontrol": {
+    "tcre_log_shares": {
+      "alpha": 0.8882889923938291,
+      "carbon": 0.11171100760617099,
+      "corr_alpha_carbon": -0.023103641679149682,
+      "sd_ln_alpha": 0.22491979042778187,
+      "sd_ln_carbon": 0.08206627242078682
+    },
+    "coubgc": {
+      "beta_cov_share": 1.0888650466966114,
+      "gamma_cov_share": -0.08886504669661144,
+      "land_cov_share": 0.9833917959397436,
+      "beta_indep_share": 0.7318129010858194
+    },
+    "courad": {
+      "beta_cov_share": 1.0745805965896997,
+      "gamma_cov_share": -0.07458059658969973,
+      "land_cov_share": 0.9833917959397439,
+      "beta_indep_share": 0.8404802454252991
+    },
+    "symmetric": {
+      "beta_cov_share": 1.0817228216431556,
+      "gamma_cov_share": -0.08172282164315559,
+      "land_cov_share": 0.9833917959397438,
+      "beta_indep_share": 0.8023653676847413
+    },
+    "rad_reconstruction": {
+      "af_err_mean": 0.001889314751306674,
+      "af_err_sd": 0.02802364472893402,
+      "tcre_err_mean": 0.01099191098797087,
+      "tcre_err_sd": 0.08061744761300138,
+      "n_within_0p05": 6,
+      "worst": "CanESM5",
+      "worst_err": 0.15620720814789602
+    },
+    "eps": {
+      "eps_land_mean": 47.55780030071337,
+      "eps_land_std": 141.6216691398032,
+      "eps_ocean_mean": -49.73415893910789,
+      "eps_ocean_std": 11.610190906450603,
+      "n_eps_land_pos": 8,
+      "n_eps_ocean_neg": 11
+    }
+  },
+  "4x_forced_start": {
+    "tcre_log_shares": {
+      "alpha": 0.8931683986979999,
+      "carbon": 0.10683160130200027,
+      "corr_alpha_carbon": -0.05103383097868179,
+      "sd_ln_alpha": 0.2140484452385721,
+      "sd_ln_carbon": 0.07899244684898851
+    },
+    "coubgc": {
+      "beta_cov_share": 1.00583549646318,
+      "gamma_cov_share": -0.005835496463179934,
+      "land_cov_share": 0.9869654932496992,
+      "beta_indep_share": 0.7160286710046975
+    },
+    "courad": {
+      "beta_cov_share": 1.0619377903522873,
+      "gamma_cov_share": -0.0619377903522873,
+      "land_cov_share": 0.9869654932496987,
+      "beta_indep_share": 0.8024670843026653
+    },
+    "symmetric": {
+      "beta_cov_share": 1.0338866434077336,
+      "gamma_cov_share": -0.03388664340773362,
+      "land_cov_share": 0.9869654932496988,
+      "beta_indep_share": 0.775551125089108
+    },
+    "rad_reconstruction": {
+      "af_err_mean": 0.004987786055251146,
+      "af_err_sd": 0.027054338312930085,
+      "tcre_err_mean": 0.019434509302556927,
+      "tcre_err_sd": 0.07499588823523513,
+      "n_within_0p05": 8,
+      "worst": "ACCESS-ESM1-5",
+      "worst_err": 0.1642212076130003
+    },
+    "eps": {
+      "eps_land_mean": 61.295501259107944,
+      "eps_land_std": 133.43625443013346,
+      "eps_ocean_mean": -45.23904677136373,
+      "eps_ocean_std": 35.84632368854528,
+      "n_eps_land_pos": 8,
+      "n_eps_ocean_neg": 10
+    }
+  }
+}
