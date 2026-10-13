@@ -121,7 +121,7 @@ def fit_real(with_nu, sigma_nu=5.0):
 def main():
     pl.style()
     tasks = [(s, r) for s in ("clean", "family", "eps") for r in range(NREP)]
-    res = Parallel(n_jobs=4, verbose=5)(delayed(fit_synth)(s, r) for s, r in tasks)
+    res = Parallel(n_jobs=int(os.environ.get("TCRE_JOBS", 4)), verbose=5)(delayed(fit_synth)(s, r) for s, r in tasks)
     R = pd.DataFrame([x for r in res for x in r])
     R.to_csv(RESULTS / "m6_identifiability.csv", index=False, float_format="%.4g")
     pri = up.priors.gamma_land["delta"]
@@ -136,7 +136,7 @@ def main():
     agg["post_sd_over_prior_sd"] = agg.apply(lambda r: r.post_sd / prior_sd[r.process], axis=1)
     pd.set_option("display.width", 200)
     print(agg.round(2).to_string(index=False))
-    real = Parallel(n_jobs=2)(delayed(fit_real)(w) for w in (False, True))
+    real = Parallel(n_jobs=min(2, int(os.environ.get("TCRE_JOBS", 4))))(delayed(fit_real)(w) for w in (False, True))
     js = dict(aggregate=agg.to_dict("records"), prior_sd=prior_sd, nrep=NREP, sampler=SAMPLER,
               real=[r[0] for r in real])
     for r, _ in real:

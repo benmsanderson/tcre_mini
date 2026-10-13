@@ -103,7 +103,7 @@ def main():
     pl.style()
     inp = up.inputs()
     V = sens_variants()
-    res = Parallel(n_jobs=4, verbose=5)(delayed(fit_variant)(c, n, p, SEED + i) for i, (c, n, p) in enumerate(V))
+    res = Parallel(n_jobs=int(os.environ.get("TCRE_JOBS", 4)), verbose=5)(delayed(fit_variant)(c, n, p, SEED + i) for i, (c, n, p) in enumerate(V))
     post = {(c, n): (s, d) for c, n, s, d in res}
     # prior predictive of the reported truths
     prior = {}
