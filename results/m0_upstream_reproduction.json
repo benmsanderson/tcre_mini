@@ -1,0 +1,151 @@
+{
+  "target": {
+    "mean": 1.766,
+    "hdi95_lo": 0.927,
+    "hdi95_hi": 2.737
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "tcre": {
+        "mean": 1.7732190784310178,
+        "sd": 0.4727775480303722,
+        "hdi95_lo": 0.8958193144698416,
+        "hdi95_hi": 2.7133707027472904,
+        "p05": 1.0650708277273206,
+        "p95": 2.5846312335223
+      },
+      "diagnostics": {
+        "gamma_land": {
+          "rhat_max": 1.000394613081072,
+          "ess_bulk_min": 2394.5532483000975,
+          "ess_tail_min": 2167.557459570849,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "beta_land": {
+          "rhat_max": 1.0031635772736003,
+          "ess_bulk_min": 2091.2920764975775,
+          "ess_tail_min": 2434.0602248988785,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "ocean": {
+          "rhat_max": 1.0016885475413901,
+          "ess_bulk_min": 2711.8389562967463,
+          "ess_tail_min": 1965.4495475793067,
+          "divergences": 0,
+          "n_draws": 4000
+        }
+      }
+    },
+    {
+      "seed": 100,
+      "tcre": {
+        "mean": 1.770506742003558,
+        "sd": 0.4830404826187285,
+        "hdi95_lo": 0.8915662114689946,
+        "hdi95_hi": 2.7411264329936063,
+        "p05": 1.0423730533317126,
+        "p95": 2.6044744209420885
+      },
+      "diagnostics": {
+        "gamma_land": {
+          "rhat_max": 1.0008178532520655,
+          "ess_bulk_min": 2180.667205750832,
+          "ess_tail_min": 2052.244932584002,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "beta_land": {
+          "rhat_max": 1.001487545105075,
+          "ess_bulk_min": 1883.4533673355324,
+          "ess_tail_min": 2027.1853921739971,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "ocean": {
+          "rhat_max": 1.002577473293345,
+          "ess_bulk_min": 2058.1941614483917,
+          "ess_tail_min": 1555.2048313856715,
+          "divergences": 0,
+          "n_draws": 4000
+        }
+      }
+    },
+    {
+      "seed": 200,
+      "tcre": {
+        "mean": 1.76917528853455,
+        "sd": 0.4609504217084879,
+        "hdi95_lo": 0.9207711880634971,
+        "hdi95_hi": 2.688386263997799,
+        "p05": 1.079533042344612,
+        "p95": 2.56185476757187
+      },
+      "diagnostics": {
+        "gamma_land": {
+          "rhat_max": 1.003361119160463,
+          "ess_bulk_min": 2093.9895029438,
+          "ess_tail_min": 1844.606144575907,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "beta_land": {
+          "rhat_max": 1.0008934004611938,
+          "ess_bulk_min": 1698.3829686117215,
+          "ess_tail_min": 2349.801641357779,
+          "divergences": 0,
+          "n_draws": 4000
+        },
+        "ocean": {
+          "rhat_max": 1.0019110033455476,
+          "ess_bulk_min": 1969.1859144446978,
+          "ess_tail_min": 1627.6122719242805,
+          "divergences": 0,
+          "n_draws": 4000
+        }
+      }
+    }
+  ],
+  "across_seeds": {
+    "mean": {
+      "mean": 1.7709670363230419,
+      "sd_across_seeds": 0.0020608159372213775
+    },
+    "sd": {
+      "mean": 0.47225615078586286,
+      "sd_across_seeds": 0.011054256604108286
+    },
+    "hdi95_lo": {
+      "mean": 0.9027189046674445,
+      "sd_across_seeds": 0.015777703354496887
+    },
+    "hdi95_hi": {
+      "mean": 2.7142944665795654,
+      "sd_across_seeds": 0.026382216759399474
+    },
+    "p05": {
+      "mean": 1.0623256411345483,
+      "sd_across_seeds": 0.018731477062195377
+    },
+    "p95": {
+      "mean": 2.583653474012086,
+      "sd_across_seeds": 0.021326643514492753
+    }
+  },
+  "sampler": {
+    "draws": 1000,
+    "tune": 1000,
+    "chains": 4,
+    "target_accept": 0.99
+  },
+  "versions": {
+    "python": "3.13.16",
+    "pymc": "5.28.5",
+    "arviz": "0.23.4",
+    "pytensor": "2.38.3",
+    "numpy": "2.4.6"
+  },
+  "notes": "Patched upstream builders (src/tcre_evidence/upstream_patched); data from data/upstream_snapshot (2026-10-13)."
+}
