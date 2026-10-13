@@ -1,0 +1,32 @@
+{
+ "model": "CESM2",
+ "mode": "loo",
+ "heldout": [
+  "CESM2"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0021532013642294,
+   "ess_bulk_min": 2164.552664627937,
+   "ess_tail_min": 2221.5215094673345,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0006617067359636,
+   "ess_bulk_min": 1814.3274537818147,
+   "ess_tail_min": 2438.795937015106,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0028622593120378,
+   "ess_bulk_min": 1264.522544510916,
+   "ess_tail_min": 1193.9657760237556,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}
