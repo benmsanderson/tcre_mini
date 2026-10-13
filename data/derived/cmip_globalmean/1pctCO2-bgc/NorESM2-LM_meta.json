@@ -1,0 +1,77 @@
+{
+ "source_id": "NorESM2-LM",
+ "experiment_id": "1pctCO2-bgc",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/",
+   "total_weight_m2": 510099750586368.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NCC/NorESM2-LM/1pctCO2-bgc/r1i1p1f1/Amon/tas/gn/v20201001/",
+   "version": "20201001",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 430700.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0421-01-01",
+    "branch_method": "Branch-restart from year 1600-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/05975d22-659b-4fa4-ab97-1e3d4b0bd47e\nhdl:21.14100/40f224af-9eb2-4e3f-81bb-195ad87e1a93\nhdl:21.14100/75ebf1bc-8063-4ef8-8556-3040eadf70f1\nhdl:21.14100/360cfc60-5107-4e25-9f1f-ab086edf6c25\nhdl:21.14100/8e480762-bdce-4549-8b37-e5bb1b69f512\nhdl:21.14100/4abc721b-55f2-4b1c-a618-1c075bf3d49e\nhdl:21.14100/5cab3728-fe55-4566-a794-949431233446\nhdl:21.14100/ca79fafa-0445-436c-bd4d-1fa7642c6c0f\nhdl:21.14100/63ab5d5b-ca8c-4cc7-bcff-f7d10caf88be\nhdl:21.14100/549e8d80-2f82-486f-b566-27773d630463\nhdl:21.14100/05e25ca0-4bd7-4585-bb84-249b0093ec58\nhdl:21.14100/70907090-a2a5-43d8-bb9d-fb9099fd589f\nhdl:21.14100/2f87f337-6000-4158-b491-e3f2af37029f\nhdl:21.14100/6b97f32d-2084-45a1-bcee-f3d0c3b9f3c9",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 140
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 360624513470656.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NCC/NorESM2-LM/1pctCO2-bgc/r1i1p1f1/Omon/fgco2/gn/v20200702/",
+   "version": "20200702",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 430700.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0421-01-01",
+    "branch_method": "Branch-restart from year 1600-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/75e398a7-082a-4e82-9904-771b537a4c50\nhdl:21.14100/9ef24bfd-e601-48bf-bd45-b7f6f509b5ff\nhdl:21.14100/aa99691e-a3f6-4d6b-b54d-45fa463527b1\nhdl:21.14100/376ff540-6d05-4f94-aae2-bd68c7a9db3e\nhdl:21.14100/ebebb2c3-cb00-4665-a133-84cef12fa9f0\nhdl:21.14100/0e565206-6ad4-4fd9-aa07-89714e6168fa\nhdl:21.14100/3c567513-9707-4508-a0c1-81b60fe1f344\nhdl:21.14100/3668e970-499a-45fd-a66c-b24fde3c765a\nhdl:21.14100/535f1204-cf2c-48e0-80b0-3acf52315c6c\nhdl:21.14100/83902c62-3a57-44f7-92b8-4e7c4f0fc211\nhdl:21.14100/257f205a-7c89-40c5-8f47-c310c3bbffe0\nhdl:21.14100/8c9a1a23-f0c9-4395-ad63-748a396cd1e7\nhdl:21.14100/d9498dd6-dcd2-4a19-b912-97c2c3983a77\nhdl:21.14100/b1026cc6-e10d-41bf-874d-a1d19cbe53e2",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 140
+  }
+ },
+ "sanity_flags": [
+  "fgco2 last-20 minus first-20 yr mean -0.24 PgC/yr <= 0 (sign?)"
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "source_id": "IPSL-CM6A-LR",
+ "experiment_id": "piControl",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/",
+   "total_weight_m2": 510103740801024.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Amon/tas/gr/v20200326/",
+   "version": "20200326",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36524.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1750-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/46024c03-5f16-49b2-8082-b19dac0983c0\nhdl:21.14100/ee4379ea-f782-45a8-9135-9152dcc59f8b\nhdl:21.14100/245e35ba-baee-474d-bcf1-0cc60c5edb6a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.IPSL.IPSL-CM6A-LR.piControl.none.r1i1p1f1",
+    "calendar": "gregorian"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 363577166743424.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Omon/fgco2/gn/v20200326/",
+   "version": "20200326",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36524.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1750-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/6c457e85-3f9b-4194-b49f-0032fc880101\nhdl:21.14100/2f2a345c-89b7-4e2c-b9f6-6a46417aef3d\nhdl:21.14100/492985ab-5195-4a56-bc1c-4a42f8f34f64",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.IPSL.IPSL-CM6A-LR.piControl.none.r1i1p1f1",
+    "calendar": "gregorian"
+   },
+   "n_years": 200
+  }
+ },
+ "sanity_flags": []
+}

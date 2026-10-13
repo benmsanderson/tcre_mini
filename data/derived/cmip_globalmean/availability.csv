@@ -1,0 +1,8 @@
+source_id,experiment_id,variable,source,variable_id_used,member_id,grid_label,n_years,area,land_fraction,sea_fraction
+CanESM5,esm-hist,co2,esgf,co2,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,esm-hist,fgco2,pangeo,fgco2,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,esm-hist,nbp,esgf,nbp,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190429/),
+CanESM5,esm-hist,tas,pangeo,tas,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+GFDL-ESM4,historical,fgco2,pangeo,fgco2,r1i1p1f1,gr,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,historical,nbp,pangeo,nbp,r1i1p1f1,gr1,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,historical,tas,pangeo,tas,r1i1p1f1,gr1,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,

@@ -1,0 +1,75 @@
+{
+ "source_id": "IPSL-CM6A-LR",
+ "experiment_id": "1pctCO2-bgc",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/",
+   "total_weight_m2": 510103740801024.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/IPSL/IPSL-CM6A-LR/1pctCO2-bgc/r1i1p1f1/Amon/tas/gr/v20180914/",
+   "version": "20180914",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 7305.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/78efac69-91b8-4c51-849e-4546aa2c5310",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.IPSL.IPSL-CM6A-LR.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "gregorian"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 363577166743424.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/IPSL/IPSL-CM6A-LR/1pctCO2-bgc/r1i1p1f1/Omon/fgco2/gn/v20180914/",
+   "version": "20180914",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 7305.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/25341ad1-f925-4df1-b549-d247147a53b0",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.IPSL.IPSL-CM6A-LR.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "gregorian"
+   },
+   "n_years": 150
+  }
+ },
+ "sanity_flags": []
+}

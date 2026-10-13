@@ -1,0 +1,99 @@
+{
+ "source_id": "GISS-E2-1-G",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/",
+   "total_weight_m2": 510064471756800.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/historical/r1i1p1f1/Amon/tas/gn/v20180827/",
+   "version": "20180827",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 4150-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/916f52f8-1b98-4515-9198-bf9426fc767c\nhdl:21.14100/7d86c52d-02c3-48c3-bd6f-0b5a9f58f6b4\nhdl:21.14100/a3eb02f6-c30f-4b8f-9afd-cc024719b329\nhdl:21.14100/0f3e0727-614c-4343-aa69-de3c0ee4bc73",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NASA-GISS.GISS-E2-1-G.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/sftlf/gn/v20180824/)",
+   "total_weight_m2": 148979243245988.75,
+   "source": "pangeo",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/historical/r1i1p1f1/Lmon/nbp/gn/v20181015/",
+   "version": "20181015",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 4150-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/9723b33d-b85d-4a7e-87b9-a065fb775a89\nhdl:21.14100/1234b0b2-26a4-4f0d-ba27-d0f6fc05792d\nhdl:21.14100/b0f564cb-c758-43bd-9369-3c3cac755e18\nhdl:21.14100/0572cd70-854d-4220-bbb2-bbb4da359020",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NASA-GISS.GISS-E2-1-G.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079",
+   "total_weight_m2": 361085228569344.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r101i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/historical/r101i1p1f1/Omon/fgco2/gn/v20190815/",
+   "version": "20190815",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r101i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1",
+    "branch_method": "standard",
+    "variant_label": "r101i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/39b85dd6-1936-401b-8009-b15af66b96e6\nhdl:21.14100/75f0c449-b741-418f-b1e9-ec9a7ee73696\nhdl:21.14100/69fd584c-f4d7-45be-bb17-fbaecab0834c\nhdl:21.14100/9e51996b-4c7e-4932-bfd7-de5352ee6886",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NASA-GISS.GISS-E2-1-G.historical.none.r101i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

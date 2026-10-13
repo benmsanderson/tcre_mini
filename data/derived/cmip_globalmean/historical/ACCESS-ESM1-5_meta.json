@@ -1,0 +1,102 @@
+{
+ "source_id": "ACCESS-ESM1-5",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/",
+   "total_weight_m2": 509914524149760.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CSIRO/ACCESS-ESM1-5/historical/r1i1p1f1/Amon/tas/gn/v20191115/",
+   "version": "20191115",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 21915.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0101-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/d2debfa6-c0e2-4339-bac8-08d97867ae3a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/sftlf/gn/v20201207/)",
+   "total_weight_m2": 148661428546332.25,
+   "source": "esgf",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "version": "v20191115",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/CSIRO/ACCESS-ESM1-5/historical/r1i1p1f1/Lmon/nbp/gn/v20191115/nbp_Lmon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 56269628,
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 21915.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0101-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/00d960dd-2ea4-4db3-be34-167363cb4d53",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 361335994633216.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CSIRO/ACCESS-ESM1-5/historical/r1i1p1f1/Omon/fgco2/gn/v20191115/",
+   "version": "20191115",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 21915.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0101-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/dd214978-bfa8-43ea-a882-454647bcee72",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

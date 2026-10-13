@@ -1,0 +1,135 @@
+{
+ "source_id": "CanESM5",
+ "experiment_id": "esm-hist",
+ "preferred_member": "r2i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/",
+   "total_weight_m2": 510099702677504.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r2i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-hist/r2i1p1f1/Amon/tas/gn/v20190429/",
+   "version": "20190429",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 1296115.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r2i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/d9195cb1-3387-40ff-849f-65828bfd60b8",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.esm-hist.none.r2i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190429/)",
+   "total_weight_m2": 146817267796421.1,
+   "source": "esgf",
+   "variable_id": "nbp",
+   "member_id": "r2i1p1f1",
+   "grid_label": "gn",
+   "version": "v20190429",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-hist/r2i1p1f1/Lmon/nbp/gn/v20190429/nbp_Lmon_CanESM5_esm-hist_r2i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 19686529,
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 1296115.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r2i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/e3fb6fae-1dba-4281-be1a-6f0ed2e1f3e9",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.esm-hist.none.r2i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 363291105454208.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r2i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-hist/r2i1p1f1/Omon/fgco2/gn/v20190429/",
+   "version": "20190429",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 1296115.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r2i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/e0732803-0bcc-48c2-93a3-231c093b75c7",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.esm-hist.none.r2i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "co2": {
+   "units_in": "mol mol-1",
+   "cell_methods": "time: mean",
+   "cell_measures": "area: areacella",
+   "level": "plev=100000.0",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/",
+   "scaling": "values already in ppm (units attr 'mol mol-1')",
+   "total_weight_m2": 510099702677504.0,
+   "source": "esgf",
+   "variable_id": "co2",
+   "member_id": "r2i1p1f1",
+   "grid_label": "gn",
+   "version": "v20190429",
+   "urls": [
+    "https://esgf3.dkrz.de/thredds/fileServer/cmip6/CMIP/CCCma/CanESM5/esm-hist/r2i1p1f1/Amon/co2/gn/v20190429/co2_Amon_CanESM5_esm-hist_r2i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 713953068,
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 1296115.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r2i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/dbb69b38-b1bc-42f7-b8e9-b6e3021674ba",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.esm-hist.none.r2i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

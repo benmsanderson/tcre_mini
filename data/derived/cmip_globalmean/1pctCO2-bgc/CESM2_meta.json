@@ -1,0 +1,75 @@
+{
+ "source_id": "CESM2",
+ "experiment_id": "1pctCO2-bgc",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/",
+   "total_weight_m2": 510099700202496.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NCAR/CESM2/1pctCO2-bgc/r1i1p1f1/Amon/tas/gn/v20190724/",
+   "version": "20190724",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 182500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/69cdcd63-758c-48f7-853c-5f863bc637c5\nhdl:21.14100/69cdcd63-758c-48f7-853c-5f863bc637c5\nhdl:21.14100/69cdcd63-758c-48f7-853c-5f863bc637c5",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCAR.CESM2.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140",
+   "total_weight_m2": 360511672773792.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NCAR/CESM2/1pctCO2-bgc/r1i1p1f1/Omon/fgco2/gn/v20190724/",
+   "version": "20190724",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 182500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/40b20cdf-1ad9-4c16-a71c-17a803284c61\nhdl:21.14100/40b20cdf-1ad9-4c16-a71c-17a803284c61\nhdl:21.14100/40b20cdf-1ad9-4c16-a71c-17a803284c61",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCAR.CESM2.1pctCO2-bgc.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 150
+  }
+ },
+ "sanity_flags": []
+}

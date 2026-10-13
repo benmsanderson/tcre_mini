@@ -1,0 +1,51 @@
+{
+ "source_id": "NorESM2-LM",
+ "experiment_id": "1pctCO2-rad",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/",
+   "total_weight_m2": 510099750586368.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NCC/NorESM2-LM/1pctCO2-rad/r1i1p1f1/Amon/tas/gn/v20200206/",
+   "version": "20200206",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 430335.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0421-01-01",
+    "branch_method": "Hybrid-restart from year 1600-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/e434ba27-19a7-4bb4-a6a5-434c257883c7\nhdl:21.14100/e4f68eec-deea-4162-a5c8-604cca72ab24\nhdl:21.14100/9af2e8e8-d746-4a39-a072-958bc49a4108\nhdl:21.14100/9248becf-3afb-4dbc-a06f-7eb9f05c1f2a\nhdl:21.14100/9e7af899-9106-4794-bb62-50844717982b\nhdl:21.14100/acfbb2f7-e8d7-4d3c-89da-0ce561dd7f63\nhdl:21.14100/64ba2bd7-7a3c-4816-be62-b15472f64ffb\nhdl:21.14100/20a13ee0-0971-4fb1-8d77-c21f6429e013\nhdl:21.14100/e612eebc-8a2c-42ed-ac8b-4fa0fdd69e46\nhdl:21.14100/2319bd22-7fe7-426e-bb6c-97f49e3b38a3\nhdl:21.14100/a52a389e-c33e-4ed4-9c5d-bbadce053412\nhdl:21.14100/3db11716-ebfb-4555-90e5-e86c647a49da\nhdl:21.14100/7de4314f-edf1-4259-9607-991067224541\nhdl:21.14100/80cc3868-c3f0-4431-b128-2bde21599a02",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.1pctCO2-rad.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 140
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

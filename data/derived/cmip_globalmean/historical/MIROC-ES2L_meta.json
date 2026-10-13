@@ -1,0 +1,99 @@
+{
+ "source_id": "MIROC-ES2L",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f2",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/",
+   "total_weight_m2": 509904367190016.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MIROC/MIROC-ES2L/historical/r1i1p1f2/Amon/tas/gn/v20190823/",
+   "version": "20190823",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/dcdfecdb-9d73-4a8b-9483-1d992318e6a2",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MIROC.MIROC-ES2L.historical.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/sftlf/gn/v20201014/)",
+   "total_weight_m2": 155920881842269.3,
+   "source": "pangeo",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MIROC/MIROC-ES2L/historical/r1i1p1f2/Lmon/nbp/gn/v20190823/",
+   "version": "20190823",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/c06da6c6-87c6-4acb-a3e0-74bcaa47609d",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MIROC.MIROC-ES2L.historical.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 353985663265984.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MIROC/MIROC-ES2L/historical/r1i1p1f2/Omon/fgco2/gn/v20200124/",
+   "version": "20200124",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/565b279c-e0ee-49dd-8cf4-67c7a7160435",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MIROC.MIROC-ES2L.historical.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

@@ -1,0 +1,77 @@
+{
+ "source_id": "BCC-CSM2-MR",
+ "experiment_id": "1pctCO2",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean (interval: 5 minutes)",
+   "cell_measures": "area: areacella",
+   "area": "esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc",
+   "total_weight_m2": 510064990597120.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/BCC/BCC-CSM2-MR/1pctCO2/r1i1p1f1/Amon/tas/gn/v20181015/",
+   "version": "20181015",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "branch",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/6a756ab0-f13c-4a64-8b7c-4397f6d9297f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.1pctCO2.none.r1i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 151
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean (interval: 30 minutes)",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108",
+   "total_weight_m2": 360808912310784.0,
+   "source": "qc_fail",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/BCC/BCC-CSM2-MR/1pctCO2/r1i1p1f1/Omon/fgco2/gn/v20181015/",
+   "version": "20181015",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "branch",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/e0a2a69d-1ca4-46d7-959d-a3b7fc64ff23",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.1pctCO2.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 150,
+   "source_retrieved": "pangeo",
+   "qc": "max |annual| 4391.0 PgC/yr exceeds 30.0 (units/data error)"
+  }
+ },
+ "sanity_flags": []
+}

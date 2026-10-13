@@ -1,0 +1,131 @@
+{
+ "source_id": "CNRM-ESM2-1",
+ "experiment_id": "esm-hist",
+ "preferred_member": "r1i1p1f2",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/",
+   "total_weight_m2": 510067044483072.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/esm-hist/r1i1p1f2/Amon/tas/gr/v20190215/",
+   "version": "20190215",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/1f27a0c7-63c1-469e-912d-a4b4b3094747",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.esm-hist.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/sftlf/gr/v20191021/)",
+   "total_weight_m2": 148579487885185.5,
+   "source": "pangeo",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/esm-hist/r1i1p1f2/Lmon/nbp/gr/v20190215/",
+   "version": "20190215",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/c5574e62-83d1-4c01-ab12-8294a2f460d6",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.esm-hist.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 362697463119488.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/esm-hist/r1i1p1f2/Omon/fgco2/gn/v20190215/",
+   "version": "20190215",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/02e560ac-ebf3-4a7d-bda6-6505bbc33da3",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.esm-hist.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  },
+  "co2": {
+   "units_in": "mol mol-1",
+   "cell_methods": "time: mean",
+   "cell_measures": "area: areacella",
+   "level": "plev=100000.0",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/",
+   "scaling": "mol mol-1 * 1e6",
+   "total_weight_m2": 510067044483072.0,
+   "source": "pangeo",
+   "variable_id": "co2",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/esm-hist/r1i1p1f2/Amon/co2/gr/v20190215/",
+   "version": "20190215",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/794eb081-67b9-4343-bfba-b6aa73c4ea7f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.esm-hist.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": [
+  "cumulative fgco2 -74.1 PgC <= 0 (sign?)"
+ ]
+}

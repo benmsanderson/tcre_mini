@@ -1,0 +1,99 @@
+{
+ "source_id": "GFDL-ESM4",
+ "experiment_id": "piControl",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/",
+   "total_weight_m2": 510064472171520.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr1",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/piControl/r1i1p1f1/Amon/tas/gr1/v20180701/",
+   "version": "20180701",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "Coupled climate state after 400 years of spinup, except land state after 800 years of spinup.",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr1",
+    "tracking_id": "hdl:21.14100/d4a34d1f-0e7c-489b-9193-8204e7da8ce2\nhdl:21.14100/da80abfe-342f-46a2-92a4-c5f6ac922866\nhdl:21.14100/180ce026-c6c7-4182-8a8f-dc43b3eb3d9e\nhdl:21.14100/52079260-b71f-45f7-b9ee-9cd61ea32ac2\nhdl:21.14100/d05901e5-4075-4763-acdf-7a0461e439fb",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/)",
+   "total_weight_m2": 149657474141712.34,
+   "source": "pangeo",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr1",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/piControl/r1i1p1f1/Lmon/nbp/gr1/v20180701/",
+   "version": "20180701",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "Coupled climate state after 400 years of spinup, except land state after 800 years of spinup.",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr1",
+    "tracking_id": "hdl:21.14100/4b3dc9fa-b5bf-4416-86f8-1878bb2c69c0\nhdl:21.14100/7c8d93cf-2c4b-4696-aec1-5dbd6bc9ff6a\nhdl:21.14100/da5554b1-4046-4b64-bba9-6e67813c96eb\nhdl:21.14100/3ae172ff-7264-4ec2-87c8-47da7eb911df\nhdl:21.14100/14cfeed3-d689-4a5a-ac44-9def6d23edef",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 361110931290015.25,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/piControl/r1i1p1f1/Omon/fgco2/gr/v20180701/",
+   "version": "20180701",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "Coupled climate state after 400 years of spinup, except land state after 800 years of spinup.",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/ea6fd5c2-9367-43d9-a8eb-f091c8ccee08\nhdl:21.14100/7d731723-503b-40c9-a98d-152117c1c244\nhdl:21.14100/6968945a-7198-4da8-adfa-7676a36fef8f\nhdl:21.14100/a02e0eeb-93df-4363-a73c-9b6c7587bfde\nhdl:21.14100/65066421-858d-4449-813f-35599fea19fe\nhdl:21.14100/7850ec51-fbc2-467d-b541-61f8d66fb880\nhdl:21.14100/629bb43d-df37-4fb6-9dd7-ddc5e2f7ec40\nhdl:21.14100/6ae9df51-728e-4079-a153-58e866687d19\nhdl:21.14100/6616998b-39f3-441c-82b2-8932c37eab9e\nhdl:21.14100/04316ae0-35cd-467d-b89f-024dcebc26f9\nhdl:21.14100/a9d0cb58-deca-4be0-820e-1554348114e6\nhdl:21.14100/9b9ba836-c48d-4cf9-9e8a-476ecc06d354\nhdl:21.14100/8f619d90-8eff-4291-b3a4-20cf9d649891\nhdl:21.14100/72a184d9-4f04-4297-8957-a965e8a3a694\nhdl:21.14100/9db6091d-8915-4a49-a868-f5964147877f\nhdl:21.14100/55dc436e-e95d-4585-8152-12f700959566\nhdl:21.14100/5bfe9c97-2cb0-495e-9154-0a6a89887e17\nhdl:21.14100/d876a7a5-08f5-4760-9303-a53b266cf942\nhdl:21.14100/94a8e80f-f26c-41f5-88b5-af0a6d5464d6\nhdl:21.14100/855afd8c-978b-411c-ab28-3e7873c4ad6a\nhdl:21.14100/adb58257-5ce6-4495-ad14-12f10aa82aa9\nhdl:21.14100/f25fc32d-d09c-4395-a39b-d3d7840c003e\nhdl:21.14100/5bf9042a-878b-4d53-9d1a-d8b34276955c\nhdl:21.14100/e9823fcc-074a-4b77-9bc1-bfa5b5961a3e\nhdl:21.14100/6746bd78-3376-4ca3-93f3-9a7d0e1abb4a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  }
+ },
+ "sanity_flags": []
+}

@@ -1,0 +1,102 @@
+{
+ "source_id": "MRI-ESM2-0",
+ "experiment_id": "historical",
+ "preferred_member": "r1i2p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/",
+   "total_weight_m2": 510064470456320.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i2p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Amon/tas/gn/v20191205/",
+   "version": "20191205",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i2p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i2p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/ed4f24ef-e74b-488c-b1ae-555f9ca309ba",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MRI.MRI-ESM2-0.historical.none.r1i2p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/ssp245-cov-fossil/r1i1p1f1/fx/sftlf/gn/v20201223/)",
+   "total_weight_m2": 149051188545203.38,
+   "source": "esgf",
+   "variable_id": "nbp",
+   "member_id": "r1i2p1f1",
+   "grid_label": "gn",
+   "version": "v20200313",
+   "urls": [
+    "https://esgf3.dkrz.de/thredds/fileServer/cmip6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Lmon/nbp/gn/v20200313/nbp_Lmon_MRI-ESM2-0_historical_r1i2p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 112753582,
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i2p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i2p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/c88d2ca7-5d87-4f14-a9c6-13d11446c382",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MRI.MRI-ESM2-0.historical.none.r1i2p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "spherical cell area from regular lat/lon (no cell area found)",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 510064471909788.25,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i2p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/historical/r1i2p1f1/Omon/fgco2/gr/v20200303/",
+   "version": "20200303",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i2p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i2p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/1222f884-0a90-4c34-8cff-95dac36a58ca",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MRI.MRI-ESM2-0.historical.none.r1i2p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

@@ -1,0 +1,110 @@
+{
+ "source_id": "MPI-ESM1-2-LR",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/",
+   "total_weight_m2": 510064471965696.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Amon/tas/gn/v20190710/",
+   "version": "20190710",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/5026a155-3fbd-4232-b32f-37f5576f86eb\nhdl:21.14100/b36dee81-e841-4203-a62a-4ff0dfa3c3df\nhdl:21.14100/6b679cba-17b8-45eb-90dc-23d170c1998c\nhdl:21.14100/577e89da-de5c-46d3-9a7f-c3b815e15607\nhdl:21.14100/51661b24-0a5e-45cf-a79a-8eea5d9cc470\nhdl:21.14100/f93a1158-d23e-4437-8e45-9466b074b690\nhdl:21.14100/d1c1110e-89a5-4937-90d4-f07baaec2ca8\nhdl:21.14100/49df5bf4-b1de-4efd-a8c7-960ebc0ef7e0\nhdl:21.14100/fbed4411-84a3-407b-a621-c89666be8335",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MPI-M.MPI-ESM1-2-LR.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190815/)",
+   "total_weight_m2": 147102077166080.0,
+   "source": "esgf",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "version": "v20190710",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-186912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_187001-188912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_189001-190912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_191001-192912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_193001-194912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_195001-196912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_197001-198912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_199001-200912.nc",
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Lmon/nbp/gn/v20190710/nbp_Lmon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_201001-201412.nc"
+   ],
+   "bytes": 39806919,
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/68113c13-99a4-448c-90dc-2fbf42032ef4",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MPI-M.MPI-ESM1-2-LR.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 365975311658496.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/historical/r1i1p1f1/Omon/fgco2/gn/v20190710/",
+   "version": "20190710",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/a0f40fc8-a858-478a-8105-7cd7b8706f26\nhdl:21.14100/f00be341-5808-4826-a8fb-ab60096f7d2b\nhdl:21.14100/86043d62-edfe-440c-8e8d-a8d13a6c4ddc\nhdl:21.14100/6137b2f4-76bb-4c6d-9605-5f5da503a263\nhdl:21.14100/97ce54d2-3fc1-479b-9724-845d3fd5f38b\nhdl:21.14100/394d7c62-a9bc-4143-94a5-b764d024a966\nhdl:21.14100/b64795b5-388b-47fc-93c2-521acb6904d5\nhdl:21.14100/65d79638-9d94-46eb-8bb7-857eed8e8d26\nhdl:21.14100/5b28235d-ebb6-4cc2-9194-631b6d88d6b8",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MPI-M.MPI-ESM1-2-LR.historical.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

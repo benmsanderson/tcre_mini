@@ -1,0 +1,75 @@
+{
+ "source_id": "ACCESS-ESM1-5",
+ "experiment_id": "1pctCO2",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/",
+   "total_weight_m2": 509914524149760.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CSIRO/ACCESS-ESM1-5/1pctCO2/r1i1p1f1/Amon/tas/gn/v20191115/",
+   "version": "20191115",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0101-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/b3f4469e-2417-4123-bfb9-ef2cc8415cdd",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.1pctCO2.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 361335994633216.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CSIRO/ACCESS-ESM1-5/1pctCO2/r1i1p1f1/Omon/fgco2/gn/v20191115/",
+   "version": "20191115",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0101-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/0db6f2d0-2ff4-48f0-9a94-831b41129dc0",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.1pctCO2.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 150
+  }
+ },
+ "sanity_flags": []
+}

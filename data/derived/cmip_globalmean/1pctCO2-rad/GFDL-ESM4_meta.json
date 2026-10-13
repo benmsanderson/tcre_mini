@@ -1,0 +1,51 @@
+{
+ "source_id": "GFDL-ESM4",
+ "experiment_id": "1pctCO2-rad",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/",
+   "total_weight_m2": 510064472171520.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr1",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NOAA-GFDL/GFDL-ESM4/1pctCO2-rad/r1i1p1f1/Amon/tas/gr1/v20180701/",
+   "version": "20180701",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr1",
+    "tracking_id": "hdl:21.14100/12fa27c9-d2f1-41d0-8aba-e043e288fbf9\nhdl:21.14100/b533686b-37b6-4c32-9f90-3e0fe7a1fb4f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.1pctCO2-rad.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

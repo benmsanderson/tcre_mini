@@ -1,0 +1,75 @@
+{
+ "source_id": "CNRM-ESM2-1",
+ "experiment_id": "1pctCO2",
+ "preferred_member": "r1i1p1f2",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/",
+   "total_weight_m2": 510067044483072.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/1pctCO2/r1i1p1f2/Amon/tas/gr/v20181018/",
+   "version": "20181018",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/7f77190b-5149-44b2-b673-ff735f023b2f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.1pctCO2.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 362697463119488.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CNRM-CERFACS/CNRM-ESM2-1/1pctCO2/r1i1p1f2/Omon/fgco2/gn/v20181018/",
+   "version": "20181018",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/fe074560-4efc-4a13-b54d-5aa7dec3b447",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CNRM-CERFACS.CNRM-ESM2-1.1pctCO2.none.r1i1p1f2",
+    "calendar": "gregorian"
+   },
+   "n_years": 150
+  }
+ },
+ "sanity_flags": []
+}

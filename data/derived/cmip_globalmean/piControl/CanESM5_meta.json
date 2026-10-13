@@ -1,0 +1,75 @@
+{
+ "source_id": "CanESM5",
+ "experiment_id": "piControl",
+ "preferred_member": "r1i1p2f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/",
+   "total_weight_m2": 510099702677504.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p2f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/piControl/r1i1p2f1/Amon/tas/gn/v20190429/",
+   "version": "20190429",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p2f1",
+    "branch_time_in_parent": 1350500.0,
+    "branch_time_in_child": 1350500.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r1i1p2f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/49e5a097-9ce3-4540-8241-db9ad7f628ae",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.piControl.none.r1i1p2f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 363291105454208.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p2f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/piControl/r1i1p2f1/Omon/fgco2/gn/v20190429/",
+   "version": "20190429",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p2f1",
+    "branch_time_in_parent": 1350500.0,
+    "branch_time_in_child": 1350500.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r1i1p2f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/297db712-1f63-465e-af7b-9182d2a82ce2\nhdl:21.14100/78db6c44-c9ba-4a32-846d-b3254b54f4d6\nhdl:21.14100/02057ae3-f460-4f44-9ab1-e41e4fca5eb4\nhdl:21.14100/7d5c5398-2269-4af2-8c0a-dc544ebd4677\nhdl:21.14100/efd33c87-cf2a-4cd4-92f1-3023d68bb586\nhdl:21.14100/66e5059d-ad57-4ed0-84e1-567c5a26e6e1",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.piControl.none.r1i1p2f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  }
+ },
+ "sanity_flags": []
+}

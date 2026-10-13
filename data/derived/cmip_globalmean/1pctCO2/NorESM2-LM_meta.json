@@ -1,0 +1,51 @@
+{
+ "source_id": "NorESM2-LM",
+ "experiment_id": "1pctCO2",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/",
+   "total_weight_m2": 510099750586368.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/1pctCO2/r1i1p1f1/Amon/tas/gn/v20190815/",
+   "version": "20190815",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 430335.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0421-01-01",
+    "branch_method": "Hybrid-restart from year 1600-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/25950369-792f-40d9-a573-abb37e9ad8ec\nhdl:21.14100/7904fabf-ab7a-4d07-a590-0d90b754f9b5\nhdl:21.14100/f2ce1844-797e-4dbb-bb3b-0603215ff213\nhdl:21.14100/b617b7d5-afbc-424e-9660-3a5dc3c716e7\nhdl:21.14100/9b35a4f6-ccc4-440d-93c2-8ae2096c3a1d\nhdl:21.14100/21b01bd3-2495-4314-8731-1d6f62807d5c\nhdl:21.14100/28a491d0-abf9-42e6-a703-8344a418f1fe\nhdl:21.14100/9afd4aeb-61de-4914-9b5d-b43bdbd95189\nhdl:21.14100/8d2201cc-6106-49fb-bdc1-60478d580d38\nhdl:21.14100/66fe6721-8911-40a5-963d-093714f36596\nhdl:21.14100/8f893f28-be64-4b78-9fb1-acfee059e6e5\nhdl:21.14100/6e14fbe9-672a-480c-a01b-50b82f6fb99a\nhdl:21.14100/3bf2a3ec-1102-4424-b8f3-8cd72e952383\nhdl:21.14100/2d21b8dc-5166-402f-acfe-1e8283791204\nhdl:21.14100/4c932767-8148-41e9-9d83-99ae9040371c",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.1pctCO2.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 150
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

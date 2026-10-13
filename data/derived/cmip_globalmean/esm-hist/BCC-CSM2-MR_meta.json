@@ -1,0 +1,110 @@
+{
+ "source_id": "BCC-CSM2-MR",
+ "experiment_id": "esm-hist",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean (interval: 5 minutes)",
+   "cell_measures": "area: areacella",
+   "area": "esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc",
+   "total_weight_m2": 510064990597120.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/BCC/BCC-CSM2-MR/esm-hist/r1i1p1f1/Amon/tas/gn/v20181122/",
+   "version": "20181122",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 2145.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "Standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/fe00d2c1-0808-428e-8425-14d33cc1e265",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.esm-hist.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean (interval: 30 minutes)",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108",
+   "total_weight_m2": 360808912310784.0,
+   "source": "esgf",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "version": "v20191120",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/BCC/BCC-CSM2-MR/esm-hist/r1i1p1f1/Omon/fgco2/gn/v20191120/fgco2_Omon_BCC-CSM2-MR_esm-hist_r1i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 662223156,
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 2145.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "Standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/339c23bf-1f7c-4de4-bd56-5eb68f04a58c",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.esm-hist.none.r1i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 165
+  },
+  "co2": {
+   "units_in": "mol mol-1",
+   "cell_methods": "time: mean (interval: 5 minutes)",
+   "cell_measures": "area: areacella",
+   "level": "plev=100000.0",
+   "area": "esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc",
+   "scaling": "mol mol-1 * 1e6",
+   "total_weight_m2": 510064990597120.0,
+   "source": "pangeo",
+   "variable_id": "co2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/BCC/BCC-CSM2-MR/esm-hist/r1i1p1f1/Amon/co2/gn/v20181221/",
+   "version": "20181221",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 2145.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "Standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/3e99ee7a-6377-41f9-8f5e-780a7cad9235\nhdl:21.14100/f495e661-c574-43e5-8c28-72df5e0b48b5\nhdl:21.14100/12a04ebf-f8fd-42f6-bacf-5f6c37e47b22\nhdl:21.14100/6891d2d5-8204-4c6f-a970-9f065f8ef3aa\nhdl:21.14100/18b046ef-9161-4740-af39-5811442a885f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.esm-hist.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": [
+  "cumulative fgco2 -25.0 PgC <= 0 (sign?)"
+ ]
+}

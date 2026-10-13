@@ -1,0 +1,51 @@
+{
+ "source_id": "GISS-E2-1-G",
+ "experiment_id": "1pctCO2-rad",
+ "preferred_member": "r101i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/",
+   "total_weight_m2": 510064471756800.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r101i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/C4MIP/NASA-GISS/GISS-E2-1-G/1pctCO2-rad/r101i1p1f1/Amon/tas/gn/v20190815/",
+   "version": "20190815",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r101i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1",
+    "branch_method": "standard",
+    "variant_label": "r101i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/2ac7e2bb-f690-474f-a189-e2e7df6f04a1\nhdl:21.14100/c42c70a9-6eb8-49b7-917e-a7e37cc2f85e\nhdl:21.14100/76f0d221-c923-406c-8880-0bb6d95ba5b5",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NASA-GISS.GISS-E2-1-G.1pctCO2-rad.none.r101i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 151
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

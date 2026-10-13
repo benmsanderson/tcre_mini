@@ -1,0 +1,32 @@
+{
+ "source_id": "GISS-E2-1-G",
+ "experiment_id": "esm-hist",
+ "preferred_member": null,
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "source": "missing",
+   "error": null
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  },
+  "co2": {
+   "source": "missing",
+   "error": null
+  }
+ }
+}

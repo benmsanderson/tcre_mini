@@ -1,0 +1,99 @@
+{
+ "source_id": "GFDL-ESM4",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/",
+   "total_weight_m2": 510064472171520.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr1",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Amon/tas/gr1/v20190726/",
+   "version": "20190726",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr1",
+    "tracking_id": "hdl:21.14100/75e5c5a7-d7c4-4860-beb1-db454f25f13a\nhdl:21.14100/a54fe2f4-0a68-4420-8702-36750bde9b05",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/)",
+   "total_weight_m2": 149657474141712.34,
+   "source": "pangeo",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr1",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Lmon/nbp/gr1/v20190726/",
+   "version": "20190726",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr1",
+    "tracking_id": "hdl:21.14100/a256d4ab-4b22-4437-99da-b8d9ba515be9\nhdl:21.14100/c6f2e4bd-985c-4393-9609-bcfd9ef235db",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 361110931290015.25,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Omon/fgco2/gr/v20190726/",
+   "version": "20190726",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 36500.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 0001-1-1",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/743485ef-f218-458b-ab73-36c4aeb883f4\nhdl:21.14100/c13491fb-bcd3-40b2-8523-af6f0cc4ff63\nhdl:21.14100/9c82603f-05bc-4273-9d30-d044036e9807\nhdl:21.14100/1970a3a6-5db2-4245-9c20-eaf7bffe4b12\nhdl:21.14100/88c39fb1-db75-4081-853d-c7240aa88587\nhdl:21.14100/6839aba7-7798-4cff-9dfe-e3ce1462fdfa\nhdl:21.14100/ca2fa717-0ade-414a-a1bf-3d699c35288f\nhdl:21.14100/cc9f57ab-6e35-44a0-8d8a-99ab21b77aaf\nhdl:21.14100/4caf44c6-e3f8-4c9e-a053-46c5054418a9",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NOAA-GFDL.GFDL-ESM4.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

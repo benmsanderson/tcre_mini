@@ -1,0 +1,105 @@
+{
+ "source_id": "CMCC-ESM2",
+ "experiment_id": "historical",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": null,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/",
+   "total_weight_m2": 510099700202496.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/historical/r1i1p1f1/Amon/tas/gn/v20210114/",
+   "version": "20210114",
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/db148e8f-76e1-424c-92e0-8f5abb588c13",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CMCC.CMCC-ESM2.historical.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 165
+  },
+  "nbp": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where land time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/",
+   "land_fraction": "sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/abrupt-4xCO2/r1i1p1f1/fx/sftlf/gn/v20210114/)",
+   "total_weight_m2": 146778931627358.56,
+   "source": "esgf",
+   "variable_id": "nbp",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "version": "v20210114",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/historical/r1i1p1f1/Lmon/nbp/gn/v20210114/nbp_Lmon_CMCC-ESM2_historical_r1i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 120319917,
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/66c61fa4-2725-467d-9f82-c8a1428d085a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CMCC.CMCC-ESM2.historical.none.r1i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 165
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/piControl/r1i1p1f1/Ofx/areacello/gn/v20210304/",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 363341222845952.0,
+   "source": "esgf",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "version": "v20210114",
+   "urls": [
+    "https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/historical/r1i1p1f1/Omon/fgco2/gn/v20210114/fgco2_Omon_CMCC-ESM2_historical_r1i1p1f1_gn_185001-201412.nc"
+   ],
+   "bytes": 445884490,
+   "attrs": {
+    "parent_experiment_id": "piControl",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/de7486e0-54ca-416b-8f99-68ee62a463c5",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CMCC.CMCC-ESM2.historical.none.r1i1p1f1",
+    "calendar": "365_day"
+   },
+   "n_years": 165
+  }
+ },
+ "sanity_flags": []
+}

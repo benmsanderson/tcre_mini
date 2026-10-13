@@ -1,0 +1,75 @@
+{
+ "source_id": "UKESM1-0-LL",
+ "experiment_id": "piControl",
+ "preferred_member": "r1i1p1f2",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/",
+   "total_weight_m2": 510101142171648.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Amon/tas/gn/v20200828/",
+   "version": "20200828",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 39600.0,
+    "branch_time_in_child": 39600.0,
+    "parent_time_units": "days since 1850-01-01-00-00-00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/7c0131d5-0189-4856-94a7-a305e139602a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MOHC.UKESM1-0-LL.piControl.none.r1i1p1f2",
+    "calendar": "360_day"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 363120556356416.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f2",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Omon/fgco2/gn/v20191119/",
+   "version": "20191119",
+   "attrs": {
+    "parent_experiment_id": "piControl-spinup",
+    "parent_variant_label": "r1i1p1f2",
+    "branch_time_in_parent": 39600.0,
+    "branch_time_in_child": 39600.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f2",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/8e6f1336-fee9-42e8-a223-867038b7d353\nhdl:21.14100/64b85b56-92dc-4d14-b2d6-6ef1830af25c\nhdl:21.14100/de42b5b7-d9de-44ba-8210-7c592f78e7a9\nhdl:21.14100/cb7a4f6b-d1c7-44bb-a3fc-e9343c48a16c\nhdl:21.14100/90693ef4-8633-4695-8e85-a7699319e86e\nhdl:21.14100/ad5b7cc0-af68-4642-976d-fd1ac48f5464\nhdl:21.14100/c26ad68e-0ec8-440d-acec-b730bd6bd148\nhdl:21.14100/1b82219c-faff-4cc5-b31e-6c929dcf420a\nhdl:21.14100/b1b453f6-13a3-431c-bc67-6ceecdfa71bf\nhdl:21.14100/a7e28167-8f04-4707-af42-9b6ee12c9f5b\nhdl:21.14100/9026ab66-bf79-4208-a71d-c213f0a5027f\nhdl:21.14100/e08c3d58-f9a0-45bd-a69d-27ee1bacc2c7",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MOHC.UKESM1-0-LL.piControl.none.r1i1p1f2",
+    "calendar": "360_day"
+   },
+   "n_years": 200
+  }
+ },
+ "sanity_flags": []
+}
