@@ -1,0 +1,33 @@
+{
+ "model": "ACCESS-ESM1-5",
+ "mode": "lfo",
+ "heldout": [
+  "ACCESS-ESM1-5",
+  "UKESM1-0-LL"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0045452418580374,
+   "ess_bulk_min": 1968.4861265301254,
+   "ess_tail_min": 2039.113261354288,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0015572304305258,
+   "ess_bulk_min": 1875.528916577267,
+   "ess_tail_min": 2365.2555577017365,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.002071763083313,
+   "ess_bulk_min": 1871.5700370367665,
+   "ess_tail_min": 1114.0824432291022,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 11,
+ "n_train_ocean": 11
+}

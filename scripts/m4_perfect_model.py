@@ -154,7 +154,7 @@ def main():
     pl.style()
     fig, axes = plt.subplots(1, len(args.modes), figsize=(3.6 * len(args.modes), 3.4), sharey=True, squeeze=False)
     for ax, mode in zip(axes[0], args.modes):
-        g = S[(S.mode == mode) & (S.quantity == "tcre")]
+        g = S[(S["mode"] == mode) & (S.quantity == "tcre")]
         for j, (meth, lab) in enumerate([("framework", "framework, reported truth"),
                                          ("framework_flags", "framework, model's own flags"),
                                          ("raw_ensemble", "raw ensemble")]):
@@ -169,6 +169,7 @@ def main():
         ax.invert_yaxis()
         ax.set_title({"loo": "leave one model out", "lfo": "leave one family out"}[mode])
         ax.set_xlabel("TCRE (K EgC$^{-1}$), α = model's own")
+        ax.set_xlim(0.8, 5.0)
     fig.legend(*axes[0][0].get_legend_handles_labels(), loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.1))
     pl.save(fig, RESULTS / "fig_m4_perfect_model.png")
 

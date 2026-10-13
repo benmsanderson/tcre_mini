@@ -1,0 +1,32 @@
+{
+ "model": "GFDL-ESM4",
+ "mode": "lfo",
+ "heldout": [
+  "GFDL-ESM4"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.001711909159279,
+   "ess_bulk_min": 1855.838443116407,
+   "ess_tail_min": 2064.2055261543405,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0010247692853174,
+   "ess_bulk_min": 2034.3872570643555,
+   "ess_tail_min": 2480.02572904806,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 0.999940737757223,
+   "ess_bulk_min": 1837.9344352398589,
+   "ess_tail_min": 1771.2628079357228,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}

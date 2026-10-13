@@ -1,0 +1,32 @@
+{
+ "model": "MIROC-ES2L",
+ "mode": "lfo",
+ "heldout": [
+  "MIROC-ES2L"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0009030743032414,
+   "ess_bulk_min": 2813.660863236475,
+   "ess_tail_min": 2610.254807260303,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0006454982614594,
+   "ess_bulk_min": 2328.1603497006317,
+   "ess_tail_min": 3041.50459610756,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0012819068734875,
+   "ess_bulk_min": 1199.581822639262,
+   "ess_tail_min": 1330.1576798300612,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}

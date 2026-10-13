@@ -56,7 +56,20 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 ## M4 / A4. Perfect-model test of the upstream framework (`scripts/m4_perfect_model.py`)
 
-<!-- A4 -->
+- Setup: 9 target models with an actual 1pctCO2 TCRE and ocean predictors (ACCESS-ESM1-5, CESM2, CanESM5, GFDL-ESM4, IPSL-CM6A-LR, MIROC-ES2L, MPI-ESM1-2-LR, NorESM2-LM, UKESM1-0-LL). For each, the model (or its family) is removed from the land, IAV and ocean training data and from the paired nitrogen experiments; its own γ_IAV, AMOC, SSS and CUC replace the observations (with the real observational σ; IPSL has no simulated IAV, so that constraint is made uninformative); the three upstream component models are refitted unchanged; α is the held-out model's own ΔT/ΔCa, for the framework and the baselines alike, so the test isolates the carbon-cycle part. Baselines: Gaussian of the training models' R times the held-out TCR ("raw ensemble"), and a Student-t random-effects predictive. Because R varies by only 6 % across models, these baselines are narrow and hard to beat. All 36 component fits: r̂ ≤ 1.009, no divergences.
+- Two framework outputs are scored. (a) The reported truth (baseline × Πη + Σδ, "all processes on"), which is what the framework reports for the real world. (b) A flag-conditional predictive for a new model with the held-out model's own process flags, which tests the process regression out of sample.
+
+  | leave one model out, TCRE | CRPS | CRPSS vs raw | better than raw | 66 % / 90 % coverage | mean bias | mean PIT |
+  |---|---|---|---|---|---|---|
+  | raw ensemble | 0.057 | 0 | | 0.78 / 1.00 | −0.03 | 0.61 |
+  | random effects | 0.057 | | | 0.89 / 1.00 | | |
+  | framework, reported truth | 0.278 | −3.9 | 0 / 9 | 0.22 / 0.89 | +0.43 | 0.11 |
+  | framework, own flags | 0.111 | −0.96 | 0 / 9 | 0.89 / 1.00 | +0.20 | 0.46 |
+
+  Leave one family out gives the same picture (CRPSS −3.6 and −0.84).
+- (a) The reported truth lies above the held-out model's TCRE for all 9 models, by 0.43 K EgC⁻¹ on average (about 25 %; CanESM5 +1.31, UKESM1-0-LL +0.70, IPSL-CM6A-LR +0.54). This is largely by construction: the reported truth adds every process effect, including a permafrost effect whose prior mean is about −50 PgC K⁻¹, to every model. If a CMIP model were the real world, the framework would not recover its TCRE.
+- (b) With the model's own flags the predictive is centred (mean PIT 0.46) but much wider than the ensemble (median sd 0.43 against 0.11 K EgC⁻¹) and has no skill. The widest case is CESM2 (5–95 % 1.30–4.76), one of the three models with the permafrost flag.
+- Components (leave one model out, CRPSS against the raw training ensemble of the same input values): β_L −0.61 (reported truth) and −0.16 (own flags); γ_L −0.98 and −1.18; β_O −0.05; γ_O −0.10. The ocean emergent constraint is roughly neutral out of sample; the land process models lose skill.
 
 ## M5 / Workstream B. TCRE = TCR × R (`scripts/m5_tcr_r.py`)
 

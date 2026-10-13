@@ -1,0 +1,34 @@
+{
+ "model": "NorESM2-LM",
+ "mode": "lfo",
+ "heldout": [
+  "CESM2",
+  "CMCC-ESM2",
+  "NorESM2-LM"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0007900805323007,
+   "ess_bulk_min": 1866.5639631528227,
+   "ess_tail_min": 2874.6465314659395,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0012225952628708,
+   "ess_bulk_min": 2131.7500442403025,
+   "ess_tail_min": 2229.4742043654473,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0021221298465082,
+   "ess_bulk_min": 1829.1377613261216,
+   "ess_tail_min": 1470.3579900049908,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 10,
+ "n_train_ocean": 10
+}

@@ -1,0 +1,34 @@
+{
+ "model": "IPSL-CM6A-LR",
+ "mode": "lfo",
+ "heldout": [
+  "CNRM-ESM2-1",
+  "EC-Earth3-CC",
+  "IPSL-CM6A-LR"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0006971821752109,
+   "ess_bulk_min": 2341.007778009305,
+   "ess_tail_min": 1864.7725160751654,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0003230680758683,
+   "ess_bulk_min": 2678.470575382594,
+   "ess_tail_min": 2814.7939945837584,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0032893476214781,
+   "ess_bulk_min": 1541.339383582792,
+   "ess_tail_min": 957.18330544496,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 10,
+ "n_train_ocean": 11
+}

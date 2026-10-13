@@ -1,0 +1,32 @@
+{
+ "model": "CanESM5",
+ "mode": "lfo",
+ "heldout": [
+  "CanESM5"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0017827578747458,
+   "ess_bulk_min": 2219.378833639118,
+   "ess_tail_min": 2255.693627078254,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0010672707587724,
+   "ess_bulk_min": 1960.325803107156,
+   "ess_tail_min": 2195.0638077456383,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0019017600487525,
+   "ess_bulk_min": 1640.5974586798322,
+   "ess_tail_min": 1364.5929208843634,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}
