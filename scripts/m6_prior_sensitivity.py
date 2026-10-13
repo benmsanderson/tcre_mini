@@ -160,6 +160,8 @@ def main():
     print(S.drop(columns=["ess_tail_min", "n_draws"]).round(3).to_string(index=False))
     json.dump(dict(sampler={**up.SAMPLER_DEFAULTS, **SAMPLER}, pymc=pm.__version__), open(RESULTS / "m6_a5.json", "w"))
 
+    np.savez_compressed(RESULTS / "m6_prior_samples.npz", **{f"prior_{k}": np.asarray(v, "float32") for k, v in prior.items()},
+                        **{f"post_{k}": np.asarray(v, "float32") for k, v in D.items()})
     fig, axes = plt.subplots(1, 4, figsize=(9, 2.4))
     for ax, v, lab in zip(axes, ["beta_land", "gamma_land", "beta_ocean", "gamma_ocean"],
                           ["β$_L$ (PgC ppm$^{-1}$)", "γ$_L$ (PgC K$^{-1}$)", "β$_O$ (PgC ppm$^{-1}$)", "γ$_O$ (PgC K$^{-1}$)"]):
@@ -172,7 +174,7 @@ def main():
         ax.plot(cmip[v], np.zeros_like(cmip[v]), "|", ms=10, color=pl.TEXT, label="CMIP6 inputs")
         ax.set_xlabel(lab)
         ax.set_yticks([])
-    fig.legend(*axes[0].get_legend_handles_labels(), loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.12))
+    fig.legend(*axes[0].get_legend_handles_labels(), loc="lower center", ncol=3, bbox_to_anchor=(0.5, -0.22))
     pl.save(fig, RESULTS / "fig_m6_prior_posterior.png")
 
 

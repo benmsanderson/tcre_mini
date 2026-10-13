@@ -82,7 +82,19 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 ## M6 / A5. Prior versus data (`scripts/m6_prior_sensitivity.py`)
 
-<!-- A5 -->
+- Prior predictive against posterior for the reported truths (`results/m6_prior_info.csv`):
+
+  | quantity | prior median (IQR) | posterior mean ± sd | CMIP6 inputs mean ± sd | KL(post ‖ prior) |
+  |---|---|---|---|---|
+  | β_L | 0.82 (0.81) | 0.74 ± 0.27 | 1.12 ± 0.43 | 0.30 |
+  | γ_L | −14 (211) | −52 ± 41 | −26 ± 26 | 0.94 |
+  | β_O | 1.01 (0.68) | 1.00 ± 0.13 | 0.90 ± 0.07 | 1.06 |
+  | γ_O | −8.9 (3.6) | −9.7 ± 2.4 | −9.0 ± 2.7 | 0.05 |
+  | TCRE | 1.46 (0.80) | 1.77 ± 0.48 | | 0.22 |
+
+- γ_O is prior-dominated: its prior (standardised N(0, 1)) is the CMIP distribution itself, and the posterior barely departs from it (IQR ratio 0.89). β_O narrows strongly but is centred on the prior median of exp(θ), 1.0, about 1.4 CMIP standard deviations above the CMIP mean; with tighter regression priors (σ 1 instead of 10) it moves to 1.16.
+- Relative to the TCRE implied by the CMIP6 input means (1.55 K EgC⁻¹ at TCR 1.7 K), the posterior means give 1.74 (`results/m6_shift_decomposition.json`). Of the change in the denominator k + β + αγ, 86 % comes from the lower β_L (the reported truth applies all multiplicative process factors, chiefly η_nitrogen ≈ 0.7, to every model), 36 % from the more negative γ_L (process deltas, chiefly permafrost), and −24 % from the higher β_O.
+- Sensitivity (one prior changed, other components at default; `results/m6_prior_sensitivity.csv`; all fits r̂ ≤ 1.007, no divergences): TCRE mean 1.77 by default, 1.67 with no permafrost effect, 1.71 and 1.80 with permafrost prior medians of −10 and −60 PgC K⁻¹, 1.89 with wide η priors (σ 1), 1.80 without the nitrogen pseudo-observations, 1.72 with tight ocean regression priors. The 95th percentile ranges from 2.39 (no permafrost) to 2.85 (wide η). Structural-variance and LKJ priors have small effects (≤ 0.02 in the mean).
 
 ## M6 / A6. Process identifiability (`scripts/m6_identifiability.py`)
 

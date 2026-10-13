@@ -1,0 +1,18 @@
+{
+ "alpha": 0.006071428571428571,
+ "tcre_cmip_means": 1.5476895498635983,
+ "tcre_posterior_means": 1.7385390647171166,
+ "denominator_change": -0.4306392857142858,
+ "contribution": {
+  "beta_land": -0.3718,
+  "beta_ocean": 0.10260000000000002,
+  "gamma_land": -0.15670357142857141,
+  "gamma_ocean": -0.0047357142857142815
+ },
+ "share": {
+  "beta_land": 0.8633675847369773,
+  "beta_ocean": -0.23825044161918743,
+  "gamma_land": 0.3638859171165791,
+  "gamma_ocean": 0.01099693976563082
+ }
+}
