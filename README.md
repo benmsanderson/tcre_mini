@@ -23,7 +23,19 @@ PyMC is pinned to 5.x and ArviZ to 0.x, matching the API used by the upstream no
 
 ## Scripts
 
-| Script | Milestone | Output |
-|---|---|---|
-| `scripts/m0_reproduce_upstream.py` | M0 | `results/m0_upstream_reproduction.json` |
-| `scripts/m1_covariance_check.py` | M1 | `results/m1_covariance.json`, `m1_alpha_alignment.csv`, `m1_input_sources.csv` |
+Results and their interpretation are collected in `results/SUMMARY.md`. Scripts that sample with PyMC pin BLAS to one thread; `TCRE_JOBS` sets the number of parallel fits where relevant.
+
+| Script | Milestone | Main outputs (in `results/`) | Runtime (4 cores) |
+|---|---|---|---|
+| `scripts/fetch_cmip_globalmeans.py`, `python -m tcre_evidence.obs` | data | `data/derived/cmip_globalmean/`, `data/obs/` | hours (network) |
+| `scripts/m0_reproduce_upstream.py` | M0 | `m0_upstream_reproduction.json` | ~20 min |
+| `scripts/m1_covariance_check.py` | M1 | `m1_covariance.json`, `m1_alpha_alignment.csv`, `m1_input_sources.csv` | seconds |
+| `scripts/m2_feedbacks_closure.py` | M2 / A1 | `m2_*`, `data/derived/c4mip_feedbacks_*.csv` | seconds |
+| `scripts/m3_convention_attribution.py` | A2 | `m3_attribution.*`, `fig_m3_attribution.png`, `fig_m3_eps.png` | seconds |
+| `scripts/m3_covariance_rerun.py`, `scripts/plot_m3_covariance.py` | A3 | `m3_covariance.json`, `m3_samples.npz`, `fig_m3_covariance.png` | ~40 min |
+| `scripts/m4_perfect_model.py` | A4 | `a4/`, `m4_scores.csv`, `m4_summary.json`, `fig_m4_perfect_model.png` | ~1.5 h |
+| `scripts/m5_tcr_r.py` | B | `m5_*`, `fig_m5_relationships.png` | ~2 min |
+| `scripts/m6_prior_sensitivity.py`, `scripts/m6_shift_decomposition.py` | A5 | `m6_prior_*`, `m6_shift_decomposition.json`, `fig_m6_prior_posterior.png` | ~1 h |
+| `scripts/m6_identifiability.py` | A6 | `m6_identifiability.csv`, `m6_nu_evidence.json`, `fig_m6_identifiability.png` | ~2 h (1 job) |
+| `scripts/m6_state_dependence.py` | A7 | `m6_state_dependence.*`, `fig_m6_state_dependence.png` | seconds |
+| `scripts/m6_comparison.py` | comparison | `fig_m6_comparison.png`, `m6_comparison.csv` | seconds |

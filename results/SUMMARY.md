@@ -6,7 +6,15 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 ## Overview
 
-<!-- OVERVIEW -->
+Main findings, in order of weight for the TCRE assessment:
+
+1. **The framework's real-world estimate does not recover a CMIP model's TCRE when that model plays the real world (A4).** Leaving each of 9 models out and using its own observables, the reported TCRE lies above the held-out value in 9 of 9 cases, by 0.43 K EgC⁻¹ on average (about 25 %); CRPS skill against the raw ensemble is −3.9. Predicting with the held-out model's own process flags removes most of the bias but gives intervals about four times wider than the ensemble, still without skill (−0.96).
+2. **The offset is set mainly by the "all processes on" construction and its priors, not by the emergent constraints (A5, A6).** Against the TCRE implied by the CMIP6 input means (1.55 at TCR 1.7 K), the posterior means give 1.74; 86 % of the denominator change comes from the lower β_L (nitrogen-limitation factor applied to all models), 36 % from the more negative γ_L (process deltas, chiefly permafrost), offset by −24 % from β_O. In synthetic tests δ_permafrost returns its prior median whether the true effect is −30 or 0, δ_fire and δ_veg are not identified, and an interaction (ε) effect is attributed to a direct nitrogen effect on γ. The ocean emergent constraint is neutral out of sample; γ_O is prior-dominated.
+3. **TCR carries about 90 % of the cross-model TCRE variance; the carbon factor R = TCRE/TCR varies by 6 % (A2, B).** The carbon-cycle machinery mainly moves the central estimate.
+4. **The convention problem is real for attribution but small for reconstruction at 2×CO₂ (A1, A2, A7).** The "β dominates the carbon-term spread" ranking survives all three allocations of ε, but the size of the split changes. RAD-based reconstruction is unbiased on average (+0.02 K EgC⁻¹), with model-specific errors (ACCESS +0.16). γ is not transferable across forcing levels: β falls from 2× to 4×, so 2× parameters underpredict 4× TCRE by 11 %, and the C4MIP γ_O roughly doubles while γ_O(RAD) barely changes, because ε_O scales with ΔCa·ΔT.
+5. **Covariance (M1, A3).** The HANDOVER §2.3 covariance results reproduce only with a misaligned hard-coded α array; with consistent inputs, discarding covariance inflates both tails rather than truncating the upper one. In the framework's structure, fitting β_L and γ_L jointly changes nothing; imposing the cross-model TCR–carbon rank correlation lowers the 95th percentile from 2.58 to 2.35 K EgC⁻¹.
+6. **The convention-free line (B).** With the upstream TCR prior, TCR × R gives 1.50 [0.96, 2.07] K EgC⁻¹ (mean, 5–95 %); with an AR6-like TCR, 1.59 [1.03, 2.18]. No 1960–2014 observable (ocean sink, net land flux, fossil airborne fraction) shows perfect-model skill for R, even with perfect observations; the historical constraint moves the estimate by +0.04.
+7. **Reproducibility of the upstream code (M0).** The pinned commit does not run; a names-only patch reproduces the notebook headline (1.771 against 1.766).
 
 ## M0. Upstream reproduction (`scripts/m0_reproduce_upstream.py`)
 
@@ -121,8 +129,27 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 ## Comparison (`scripts/m6_comparison.py`)
 
-<!-- COMPARISON -->
+![comparison](fig_m6_comparison.png)
+
+| line | mean | 5 % | 17 % | 50 % | 83 % | 95 % |
+|---|---|---|---|---|---|---|
+| (i) raw CMIP6 1pctCO2 (11 models, own TCR) | 1.74 | 1.25 | 1.35 | 1.62 | 2.11 | 2.37 |
+| (ii) process framework as published | 1.77 | 1.07 | 1.34 | 1.74 | 2.20 | 2.58 |
+| (iii) framework, joint land + TCR–carbon covariance | 1.73 | 1.10 | 1.36 | 1.73 | 2.08 | 2.34 |
+| (iv) TCR × R, R unconstrained | 1.50 | 0.96 | 1.18 | 1.49 | 1.83 | 2.07 |
+| (v) TCR × R, R conditioned on the 1960–2014 ocean sink | 1.54 | 1.02 | 1.24 | 1.54 | 1.85 | 2.07 |
+| (vi) historical attribution (upstream DAMIP notebook output, quoted) | 1.39 | 1.24 | 1.30 | 1.39 | 1.47 | 1.53 |
+
+Lines (ii) to (v) all use TCR ~ N(1.7, 0.36) K; line (i) uses each model's own TCR (mean 1.96 K), so (i) and (iv) differ mainly through TCR, not the carbon factor. The difference between (ii) and (iv), 0.27 K EgC⁻¹ in the mean at the same TCR prior, is the framework's adjustment of the carbon factor above the CMIP6 ensemble (item 2 of the overview). The historical attribution line refers to the realised historical pathway; the 1pctCO2-to-flat10 difference in 7 models is +0.05 ± 0.09 K EgC⁻¹, so most of the gap between (vi) and the 1pctCO2-based lines is not a pathway effect of that kind. Perfect-model skill: (ii) −3.92 (0 of 9 models better than the raw ensemble); (v) −0.29 when R is conditioned on TCR and H, +0.00 when on H alone; (iii) was not tested out of sample.
 
 ## Caveats and open items
 
-<!-- CAVEATS -->
+- Small ensembles throughout: 11 models for the deck feedbacks, 9 to 10 for the perfect-model tests, 7 for flat10. Per-model results are in the CSV files; leave-one-family-out variants use an approximate family table (`src/tcre_evidence/perfect_model.py`).
+- The upstream code was patched to run (names only). The DAMIP historical line is quoted from a saved notebook output; its attribution module is not in the pinned commit.
+- The Google Sheet is live; the snapshot is dated 2026-10-13 and matches the notebook's saved inputs.
+- piControl alignment assumes each forced run branches at the start of the supplied control segment, with a linear drift fit; ε is sensitive to this (CNRM, BCC). Historical ocean baselines use the piControl mean or, where it disagrees with the early historical state (MIROC), the 1850–1869 mean.
+- The 4×CO₂ window is 10 years (simulation years 131–140) because three models stop at year 140.
+- In A4, α is the held-out model's own value so that only the carbon-cycle part is tested; the framework's TCR prior is not part of the test. The IAV constraint is uninformative for IPSL (no simulated value).
+- In B, observational uncertainties are GCB 1σ ranges assumed fully correlated in time; the land and airborne-fraction observables depend on the definitional match between model nbp and the budget residual. The historical observables are 1960–2014 cumulative quantities; the target-matched AF–cumulative-emissions approach of Séférian et al. was not implemented.
+- The joint land model (A3) had 8 divergences in 4000 draws (r̂ 1.001, ESS > 2500).
+- Open items: A4 at 4×CO₂ and with upstream 4× inputs (A7 covered the deck side only); more models for B (Pangeo lacks Lmon nbp for most 1pctCO2 runs, so R is available only for the 11 deck models); flat10 target for A4; GISS and BCC fgco2 unit problems on Pangeo; an IPSL γ_IAV value.
