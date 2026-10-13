@@ -1,0 +1,80 @@
+{
+ "source_id": "MPI-ESM1-2-LR",
+ "experiment_id": "esm-piControl",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/",
+   "total_weight_m2": 510064471965696.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Amon/tas/gn/v20190815/",
+   "version": "20190815",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 146097.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/ac61423e-de61-419f-9e95-6b5325cc1d2c\nhdl:21.14100/0f2265b4-0ff5-4cb8-97e3-23a4745e0889\nhdl:21.14100/4b31321d-35a9-48c9-b79a-78ba9045f873\nhdl:21.14100/b0e67a4d-64b3-482c-a164-ee72f8e53a82\nhdl:21.14100/41c07afb-07ac-4f59-883a-a7807b8b1433\nhdl:21.14100/a18d045c-4949-4a19-adf0-c0978852cb78\nhdl:21.14100/0999e66a-6597-455f-932a-8dc51da974b9\nhdl:21.14100/996c2c72-bf7b-4d93-98cb-e9aa6f99177f\nhdl:21.14100/bc940c1b-85c3-422c-bdb5-123a927bbbb2\nhdl:21.14100/e361e06d-e0ef-4091-b07e-b701920e4b9d\nhdl:21.14100/f4933524-db1b-4744-8b91-3333fcab798c\nhdl:21.14100/43db39b3-7367-42fa-9486-289401451945\nhdl:21.14100/36e64480-8249-4bd8-bc37-cb0ad52b9a24\nhdl:21.14100/6fa7e5b0-8f08-4400-b673-82147a30d045\nhdl:21.14100/295eaa2d-ecfc-4380-8d58-dc487d6288a2\nhdl:21.14100/39ac7edd-8ef6-4559-885a-a3841f106e08\nhdl:21.14100/a80b20f8-6598-4bdc-8a50-c0cb86d87ff1\nhdl:21.14100/dd910bc5-f03b-4e95-aba8-fe4a0906b889\nhdl:21.14100/63431989-8dcb-40ff-9ec4-aa9152eda44e\nhdl:21.14100/f70a4c87-8e21-4a33-b545-511e3ff9edfc\nhdl:21.14100/aa5faf44-f85b-45a4-ae86-ac8e7d43435b\nhdl:21.14100/ff02e241-55be-4f56-b00e-98d1b72985eb\nhdl:21.14100/eb2fa5f1-52c5-4e52-b5e6-0b22d4f7868a\nhdl:21.14100/aa5fae21-ca9e-4682-9b17-4afa76772c53\nhdl:21.14100/8f58edc7-615e-4390-aa1a-55a9235b295a",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MPI-M.MPI-ESM1-2-LR.esm-piControl.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 365975311658496.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Omon/fgco2/gn/v20190815/",
+   "version": "20190815",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 146097.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-1-1 00:00:00",
+    "branch_method": "standard",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/11a95f88-1131-4d6a-a8bf-1b051b01e4cf\nhdl:21.14100/c04ec6c0-1d2f-45d3-9306-e9eb8f83cc5a\nhdl:21.14100/c2561a9a-6d07-4037-9170-1b2817ae711f\nhdl:21.14100/577f599b-3d5d-4104-9737-4034985783de\nhdl:21.14100/2e65e0e3-298e-4353-a1d7-44987ebadc63\nhdl:21.14100/aeae44e2-18fc-4004-8e43-a8a0a39dc6cb\nhdl:21.14100/7c857100-29b9-43cc-a01b-10b26d82edd3\nhdl:21.14100/e3f1edc1-1b26-4354-8f70-9f344bd09d7b\nhdl:21.14100/40b9d856-8947-4e73-acdd-31ae9921ad2a\nhdl:21.14100/86ba2ee7-7984-4cf0-9e72-e0c689a4d755\nhdl:21.14100/c4aa3004-fcb2-4cdd-bda1-b4a528e777e9\nhdl:21.14100/49c547ae-5f63-4e76-941b-613733b7626e\nhdl:21.14100/328bef70-1871-4766-a929-d45238349076\nhdl:21.14100/f38889dd-b973-4adc-a7e3-9ae6b1ebe8e0\nhdl:21.14100/9b1ed59b-3ce0-49a5-9fdf-aa23b0dbe41f\nhdl:21.14100/17e05f9d-57ed-423a-b2f8-c6b2819aa97d\nhdl:21.14100/d48ce220-5619-408f-abcf-d170d7a14807\nhdl:21.14100/f82742e0-dcf4-4595-b4d5-250dd34c7800\nhdl:21.14100/015a5091-5308-4402-82e6-fd69efce7703\nhdl:21.14100/415baf75-a855-4647-9e08-ed956e6d9203\nhdl:21.14100/62637934-45f3-436a-9e11-aac072956b50\nhdl:21.14100/ee3a3c6b-50fe-49e3-9f71-99173bafb985\nhdl:21.14100/a09c77d2-86d6-4304-afba-d8b7dc7d6652\nhdl:21.14100/8fb2e7cf-ce33-40d0-88d7-c8fd53ddf1df\nhdl:21.14100/278e1ae6-d3d3-44a5-b5c5-03ade40b9296",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MPI-M.MPI-ESM1-2-LR.esm-piControl.none.r1i1p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 200
+  },
+  "co2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

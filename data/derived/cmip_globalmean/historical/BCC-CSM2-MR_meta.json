@@ -49,7 +49,7 @@
    "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/",
    "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108",
    "total_weight_m2": 360808912310784.0,
-   "source": "pangeo",
+   "source": "qc_fail",
    "variable_id": "fgco2",
    "member_id": "r1i1p1f1",
    "grid_label": "gn",
@@ -68,10 +68,10 @@
     "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.BCC.BCC-CSM2-MR.historical.none.r1i1p1f1",
     "calendar": "365_day"
    },
-   "n_years": 165
+   "n_years": 165,
+   "source_retrieved": "pangeo",
+   "qc": "max |annual| 1538.7 PgC/yr exceeds 30.0 (units/data error)"
   }
  },
- "sanity_flags": [
-  "cumulative fgco2 -22163.8 PgC <= 0 (sign?)"
- ]
+ "sanity_flags": []
 }

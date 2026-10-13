@@ -73,7 +73,7 @@
    "area": "pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/",
    "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079",
    "total_weight_m2": 361085228569344.0,
-   "source": "pangeo",
+   "source": "qc_fail",
    "variable_id": "fgco2",
    "member_id": "r101i1p1f1",
    "grid_label": "gn",
@@ -92,7 +92,9 @@
     "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NASA-GISS.GISS-E2-1-G.historical.none.r101i1p1f1",
     "calendar": "noleap"
    },
-   "n_years": 165
+   "n_years": 165,
+   "source_retrieved": "pangeo",
+   "qc": "max |annual| 77882507308.8 PgC/yr exceeds 30.0 (units/data error)"
   }
  },
  "sanity_flags": []

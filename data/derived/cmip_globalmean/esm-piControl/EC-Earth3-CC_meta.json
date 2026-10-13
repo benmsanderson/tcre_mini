@@ -1,0 +1,18 @@
+{
+ "source_id": "EC-Earth3-CC",
+ "experiment_id": "esm-piControl",
+ "variables": {
+  "tas": {
+   "source": "missing"
+  },
+  "nbp": {
+   "source": "missing"
+  },
+  "fgco2": {
+   "source": "missing"
+  },
+  "co2": {
+   "source": "missing"
+  }
+ }
+}

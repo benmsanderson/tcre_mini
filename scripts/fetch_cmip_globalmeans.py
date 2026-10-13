@@ -120,13 +120,21 @@ def sanity_flags(df: pd.DataFrame, exp: str) -> list[str]:
 
 
 QC_MAX_ABS = {"nbp": 30.0, "fgco2": 30.0}  # PgC/yr, any annual value
+QC_MAX_DIFF_STD = {"nbp": 8.0, "fgco2": 1.5}  # PgC/yr; CMIP6 range ~0.6-4.4 and ~0.1-0.3
 
 
-def qc_series(var: str, s: pd.Series) -> str | None:
+def qc_series(var: str, s: pd.Series, exp: str = "") -> str | None:
     """Return a failure message if the series is physically implausible."""
+    if var == "fgco2" and exp in ("1pctCO2", "1pctCO2-bgc") and len(s) >= 80:
+        up = float(np.nanmean(s.values[60:80]))
+        if up < 1.0:  # CMIP6 range at year 70 is about 3-6 PgC/yr (Arora et al. 2020)
+            return f"fgco2 years 61-80 mean {up:.2f} PgC/yr < 1: no uptake response (data error)"
     lim = QC_MAX_ABS.get(var)
     if lim is not None and np.nanmax(np.abs(s.values)) > lim:
         return f"max |annual| {np.nanmax(np.abs(s.values)):.1f} PgC/yr exceeds {lim} (units/data error)"
+    lim = QC_MAX_DIFF_STD.get(var)
+    if lim is not None and len(s) > 10 and np.nanstd(np.diff(s.values)) > lim:
+        return f"std of year-to-year change {np.nanstd(np.diff(s.values)):.2f} PgC/yr exceeds {lim}"
     return None
 
 
@@ -151,7 +159,7 @@ def process(task):
         for v in vars_:
             s, info = fetch_one_var(model, exp, v, member, use_esgf)
             if s is not None:
-                bad = qc_series(v, s)
+                bad = qc_series(v, s, exp)
                 if bad:
                     info = {**info, "source_retrieved": info.get("source"), "source": "qc_fail",
                             "qc": bad}

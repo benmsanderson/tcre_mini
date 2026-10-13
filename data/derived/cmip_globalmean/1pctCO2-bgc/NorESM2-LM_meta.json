@@ -49,7 +49,7 @@
    "area": "pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/",
    "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000",
    "total_weight_m2": 360624513470656.0,
-   "source": "pangeo",
+   "source": "qc_fail",
    "variable_id": "fgco2",
    "member_id": "r1i1p1f1",
    "grid_label": "gn",
@@ -68,10 +68,10 @@
     "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.1pctCO2-bgc.none.r1i1p1f1",
     "calendar": "noleap"
    },
-   "n_years": 140
+   "n_years": 140,
+   "source_retrieved": "pangeo",
+   "qc": "fgco2 years 61-80 mean -0.05 PgC/yr < 1: no uptake response (data error)"
   }
  },
- "sanity_flags": [
-  "fgco2 last-20 minus first-20 yr mean -0.24 PgC/yr <= 0 (sign?)"
- ]
+ "sanity_flags": []
 }

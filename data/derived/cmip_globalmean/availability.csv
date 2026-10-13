@@ -1,8 +1,346 @@
 source_id,experiment_id,variable,source,variable_id_used,member_id,grid_label,n_years,area,land_fraction,sea_fraction
-CanESM5,esm-hist,co2,esgf,co2,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
-CanESM5,esm-hist,fgco2,pangeo,fgco2,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
-CanESM5,esm-hist,nbp,esgf,nbp,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190429/),
-CanESM5,esm-hist,tas,pangeo,tas,r2i1p1f1,gn,165,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
-GFDL-ESM4,historical,fgco2,pangeo,fgco2,r1i1p1f1,gr,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
-GFDL-ESM4,historical,nbp,pangeo,nbp,r1i1p1f1,gr1,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
-GFDL-ESM4,historical,tas,pangeo,tas,r1i1p1f1,gr1,165,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+ACCESS-ESM1-5,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,1pctCO2,nbp,missing,,,,,,,
+ACCESS-ESM1-5,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,1pctCO2-bgc,nbp,missing,,,,,,,
+ACCESS-ESM1-5,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,1pctCO2-rad,fgco2,missing,,,,,,,
+ACCESS-ESM1-5,1pctCO2-rad,nbp,missing,,,,,,,
+ACCESS-ESM1-5,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,esm-hist,co2,esgf,co2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,esm-hist,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,esm-hist,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/sftlf/gn/v20201207/),
+ACCESS-ESM1-5,esm-hist,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,esm-piControl,co2,missing,,,,,,,
+ACCESS-ESM1-5,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,esm-piControl,nbp,missing,,,,,,,
+ACCESS-ESM1-5,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,historical,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/sftlf/gn/v20201207/),
+ACCESS-ESM1-5,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+ACCESS-ESM1-5,piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CSIRO/ACCESS-ESM1-5/ssp126/r1i1p1f1/Ofx/areacello/gn/v20210318/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/Ofx/sftof/gn/v20201207/); sum(area*sftof)/sum(area)=1.0000
+ACCESS-ESM1-5,piControl,nbp,missing,,,,,,,
+ACCESS-ESM1-5,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/CSIRO/ACCESS-ESM1-5/ssp245-covid/r1i1p1f1/fx/areacella/gn/v20201207/,,
+BCC-CSM2-MR,1pctCO2,fgco2,qc_fail,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108
+BCC-CSM2-MR,1pctCO2,nbp,missing,,,,,,,
+BCC-CSM2-MR,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,151.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,1pctCO2-bgc,fgco2,missing,,,,,,,
+BCC-CSM2-MR,1pctCO2-bgc,nbp,missing,,,,,,,
+BCC-CSM2-MR,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,151.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,1pctCO2-rad,fgco2,missing,,,,,,,
+BCC-CSM2-MR,1pctCO2-rad,nbp,missing,,,,,,,
+BCC-CSM2-MR,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,151.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,esm-hist,co2,pangeo,co2,r1i1p1f1,gn,165.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,esm-hist,fgco2,esgf,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108
+BCC-CSM2-MR,esm-hist,nbp,missing,,,,,,,
+BCC-CSM2-MR,esm-hist,tas,pangeo,tas,r1i1p1f1,gn,165.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,esm-piControl,co2,pangeo,co2,r1i1p1f1,gn,200.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108
+BCC-CSM2-MR,esm-piControl,nbp,missing,,,,,,,
+BCC-CSM2-MR,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,historical,fgco2,qc_fail,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/areacello/gn/v20201021/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/BCC/BCC-CSM2-MR/ssp370/r1i1p1f1/Ofx/sftof/gn/v20201021/); sum(area*sftof)/sum(area)=0.7108
+BCC-CSM2-MR,historical,nbp,missing,,,,,,,
+BCC-CSM2-MR,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+BCC-CSM2-MR,piControl,fgco2,missing,,,,,,,
+BCC-CSM2-MR,piControl,nbp,missing,,,,,,,
+BCC-CSM2-MR,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,esgf:https://esgf3.dkrz.de/thredds/fileServer/cmip6/GMMIP/BCC/BCC-CSM2-MR/hist-resIPO/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-CSM2-MR_hist-resIPO_r1i1p1f1_gn.nc,,
+CESM2,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,1pctCO2,nbp,missing,,,,,,,
+CESM2,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,1pctCO2-bgc,nbp,missing,,,,,,,
+CESM2,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,1pctCO2-rad,fgco2,missing,,,,,,,
+CESM2,1pctCO2-rad,nbp,missing,,,,,,,
+CESM2,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,esm-hist,co2,pangeo,co2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,esm-hist,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,esm-hist,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/sftlf/gn/v20200206/),
+CESM2,esm-hist,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,esm-piControl,co2,pangeo,co2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,esm-piControl,nbp,missing,,,,,,,
+CESM2,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,historical,nbp,pangeo,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/sftlf/gn/v20200206/),
+CESM2,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CESM2,piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/areacello/gn/v20200206/,,sftof/100 (pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/Ofx/sftof/gn/v20200206/); sum(area*sftof)/sum(area)=0.7140
+CESM2,piControl,nbp,missing,,,,,,,
+CESM2,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/NCAR/CESM2/hist-aer/r1i1p1f1/fx/areacella/gn/v20200206/,,
+CMCC-ESM2,1pctCO2,fgco2,missing,,,,,,,
+CMCC-ESM2,1pctCO2,nbp,missing,,,,,,,
+CMCC-ESM2,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,,
+CMCC-ESM2,1pctCO2-bgc,fgco2,missing,,,,,,,
+CMCC-ESM2,1pctCO2-bgc,nbp,missing,,,,,,,
+CMCC-ESM2,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,,
+CMCC-ESM2,1pctCO2-rad,fgco2,missing,,,,,,,
+CMCC-ESM2,1pctCO2-rad,nbp,missing,,,,,,,
+CMCC-ESM2,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,,
+CMCC-ESM2,esm-hist,co2,missing,,,,,,,
+CMCC-ESM2,esm-hist,fgco2,missing,,,,,,,
+CMCC-ESM2,esm-hist,nbp,missing,,,,,,,
+CMCC-ESM2,esm-hist,tas,missing,,,,,,,
+CMCC-ESM2,esm-piControl,co2,missing,,,,,,,
+CMCC-ESM2,esm-piControl,fgco2,missing,,,,,,,
+CMCC-ESM2,esm-piControl,nbp,missing,,,,,,,
+CMCC-ESM2,esm-piControl,tas,missing,,,,,,,
+CMCC-ESM2,historical,fgco2,esgf,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/piControl/r1i1p1f1/Ofx/areacello/gn/v20210304/,,not applied (sftof not found)
+CMCC-ESM2,historical,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/abrupt-4xCO2/r1i1p1f1/fx/sftlf/gn/v20210114/),
+CMCC-ESM2,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,,
+CMCC-ESM2,piControl,fgco2,missing,,,,,,,
+CMCC-ESM2,piControl,nbp,missing,,,,,,,
+CMCC-ESM2,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/CMCC/CMCC-ESM2/1pctCO2/r1i1p1f1/fx/areacella/gn/v20210114/,,
+CNRM-ESM2-1,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,1pctCO2,nbp,missing,,,,,,,
+CNRM-ESM2-1,1pctCO2,tas,pangeo,tas,r1i1p1f2,gr,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f2,gn,140.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,1pctCO2-bgc,nbp,missing,,,,,,,
+CNRM-ESM2-1,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f2,gr,140.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,1pctCO2-rad,fgco2,missing,,,,,,,
+CNRM-ESM2-1,1pctCO2-rad,nbp,missing,,,,,,,
+CNRM-ESM2-1,1pctCO2-rad,tas,pangeo,tas,r1i1p1f2,gr,140.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,esm-hist,co2,pangeo,co2,r1i1p1f2,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,esm-hist,fgco2,pangeo,fgco2,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,esm-hist,nbp,pangeo,nbp,r1i1p1f2,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/sftlf/gr/v20191021/),
+CNRM-ESM2-1,esm-hist,tas,pangeo,tas,r1i1p1f2,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,esm-piControl,co2,pangeo,co2,r1i1p1f2,gr,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,esm-piControl,nbp,missing,,,,,,,
+CNRM-ESM2-1,esm-piControl,tas,pangeo,tas,r1i1p1f2,gr,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,historical,fgco2,pangeo,fgco2,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,historical,nbp,pangeo,nbp,r1i1p1f2,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/sftlf/gr/v20191021/),
+CNRM-ESM2-1,historical,tas,pangeo,tas,r1i1p1f2,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CNRM-ESM2-1,piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/Ofx/areacello/gn/v20191021/,,not applied (sftof not found)
+CNRM-ESM2-1,piControl,nbp,missing,,,,,,,
+CNRM-ESM2-1,piControl,tas,pangeo,tas,r1i1p1f2,gr,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/CNRM-CERFACS/CNRM-ESM2-1/ssp370/r1i1p1f2/fx/areacella/gr/v20191021/,,
+CanESM5,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,1pctCO2,nbp,missing,,,,,,,
+CanESM5,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,1pctCO2-bgc,nbp,missing,,,,,,,
+CanESM5,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,1pctCO2-rad,fgco2,missing,,,,,,,
+CanESM5,1pctCO2-rad,nbp,missing,,,,,,,
+CanESM5,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,esm-hist,co2,esgf,co2,r2i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,esm-hist,fgco2,pangeo,fgco2,r2i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,esm-hist,nbp,esgf,nbp,r2i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190429/),
+CanESM5,esm-hist,tas,pangeo,tas,r2i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,esm-piControl,co2,missing,,,,,,,
+CanESM5,esm-piControl,fgco2,missing,,,,,,,
+CanESM5,esm-piControl,nbp,missing,,,,,,,
+CanESM5,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,historical,fgco2,pangeo,fgco2,r1i1p2f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,historical,nbp,pangeo,nbp,r1i1p2f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190429/),
+CanESM5,historical,tas,pangeo,tas,r1i1p2f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+CanESM5,piControl,fgco2,pangeo,fgco2,r1i1p2f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190429/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190429/); sum(area*sftof)/sum(area)=1.0000
+CanESM5,piControl,nbp,missing,,,,,,,
+CanESM5,piControl,tas,pangeo,tas,r1i1p2f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/,,
+EC-Earth3-CC,1pctCO2,fgco2,missing,,,,,,,
+EC-Earth3-CC,1pctCO2,nbp,missing,,,,,,,
+EC-Earth3-CC,1pctCO2,tas,pangeo,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+EC-Earth3-CC,1pctCO2-bgc,fgco2,missing,,,,,,,
+EC-Earth3-CC,1pctCO2-bgc,nbp,missing,,,,,,,
+EC-Earth3-CC,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+EC-Earth3-CC,1pctCO2-rad,fgco2,missing,,,,,,,
+EC-Earth3-CC,1pctCO2-rad,nbp,missing,,,,,,,
+EC-Earth3-CC,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+EC-Earth3-CC,esm-hist,co2,esgf,co2,r1i1p1f1,gn,165.0,cos(lat) weights (no cell area found),,
+EC-Earth3-CC,esm-hist,fgco2,esgf,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/1pctCO2/r1i1p1f1/Ofx/areacello/gn/v20210525/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/Ofx/sftof/gn/v20201230/); sum(area*sftof)/sum(area)=1.0000
+EC-Earth3-CC,esm-hist,nbp,esgf,nbp,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,sftlf/100 (sibling EC-Earth3: pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3/piControl/r1i1p1f1/fx/sftlf/gr/v20200312/),
+EC-Earth3-CC,esm-hist,tas,esgf,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+EC-Earth3-CC,esm-piControl,co2,missing,,,,,,,
+EC-Earth3-CC,esm-piControl,fgco2,missing,,,,,,,
+EC-Earth3-CC,esm-piControl,nbp,missing,,,,,,,
+EC-Earth3-CC,esm-piControl,tas,missing,,,,,,,
+EC-Earth3-CC,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/1pctCO2/r1i1p1f1/Ofx/areacello/gn/v20210525/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/Ofx/sftof/gn/v20201230/); sum(area*sftof)/sum(area)=1.0000
+EC-Earth3-CC,historical,nbp,esgf,nbp,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,sftlf/100 (sibling EC-Earth3: pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3/piControl/r1i1p1f1/fx/sftlf/gr/v20200312/),
+EC-Earth3-CC,historical,tas,pangeo,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+EC-Earth3-CC,piControl,fgco2,missing,,,,,,,
+EC-Earth3-CC,piControl,nbp,missing,,,,,,,
+EC-Earth3-CC,piControl,tas,pangeo,tas,r1i1p1f1,gr,200.0,pangeo:gs://cmip6/CMIP6/CMIP/EC-Earth-Consortium/EC-Earth3-CC/abrupt-4xCO2/r1i1p1f1/fx/areacella/gr/v20201230/,,
+GFDL-ESM4,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gr,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,1pctCO2,nbp,pangeo,nbp,r1i1p1f1,gr1,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,1pctCO2,tas,pangeo,tas,r1i1p1f1,gr1,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gr,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,1pctCO2-bgc,nbp,pangeo,nbp,r1i1p1f1,gr1,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gr1,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,1pctCO2-rad,fgco2,missing,,,,,,,
+GFDL-ESM4,1pctCO2-rad,nbp,missing,,,,,,,
+GFDL-ESM4,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gr1,150.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,esm-hist,co2,pangeo,co2mass,r1i1p1f1,gn,165.0,,,
+GFDL-ESM4,esm-hist,fgco2,pangeo,fgco2,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,esm-hist,nbp,pangeo,nbp,r1i1p1f1,gr1,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,esm-hist,tas,pangeo,tas,r1i1p1f1,gr1,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,esm-piControl,co2,pangeo,co2mass,r1i1p1f1,gn,200.0,,,
+GFDL-ESM4,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gr,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,esm-piControl,nbp,pangeo,nbp,r1i1p1f1,gr1,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,esm-piControl,tas,pangeo,tas,r1i1p1f1,gr1,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,historical,fgco2,pangeo,fgco2,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,historical,nbp,pangeo,nbp,r1i1p1f1,gr1,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,historical,tas,pangeo,tas,r1i1p1f1,gr1,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GFDL-ESM4,piControl,fgco2,pangeo,fgco2,r1i1p1f1,gr,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/Ofx/areacello/gr/v20190726/,,not applied (sftof not found)
+GFDL-ESM4,piControl,nbp,pangeo,nbp,r1i1p1f1,gr1,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,sftlf/100 (pangeo:gs://cmip6/CMIP6/AerChemMIP/NOAA-GFDL/GFDL-ESM4/hist-1950HC/r1i1p1f1/fx/sftlf/gr1/v20180701/),
+GFDL-ESM4,piControl,tas,pangeo,tas,r1i1p1f1,gr1,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NOAA-GFDL/GFDL-ESM4/historical/r1i1p1f1/fx/areacella/gr1/v20190726/,,
+GISS-E2-1-G,1pctCO2,fgco2,qc_fail,fgco2,r101i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079
+GISS-E2-1-G,1pctCO2,nbp,missing,,,,,,,
+GISS-E2-1-G,1pctCO2,tas,pangeo,tas,r101i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,,
+GISS-E2-1-G,1pctCO2-bgc,fgco2,qc_fail,fgco2,r101i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079
+GISS-E2-1-G,1pctCO2-bgc,nbp,missing,,,,,,,
+GISS-E2-1-G,1pctCO2-bgc,tas,pangeo,tas,r101i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,,
+GISS-E2-1-G,1pctCO2-rad,fgco2,missing,,,,,,,
+GISS-E2-1-G,1pctCO2-rad,nbp,missing,,,,,,,
+GISS-E2-1-G,1pctCO2-rad,tas,pangeo,tas,r101i1p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,,
+GISS-E2-1-G,esm-hist,co2,missing,,,,,,,
+GISS-E2-1-G,esm-hist,fgco2,missing,,,,,,,
+GISS-E2-1-G,esm-hist,nbp,missing,,,,,,,
+GISS-E2-1-G,esm-hist,tas,missing,,,,,,,
+GISS-E2-1-G,esm-piControl,co2,missing,,,,,,,
+GISS-E2-1-G,esm-piControl,fgco2,missing,,,,,,,
+GISS-E2-1-G,esm-piControl,nbp,missing,,,,,,,
+GISS-E2-1-G,esm-piControl,tas,missing,,,,,,,
+GISS-E2-1-G,historical,fgco2,qc_fail,fgco2,r101i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079
+GISS-E2-1-G,historical,nbp,pangeo,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/sftlf/gn/v20180824/),
+GISS-E2-1-G,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,,
+GISS-E2-1-G,piControl,fgco2,qc_fail,fgco2,r101i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/areacello/gn/v20180824/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/Ofx/sftof/gn/v20180824/); sum(area*sftof)/sum(area)=0.7079
+GISS-E2-1-G,piControl,nbp,missing,,,,,,,
+GISS-E2-1-G,piControl,tas,pangeo,tas,r101i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NASA-GISS/GISS-E2-1-G/piControl/r1i1p1f1/fx/areacella/gn/v20180824/,,
+IPSL-CM6A-LR,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/,,not applied (sftof not found)
+IPSL-CM6A-LR,1pctCO2,nbp,missing,,,,,,,
+IPSL-CM6A-LR,1pctCO2,tas,pangeo,tas,r1i1p1f1,gr,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,,
+IPSL-CM6A-LR,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/,,not applied (sftof not found)
+IPSL-CM6A-LR,1pctCO2-bgc,nbp,missing,,,,,,,
+IPSL-CM6A-LR,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gr,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,,
+IPSL-CM6A-LR,1pctCO2-rad,fgco2,missing,,,,,,,
+IPSL-CM6A-LR,1pctCO2-rad,nbp,missing,,,,,,,
+IPSL-CM6A-LR,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gr,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,,
+IPSL-CM6A-LR,esm-hist,co2,missing,,,,,,,
+IPSL-CM6A-LR,esm-hist,fgco2,missing,,,,,,,
+IPSL-CM6A-LR,esm-hist,nbp,missing,,,,,,,
+IPSL-CM6A-LR,esm-hist,tas,missing,,,,,,,
+IPSL-CM6A-LR,esm-piControl,co2,missing,,,,,,,
+IPSL-CM6A-LR,esm-piControl,fgco2,missing,,,,,,,
+IPSL-CM6A-LR,esm-piControl,nbp,missing,,,,,,,
+IPSL-CM6A-LR,esm-piControl,tas,missing,,,,,,,
+IPSL-CM6A-LR,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/,,not applied (sftof not found)
+IPSL-CM6A-LR,historical,nbp,pangeo,nbp,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/sftlf/gr/v20190909/),
+IPSL-CM6A-LR,historical,tas,pangeo,tas,r1i1p1f1,gr,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,,
+IPSL-CM6A-LR,piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/IPSL/IPSL-CM6A-LR/piControl/r1i1p1f1/Ofx/areacello/gn/v20200326/,,not applied (sftof not found)
+IPSL-CM6A-LR,piControl,nbp,missing,,,,,,,
+IPSL-CM6A-LR,piControl,tas,pangeo,tas,r1i1p1f1,gr,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/IPSL/IPSL-CM6A-LR/ssp534-over/r1i1p1f1/fx/areacella/gr/v20190909/,,
+MIROC-ES2L,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,1pctCO2,nbp,missing,,,,,,,
+MIROC-ES2L,1pctCO2,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,1pctCO2-bgc,nbp,missing,,,,,,,
+MIROC-ES2L,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,1pctCO2-rad,fgco2,missing,,,,,,,
+MIROC-ES2L,1pctCO2-rad,nbp,missing,,,,,,,
+MIROC-ES2L,1pctCO2-rad,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,esm-hist,co2,missing,,,,,,,
+MIROC-ES2L,esm-hist,fgco2,pangeo,fgco2,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,esm-hist,nbp,esgf,nbp,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/sftlf/gn/v20201014/),
+MIROC-ES2L,esm-hist,tas,pangeo,tas,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,esm-piControl,co2,missing,,,,,,,
+MIROC-ES2L,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,esm-piControl,nbp,missing,,,,,,,
+MIROC-ES2L,esm-piControl,tas,pangeo,tas,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,historical,fgco2,pangeo,fgco2,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,historical,nbp,pangeo,nbp,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,sftlf/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/sftlf/gn/v20201014/),
+MIROC-ES2L,historical,tas,pangeo,tas,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MIROC-ES2L,piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/areacello/gn/v20201014/,,sftof/100 (pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/Ofx/sftof/gn/v20201014/); sum(area*sftof)/sum(area)=1.0000
+MIROC-ES2L,piControl,nbp,missing,,,,,,,
+MIROC-ES2L,piControl,tas,pangeo,tas,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/MIROC/MIROC-ES2L/ssp534-over/r1i1p1f2/fx/areacella/gn/v20201014/,,
+MPI-ESM1-2-LR,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,1pctCO2,nbp,missing,,,,,,,
+MPI-ESM1-2-LR,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,1pctCO2-bgc,nbp,missing,,,,,,,
+MPI-ESM1-2-LR,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,1pctCO2-rad,fgco2,missing,,,,,,,
+MPI-ESM1-2-LR,1pctCO2-rad,nbp,missing,,,,,,,
+MPI-ESM1-2-LR,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,esm-hist,co2,esgf,co2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,esm-hist,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,esm-hist,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190815/),
+MPI-ESM1-2-LR,esm-hist,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,esm-piControl,co2,missing,,,,,,,
+MPI-ESM1-2-LR,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,esm-piControl,nbp,missing,,,,,,,
+MPI-ESM1-2-LR,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,historical,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/fx/sftlf/gn/v20190815/),
+MPI-ESM1-2-LR,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MPI-ESM1-2-LR,piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/areacello/gn/v20190815/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/esm-piControl/r1i1p1f1/Ofx/sftof/gn/v20190815/); sum(area*sftof)/sum(area)=1.0000
+MPI-ESM1-2-LR,piControl,nbp,missing,,,,,,,
+MPI-ESM1-2-LR,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MPI-M/MPI-ESM1-2-LR/amip/r1i1p1f1/fx/areacella/gn/v20190815/,,
+MRI-ESM2-0,1pctCO2,fgco2,pangeo,fgco2,r1i2p1f1,gr,151.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,1pctCO2,nbp,missing,,,,,,,
+MRI-ESM2-0,1pctCO2,tas,pangeo,tas,r1i2p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i2p1f1,gr,151.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,1pctCO2-bgc,nbp,missing,,,,,,,
+MRI-ESM2-0,1pctCO2-bgc,tas,pangeo,tas,r1i2p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,1pctCO2-rad,fgco2,missing,,,,,,,
+MRI-ESM2-0,1pctCO2-rad,nbp,missing,,,,,,,
+MRI-ESM2-0,1pctCO2-rad,tas,pangeo,tas,r1i2p1f1,gn,151.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,esm-hist,co2,missing,,,,,,,
+MRI-ESM2-0,esm-hist,fgco2,pangeo,fgco2,r1i2p1f1,gr,165.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,esm-hist,nbp,esgf,nbp,r1i2p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/ssp245-cov-fossil/r1i1p1f1/fx/sftlf/gn/v20201223/),
+MRI-ESM2-0,esm-hist,tas,pangeo,tas,r1i2p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,esm-piControl,co2,missing,,,,,,,
+MRI-ESM2-0,esm-piControl,fgco2,pangeo,fgco2,r1i2p1f1,gr,200.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,esm-piControl,nbp,missing,,,,,,,
+MRI-ESM2-0,esm-piControl,tas,pangeo,tas,r1i2p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,historical,fgco2,pangeo,fgco2,r1i2p1f1,gr,165.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,historical,nbp,esgf,nbp,r1i2p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,sftlf/100 (pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/ssp245-cov-fossil/r1i1p1f1/fx/sftlf/gn/v20201223/),
+MRI-ESM2-0,historical,tas,pangeo,tas,r1i2p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+MRI-ESM2-0,piControl,fgco2,pangeo,fgco2,r1i2p1f1,gr,200.0,spherical cell area from regular lat/lon (no cell area found),,not applied (sftof not found)
+MRI-ESM2-0,piControl,nbp,missing,,,,,,,
+MRI-ESM2-0,piControl,tas,pangeo,tas,r1i2p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/,,
+NorESM2-LM,1pctCO2,fgco2,missing,,,,,,,
+NorESM2-LM,1pctCO2,nbp,missing,,,,,,,
+NorESM2-LM,1pctCO2,tas,pangeo,tas,r1i1p1f1,gn,150.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,1pctCO2-bgc,fgco2,qc_fail,fgco2,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000
+NorESM2-LM,1pctCO2-bgc,nbp,missing,,,,,,,
+NorESM2-LM,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,1pctCO2-rad,fgco2,missing,,,,,,,
+NorESM2-LM,1pctCO2-rad,nbp,missing,,,,,,,
+NorESM2-LM,1pctCO2-rad,tas,pangeo,tas,r1i1p1f1,gn,140.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,esm-hist,co2,esgf,co2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,esm-hist,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000
+NorESM2-LM,esm-hist,nbp,esgf,nbp,r1i1p1f1,gn,164.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,sftlf/100 (esgf:https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/AerChemMIP/NCC/NorESM2-LM/hist-piAer/r1i1p1f1/fx/sftlf/gn/v20190815/sftlf_fx_NorESM2-LM_hist-piAer_r1i1p1f1_gn.nc),
+NorESM2-LM,esm-hist,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,esm-piControl,co2,missing,,,,,,,
+NorESM2-LM,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000
+NorESM2-LM,esm-piControl,nbp,missing,,,,,,,
+NorESM2-LM,esm-piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,historical,fgco2,pangeo,fgco2,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000
+NorESM2-LM,historical,nbp,esgf,nbp,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,sftlf/100 (esgf:https://esgf.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/AerChemMIP/NCC/NorESM2-LM/hist-piAer/r1i1p1f1/fx/sftlf/gn/v20190815/sftlf_fx_NorESM2-LM_hist-piAer_r1i1p1f1_gn.nc),
+NorESM2-LM,historical,tas,pangeo,tas,r1i1p1f1,gn,165.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+NorESM2-LM,piControl,fgco2,missing,,,,,,,
+NorESM2-LM,piControl,nbp,missing,,,,,,,
+NorESM2-LM,piControl,tas,pangeo,tas,r1i1p1f1,gn,200.0,pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/,,
+UKESM1-0-LL,1pctCO2,fgco2,pangeo,fgco2,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,1pctCO2,nbp,missing,,,,,,,
+UKESM1-0-LL,1pctCO2,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,1pctCO2-bgc,fgco2,pangeo,fgco2,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,1pctCO2-bgc,nbp,missing,,,,,,,
+UKESM1-0-LL,1pctCO2-bgc,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,1pctCO2-rad,fgco2,missing,,,,,,,
+UKESM1-0-LL,1pctCO2-rad,nbp,missing,,,,,,,
+UKESM1-0-LL,1pctCO2-rad,tas,pangeo,tas,r1i1p1f2,gn,150.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,esm-hist,co2,esgf,co2mass,r1i1p1f2,gm,165.0,,,
+UKESM1-0-LL,esm-hist,fgco2,esgf,fgco2,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,esm-hist,nbp,pangeo,nbp,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/sftlf/gn/v20190705/),
+UKESM1-0-LL,esm-hist,tas,pangeo,tas,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,esm-piControl,co2,missing,,,,,,,
+UKESM1-0-LL,esm-piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,esm-piControl,nbp,missing,,,,,,,
+UKESM1-0-LL,esm-piControl,tas,pangeo,tas,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,historical,fgco2,pangeo,fgco2,r5i1p1f3,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,historical,nbp,pangeo,nbp,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,sftlf/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/sftlf/gn/v20190705/),
+UKESM1-0-LL,historical,tas,pangeo,tas,r1i1p1f2,gn,165.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,
+UKESM1-0-LL,piControl,fgco2,pangeo,fgco2,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/areacello/gn/v20190705/,,sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/Ofx/sftof/gn/v20190705/); sum(area*sftof)/sum(area)=1.0000
+UKESM1-0-LL,piControl,nbp,missing,,,,,,,
+UKESM1-0-LL,piControl,tas,pangeo,tas,r1i1p1f2,gn,200.0,pangeo:gs://cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/piControl/r1i1p1f2/fx/areacella/gn/v20190705/,,

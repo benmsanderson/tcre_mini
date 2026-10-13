@@ -1,0 +1,80 @@
+{
+ "source_id": "MRI-ESM2-0",
+ "experiment_id": "esm-piControl",
+ "preferred_member": "r1i2p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/DAMIP/MRI/MRI-ESM2-0/hist-volc/r1i1p1f1/fx/areacella/gn/v20210113/",
+   "total_weight_m2": 510064470456320.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i2p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/esm-piControl/r1i2p1f1/Amon/tas/gn/v20191205/",
+   "version": "20191205",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i2p1f1",
+    "branch_time_in_parent": 55152.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i2p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/7f093dab-a4c9-4bc6-8790-e7aa80a79c94",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MRI.MRI-ESM2-0.esm-piControl.none.r1i2p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "spherical cell area from regular lat/lon (no cell area found)",
+   "sea_fraction": "not applied (sftof not found)",
+   "total_weight_m2": 510064471909788.25,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i2p1f1",
+   "grid_label": "gr",
+   "zstore": "gs://cmip6/CMIP6/CMIP/MRI/MRI-ESM2-0/esm-piControl/r1i2p1f1/Omon/fgco2/gr/v20200310/",
+   "version": "20200310",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i2p1f1",
+    "branch_time_in_parent": 55152.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1850-01-01",
+    "branch_method": "standard",
+    "variant_label": "r1i2p1f1",
+    "grid_label": "gr",
+    "tracking_id": "hdl:21.14100/1f81a359-63fe-4c79-9bb6-9620dc6b482b",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.MRI.MRI-ESM2-0.esm-piControl.none.r1i2p1f1",
+    "calendar": "proleptic_gregorian"
+   },
+   "n_years": 200
+  },
+  "co2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

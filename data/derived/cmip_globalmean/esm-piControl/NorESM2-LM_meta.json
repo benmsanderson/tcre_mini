@@ -1,0 +1,80 @@
+{
+ "source_id": "NorESM2-LM",
+ "experiment_id": "esm-piControl",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/ScenarioMIP/NCC/NorESM2-LM/ssp245/r1i1p1f1/fx/areacella/gn/v20191108/",
+   "total_weight_m2": 510099750586368.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-piControl/r1i1p1f1/Amon/tas/gn/v20190920/",
+   "version": "20190920",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1851-01-01",
+    "branch_method": "Hybrid-restart from year 1851-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/94c0c85e-ac2b-49c1-86d8-80e23ae1fbdc\nhdl:21.14100/ce586236-eaf6-49af-87a7-041afa85ac49\nhdl:21.14100/4b2d0b51-fdef-48d5-99c8-bca11a7ed3b4\nhdl:21.14100/eef2a9f6-393b-4061-bb51-45e637d10b24\nhdl:21.14100/ce66e5f0-addc-407a-84db-3790d6f10a34\nhdl:21.14100/c4404b74-89d9-4be4-a12e-26e8468a9b82\nhdl:21.14100/07048396-f1bb-47dc-9226-0d1f7b3b63fc\nhdl:21.14100/c3d5224f-c886-43d4-b695-5dc10e2cfd81\nhdl:21.14100/7e910ed7-f0db-464b-ad11-6446da6d4a5a\nhdl:21.14100/43b4efed-67a1-4858-b4d9-24b2faa132dc\nhdl:21.14100/e02917a4-6c69-4abc-a442-4d2da482032a\nhdl:21.14100/d900dd22-5bae-4d3f-8045-31147ac1aecd\nhdl:21.14100/c050220b-e740-4595-a1e0-9b76af478690\nhdl:21.14100/4946940f-b9f0-4a02-b4e7-77b58fe82aa1\nhdl:21.14100/0233d895-452f-4d70-a558-fffd43b8cf83\nhdl:21.14100/e041829b-62a4-4628-be90-b314795ab423\nhdl:21.14100/3bac0f09-f480-47b5-a71c-8db84ccd56da\nhdl:21.14100/eacb0311-1fe4-47e3-a27d-f25cdff67166\nhdl:21.14100/6143e8df-11d4-47d2-8b53-ea7e11c56774\nhdl:21.14100/3de3c770-a50e-4cd0-9923-7371956cf746\nhdl:21.14100/4f002a44-9f58-4808-9426-965b5770b85e\nhdl:21.14100/4ffd3a13-d5d8-4d38-84a7-e959df217a45\nhdl:21.14100/72833276-83f8-41ee-a794-440829a02f90\nhdl:21.14100/33aaefd7-968c-4070-9941-9d7e955a220d\nhdl:21.14100/50a7b3bc-9192-487a-af24-245b10de7d0f",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.esm-piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "units_in": "kg m-2 s-1",
+   "cell_methods": "area: mean where sea time: mean",
+   "cell_measures": "area: areacello",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/piControl/r1i1p1f1/Ofx/areacello/gn/v20210118/",
+   "sea_fraction": "sftof/100 (pangeo:gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-hist/r1i1p1f1/Ofx/sftof/gn/v20200218/); sum(area*sftof)/sum(area)=1.0000",
+   "total_weight_m2": 360624513470656.0,
+   "source": "pangeo",
+   "variable_id": "fgco2",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/NCC/NorESM2-LM/esm-piControl/r1i1p1f1/Omon/fgco2/gn/v20190920/",
+   "version": "20190920",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i1p1f1",
+    "branch_time_in_parent": 0.0,
+    "branch_time_in_child": 0.0,
+    "parent_time_units": "days since 1851-01-01",
+    "branch_method": "Hybrid-restart from year 1851-01-01 of piControl",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/cb4b2f7a-f437-4a3b-bd91-57aeaafdb2f6\nhdl:21.14100/b1ff2a79-8535-4160-abc1-44f91def3440\nhdl:21.14100/85271396-789d-4b50-a2ba-a56cf63ea1ea\nhdl:21.14100/0f96aa45-0186-4c9f-b3f9-4d133d1ed348\nhdl:21.14100/7045d104-c929-4744-9cc2-e189bfd8bbea\nhdl:21.14100/cdcca243-f2ba-48ee-8e28-3cf335e5d92b\nhdl:21.14100/e102dbaf-ef29-4739-93ab-1a891d4d72e6\nhdl:21.14100/83351144-f414-460e-b6e4-21f34e8b325e\nhdl:21.14100/b0fc3987-2f9e-4aa4-b308-d75d5fed3039\nhdl:21.14100/1cb4352c-a838-43f9-b0bb-4b72c69b9793\nhdl:21.14100/717cc40b-4721-4b4a-a4cc-305b74efce8c\nhdl:21.14100/c042aa18-8ea8-4c53-9bf7-7ca125cae5ab\nhdl:21.14100/19541d22-6e3e-4352-a2fb-d4182b4a76cc\nhdl:21.14100/57abc8ff-2213-482d-9beb-e2190f2357ae\nhdl:21.14100/8a15b7e9-bfd3-4d0c-90b1-296fe1335f44\nhdl:21.14100/96eb0ee1-3dec-4d58-b2c5-fb00fcbacdeb\nhdl:21.14100/8a7a9b65-e61c-4e69-b887-ac8cc9da186a\nhdl:21.14100/84675389-da20-4ac5-a7d1-91c889922b9c\nhdl:21.14100/d06c2c6f-d26d-40a4-bb5e-4e9538580435\nhdl:21.14100/f3780870-a66d-411f-9456-76baf41f4f8a\nhdl:21.14100/2062e013-57f2-4423-a66c-1aa8bb35cb00\nhdl:21.14100/3c14fb4a-2ec8-48b0-b199-c137e56d2631\nhdl:21.14100/a60db88f-aa01-474d-bdbb-6f127987016d\nhdl:21.14100/22e825bf-e2de-49b6-a0b2-0ee936581172\nhdl:21.14100/4aa92628-2d5b-47cb-9e1e-44841fb33033",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.NCC.NorESM2-LM.esm-piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "co2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}

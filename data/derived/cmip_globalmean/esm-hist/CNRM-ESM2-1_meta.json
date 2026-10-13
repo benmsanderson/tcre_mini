@@ -126,6 +126,6 @@
   }
  },
  "sanity_flags": [
-  "cumulative fgco2 -74.1 PgC <= 0 (sign?)"
+  "fgco2 initial 20-yr mean -0.85 PgC/yr (pre-industrial outgassing or drift; correct with control)"
  ]
 }

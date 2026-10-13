@@ -1,0 +1,56 @@
+{
+ "source_id": "CanESM5",
+ "experiment_id": "esm-piControl",
+ "preferred_member": "r1i1p1f1",
+ "units": {
+  "tas": "K",
+  "nbp": "PgC/yr (positive into land)",
+  "fgco2": "PgC/yr (positive into ocean)",
+  "co2": "ppm"
+ },
+ "annual_method": "month-length-weighted from monthly; complete years only",
+ "control_years_kept": 200,
+ "retrieved": "2026-10-13",
+ "variables": {
+  "tas": {
+   "units_in": "K",
+   "cell_methods": "area: time: mean",
+   "cell_measures": "area: areacella",
+   "area": "pangeo:gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/fx/areacella/gn/v20190429/",
+   "total_weight_m2": 510099702677504.0,
+   "source": "pangeo",
+   "variable_id": "tas",
+   "member_id": "r1i1p1f1",
+   "grid_label": "gn",
+   "zstore": "gs://cmip6/CMIP6/CMIP/CCCma/CanESM5/esm-piControl/r1i1p1f1/Amon/tas/gn/v20190429/",
+   "version": "20190429",
+   "attrs": {
+    "parent_experiment_id": "esm-piControl-spinup",
+    "parent_variant_label": "r1i1p2f1",
+    "branch_time_in_parent": 1259615.0,
+    "branch_time_in_child": 1259615.0,
+    "parent_time_units": "days since 1850-01-01 0:0:0.0",
+    "branch_method": "Spin-up documentation",
+    "variant_label": "r1i1p1f1",
+    "grid_label": "gn",
+    "tracking_id": "hdl:21.14100/86f84322-8cf1-47f5-bd49-0db9e12530bd\nhdl:21.14100/f0a9a090-483b-44ea-ba1a-dae6d95d16ea\nhdl:21.14100/9cdc9562-fa4e-4d4a-b632-708b43da2fce\nhdl:21.14100/eb2a3386-558a-4e02-925d-1e167ab924ce\nhdl:21.14100/2796febd-dc03-4b58-94ab-b454d9c556bc\nhdl:21.14100/c3c779a4-f7ca-4013-9c0d-d008723a820e",
+    "further_info_url": "https://furtherinfo.es-doc.org/CMIP6.CCCma.CanESM5.esm-piControl.none.r1i1p1f1",
+    "calendar": "noleap"
+   },
+   "n_years": 200
+  },
+  "nbp": {
+   "source": "missing",
+   "error": null
+  },
+  "fgco2": {
+   "source": "missing",
+   "error": null
+  },
+  "co2": {
+   "source": "missing",
+   "error": null
+  }
+ },
+ "sanity_flags": []
+}
