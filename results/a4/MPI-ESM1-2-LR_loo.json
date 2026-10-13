@@ -1,0 +1,32 @@
+{
+ "model": "MPI-ESM1-2-LR",
+ "mode": "loo",
+ "heldout": [
+  "MPI-ESM1-2-LR"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0027698960579297,
+   "ess_bulk_min": 1837.0310360966196,
+   "ess_tail_min": 2174.612453677504,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 0.9997522230321544,
+   "ess_bulk_min": 2030.06301844896,
+   "ess_tail_min": 2536.708788937749,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0022011367522394,
+   "ess_bulk_min": 1495.4767382524617,
+   "ess_tail_min": 1338.2228857570215,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}

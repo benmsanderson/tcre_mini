@@ -1,0 +1,32 @@
+{
+ "model": "IPSL-CM6A-LR",
+ "mode": "loo",
+ "heldout": [
+  "IPSL-CM6A-LR"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0015014596619078,
+   "ess_bulk_min": 2574.8735866181387,
+   "ess_tail_min": 2616.2634098979106,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0004663247444479,
+   "ess_bulk_min": 2482.5026969622554,
+   "ess_tail_min": 2874.23765736932,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0010397944501654,
+   "ess_bulk_min": 1608.7207943857316,
+   "ess_tail_min": 1068.6110151275168,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}

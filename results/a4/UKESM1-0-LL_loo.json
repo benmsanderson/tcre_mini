@@ -1,0 +1,32 @@
+{
+ "model": "UKESM1-0-LL",
+ "mode": "loo",
+ "heldout": [
+  "UKESM1-0-LL"
+ ],
+ "diagnostics": {
+  "gamma_land": {
+   "rhat_max": 1.0023754933189073,
+   "ess_bulk_min": 1853.2766316117784,
+   "ess_tail_min": 2046.9253412724443,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "beta_land": {
+   "rhat_max": 1.0015144701985392,
+   "ess_bulk_min": 1970.523446587437,
+   "ess_tail_min": 2521.119564601314,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "ocean": {
+   "rhat_max": 1.0002789993797379,
+   "ess_bulk_min": 2591.8217255169884,
+   "ess_tail_min": 1747.485858342498,
+   "divergences": 0,
+   "n_draws": 4000
+  }
+ },
+ "n_train_land": 12,
+ "n_train_ocean": 12
+}
