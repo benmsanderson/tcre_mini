@@ -4,6 +4,13 @@ Runs the patched upstream builders on the frozen snapshot for several seeds and
 writes results/m0_upstream_reproduction.json.
 Usage: python scripts/m0_reproduce_upstream.py [--seeds 0 100 200]
 """
+import os
+
+# One BLAS thread per process: multithreaded BLAS in forked chain workers stalled
+# the ocean model sampling (>30 min vs 13 s single-threaded).
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ.setdefault(_v, "1")
+
 import argparse
 import json
 import platform
