@@ -1,0 +1,92 @@
+{
+  "n": 400000,
+  "seed": 0,
+  "models_intersect_order": [
+    "ACCESS-ESM1-5",
+    "CESM2",
+    "CMCC-ESM2",
+    "CanESM5",
+    "EC-Earth3-CC",
+    "GFDL-ESM4",
+    "IPSL-CM6A-LR",
+    "MIROC-ES2L",
+    "MPI-ESM1-2-LR",
+    "NorESM2-LM",
+    "UKESM1-0-LL"
+  ],
+  "hardcoded_alpha": {
+    "correlations": {
+      "beta_L,gamma_L": -0.378588373635216,
+      "beta,alpha*gamma": -0.294910814023242,
+      "alpha,alpha*gamma": -0.532412934596911,
+      "beta_O,gamma_O": -0.555495847109105,
+      "alpha,beta_O": 0.5153912821439943
+    },
+    "schemes": {
+      "paired": {
+        "sd_af": 0.03584296081920615,
+        "tcre_mean": 1.843132927421694,
+        "tcre_sd": 0.47486169022075025,
+        "tcre_p05": 1.3137633245044444,
+        "tcre_p95": 2.847936995885571
+      },
+      "upstream": {
+        "sd_af": 0.04366070537028641,
+        "tcre_mean": 1.8372462803075627,
+        "tcre_sd": 0.44186445012640857,
+        "tcre_p05": 1.2612437523077988,
+        "tcre_p95": 2.5922871746241865
+      },
+      "independent": {
+        "sd_af": 0.043914027227056014,
+        "tcre_mean": 1.8373521873827723,
+        "tcre_sd": 0.4422153440952733,
+        "tcre_p05": 1.2606914960409543,
+        "tcre_p95": 2.5933102515785844
+      }
+    }
+  },
+  "alpha_by_name": {
+    "models": [
+      "ACCESS-ESM1-5",
+      "CESM2",
+      "CanESM5",
+      "GFDL-ESM4",
+      "IPSL-CM6A-LR",
+      "MIROC-ES2L",
+      "MPI-ESM1-2-LR",
+      "NorESM2-LM",
+      "UKESM1-0-LL"
+    ],
+    "correlations": {
+      "beta_L,gamma_L": -0.36784034497539086,
+      "beta,alpha*gamma": -0.3746219395543585,
+      "alpha,alpha*gamma": 0.2797351652101938,
+      "beta_O,gamma_O": -0.5395657246423836,
+      "alpha,beta_O": -0.023875654803353026
+    },
+    "schemes": {
+      "paired": {
+        "sd_af": 0.024582676687365686,
+        "tcre_mean": 1.853337081583297,
+        "tcre_sd": 0.40712831361051866,
+        "tcre_p05": 1.3222244482557681,
+        "tcre_p95": 2.353175816890736
+      },
+      "upstream": {
+        "sd_af": 0.038161324357672256,
+        "tcre_mean": 1.8740825869707884,
+        "tcre_sd": 0.4593036157579724,
+        "tcre_p05": 1.2513023194281703,
+        "tcre_p95": 2.577450731149075
+      },
+      "independent": {
+        "sd_af": 0.03840911246155766,
+        "tcre_mean": 1.8741990008234626,
+        "tcre_sd": 0.4596183867268203,
+        "tcre_p05": 1.2512998370321122,
+        "tcre_p95": 2.578465891039047
+      }
+    }
+  }
+}

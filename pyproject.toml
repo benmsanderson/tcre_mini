@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tcre_evidence"
+version = "0.1.0"
+description = "Lines-of-evidence testbed for TCRE: diagnostics of the Bayesian process framework and a TCR x R alternative"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy", "pandas", "scipy", "xarray", "netCDF4",
+  "pymc>=5.16,<6", "arviz>=0.20,<1", "matplotlib", "joblib",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+cmip = ["intake-esm", "gcsfs", "zarr"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: runs MCMC sampling"]
+addopts = "-m 'not slow'"

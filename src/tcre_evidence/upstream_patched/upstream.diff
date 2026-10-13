@@ -1,0 +1,135 @@
+--- ../../../external/TCRE_Assessment/bayes/CMIP_process.py	2026-10-13 06:03:27.106853788 +0000
++++ CMIP_process.py	2026-10-13 06:06:58.428954350 +0000
+@@ -82,22 +82,22 @@
+         # -------------------------------
+         # Structural variance and bias
+         # -------------------------------
+-        sigma_struct_var = resolve_sigma("sigma_struct", sigma_struct, 20.0)
++        sigma_struct_var = resolve_sigma(f"{var_name}_sigma_struct", sigma_struct, 20.0)
+ 
+         if isinstance(rho, (int, float)):
+             rho_var = float(rho)
+         else:
+             prior = rho if isinstance(rho, dict) else {}
+-            rho_var = pm.Beta("rho", prior.get("alpha", 5), prior.get("beta", 5))
++            rho_var = pm.Beta(f"{var_name}_rho", prior.get("alpha", 5), prior.get("beta", 5))
+ 
+-        sigma_common = pm.Deterministic("sigma_common", sigma_struct_var * pt.sqrt(rho_var))
+-        sigma_m = pm.Deterministic("sigma_m", sigma_struct_var * pt.sqrt(1 - rho_var))
++        sigma_common = pm.Deterministic(f"{var_name}_sigma_common", sigma_struct_var * pt.sqrt(rho_var))
++        sigma_m = pm.Deterministic(f"{var_name}_sigma_m", sigma_struct_var * pt.sqrt(1 - rho_var))
+ 
+-        bias_m_raw = pm.Normal("bias_m_raw", 0, 1, dims="model")
+-        bias_m = pm.Deterministic("bias_m", bias_m_raw * sigma_m)
++        bias_m_raw = pm.Normal(f"{var_name}_bias_m_raw", 0, 1, dims="model")
++        bias_m = pm.Deterministic(f"{var_name}_bias_m", bias_m_raw * sigma_m)
+ 
+-        bias_common_raw = pm.Normal("bias_common_raw", 0, 1)
+-        bias_common = pm.Deterministic("bias_common", bias_common_raw * sigma_common)
++        bias_common_raw = pm.Normal(f"{var_name}_bias_common_raw", 0, 1)
++        bias_common = pm.Deterministic(f"{var_name}_bias_common", bias_common_raw * sigma_common)
+ 
+         # ====================================================
+         # ADDITIVE PROCESSES
+@@ -108,22 +108,22 @@
+                 prior = delta_priors.get(p, {"mu": 0, "sigma": 50})  # default
+                 if callable(prior):
+                     # Use the callable directly
+-                    delta_p = prior(p)
++                    delta_p = prior(f"{var_name}_{p}")
+                 else:
+                     # Use dict-style specification
+                     mu = prior.get("mu", 0)
+                     sigma = prior.get("sigma", 50)
+-                    delta_p = pm.Normal(p, mu=mu, sigma=sigma)
++                    delta_p = pm.Normal(f"{var_name}_{p}", mu=mu, sigma=sigma)
+                 delta_list.append(delta_p)
+             # stack into a single tensor variable with dims
+-            delta = pm.Deterministic("delta", pt.stack(delta_list), dims="additive_process")
++            delta = pm.Deterministic(f"{var_name}_delta", pt.stack(delta_list), dims="additive_process")
+             # delta_mu = np.array([delta_priors.get(p, {}).get("mu", 0) for p in additive_processes])
+             # delta_sigma = np.array([delta_priors.get(p, {}).get("sigma", 50) for p in additive_processes])
+ 
+-            # delta = pm.Normal("delta", mu=delta_mu, sigma=delta_sigma, dims="additive_process")  # (N_add,)
++            # delta = pm.Normal(f"{var_name}_delta", mu=delta_mu, sigma=delta_sigma, dims="additive_process")  # (N_add,)
+ 
+             sigma_add = np.array([sigma_process_struct.get(p, 5.0) for p in additive_processes])
+-            eps_add = pm.Normal("eps_add", 0, sigma_add[:, None], dims=("additive_process", "model"))  # (N_add, M)
++            eps_add = pm.Normal(f"{var_name}_eps_add", 0, sigma_add[:, None], dims=("additive_process", "model"))  # (N_add, M)
+ 
+             delta_pm = delta[:, None] + eps_add  # (N_add, M)
+             delta_eff = pt.sum(L_add * delta_pm, axis=0)  # (M,)
+@@ -137,18 +137,18 @@
+             eta_mu = np.array([eta_priors.get(p, {}).get("mu", 0.0) for p in multiplicative_processes])
+             eta_sigma = np.array([eta_priors.get(p, {}).get("sigma", 0.2) for p in multiplicative_processes])
+ 
+-            # log_eta = pm.Normal("log_eta", mu=eta_mu, sigma=eta_sigma, dims="multiplicative_process")  # (N_mult,)
+-            # eta = pm.Deterministic("eta", pt.exp(log_eta),dims="multiplicative_process")
+-            log_eta_offset = pm.Normal("log_eta_offset", 0, 1, dims="multiplicative_process")
+-            log_eta = pm.Deterministic("log_eta", eta_mu + log_eta_offset * eta_sigma)
+-            eta = pm.Deterministic("eta", pt.exp(log_eta))
++            # log_eta = pm.Normal(f"{var_name}_log_eta", mu=eta_mu, sigma=eta_sigma, dims="multiplicative_process")  # (N_mult,)
++            # eta = pm.Deterministic(f"{var_name}_eta", pt.exp(log_eta),dims="multiplicative_process")
++            log_eta_offset = pm.Normal(f"{var_name}_log_eta_offset", 0, 1, dims="multiplicative_process")
++            log_eta = pm.Deterministic(f"{var_name}_log_eta", eta_mu + log_eta_offset * eta_sigma)
++            eta = pm.Deterministic(f"{var_name}_eta", pt.exp(log_eta))
+             
+             sigma_mult = np.array([sigma_mult_struct.get(p, 0.05) for p in multiplicative_processes])
+-            eps_mult = pm.Normal("eps_mult", 0, sigma_mult[:, None], dims=("multiplicative_process", "model"))  # (N_mult, M)
++            eps_mult = pm.Normal(f"{var_name}_eps_mult", 0, sigma_mult[:, None], dims=("multiplicative_process", "model"))  # (N_mult, M)
+ 
+             log_eta_pm = log_eta[:, None] + eps_mult  # (N_mult, M)
+             log_mult_eff = pt.sum(L_mult * log_eta_pm, axis=0)  # (M,)
+-            mult_eff = pm.Deterministic("mult_eff", pt.exp(log_mult_eff), dims="model")
++            mult_eff = pm.Deterministic(f"{var_name}_mult_eff", pt.exp(log_mult_eff), dims="model")
+         else:
+             mult_eff = 1.0
+ 
+@@ -157,7 +157,7 @@
+         # ====================================================
+         mu = X_unscaled * mult_eff + delta_eff + bias_common + bias_m
+ 
+-        pm.Normal("X_obs", mu=mu, sigma=likelihood_noise, observed=X_m, dims="model")
++        pm.Normal(f"{var_name}_CMIP", mu=mu, sigma=likelihood_noise, observed=X_m, dims="model")
+         # ----------------------------------------------------
+         # Posterior deterministic for scalar X_true
+         # ----------------------------------------------------
+@@ -182,7 +182,8 @@
+     process_name,
+     process_data,
+     process_sigma=0.1,
+-    process_iteration=None
++    process_iteration=None,
++    var_name=None,
+ ):
+     """
+     Add observed information about a process (multiplicative or additive)
+@@ -208,7 +209,7 @@
+ 
+         pm.Normal(
+             label,
+-            mu=model["eta"][proc_idx],
++            mu=model[f"{var_name}_eta" if var_name else "eta"][proc_idx],
+             sigma=process_sigma,
+             observed=process_data
+         )
+@@ -219,7 +220,7 @@
+ 
+         pm.Normal(
+             label,
+-            mu=model["delta"][proc_idx],
++            mu=model[f"{var_name}_delta" if var_name else "delta"][proc_idx],
+             sigma=process_sigma,
+             observed=process_data
+         )
+--- ../../../external/TCRE_Assessment/bayes/model_builders.py	2026-10-13 06:03:27.107497261 +0000
++++ model_builders.py	2026-10-13 06:06:58.429248154 +0000
+@@ -16,7 +16,7 @@
+ import pymc as pm
+ import xarray as xr
+ 
+-from bayes import CMIP_process
++from tcre_evidence.upstream_patched import CMIP_process
+ 
+ 
+ # ── Prior translators ────────────────────────────────────────────────────

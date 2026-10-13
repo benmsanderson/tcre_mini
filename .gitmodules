@@ -1,0 +1,6 @@
+[submodule "external/TCRE_Assessment"]
+	path = external/TCRE_Assessment
+	url = https://github.com/netzeroasap/TCRE_Assessment
+[submodule "external/esm-deck"]
+	path = external/esm-deck
+	url = https://github.com/benmsanderson/esm-deck
