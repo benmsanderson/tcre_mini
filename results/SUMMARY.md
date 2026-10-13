@@ -40,7 +40,19 @@ Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K E
 
 - Deck models with α, β, γ from the same runs: corr(β_L, γ_L) = −0.82, corr(β, αγ) = −0.84, corr(β_O, γ_O) = −0.71, corr(α, αγ) = +0.42, corr(α, β_O) = −0.28. Independent recombination doubles the sd of AF (0.060 against 0.030 paired, a factor of four in variance, as estimated in HANDOVER §2.3) and widens both TCRE tails: 5–95 % [1.21, 2.65] against [1.15, 2.52] paired. With consistent inputs, discarding covariance inflates rather than truncates the upper tail.
 
-<!-- A3 -->
+- Upstream pipeline variants (seed 0; `results/m3_covariance.json`, `fig_m3_covariance.png`):
+
+  | variant | TCRE mean ± sd | 5–95 % | 95 % HDI |
+  |---|---|---|---|
+  | U, as published | 1.77 ± 0.47 | 1.07–2.58 | 0.90–2.71 |
+  | J, joint land model (correlated per-model biases) | 1.77 ± 0.46 | 1.07–2.58 | 0.95–2.78 |
+  | U + TCR–carbon rank correlation from the deck | 1.74 ± 0.38 | 1.10–2.35 | 1.02–2.51 |
+  | J + TCR–carbon rank correlation from the deck | 1.73 ± 0.38 | 1.10–2.34 | 1.01–2.48 |
+  | U + TCR–carbon rank correlation from the hard-coded α order | 1.79 ± 0.51 | 1.05–2.68 | 0.84–2.76 |
+
+- Fitting β_L and γ_L jointly does not change the result. The per-model biases are correlated (posterior mean −0.46 between β_L and tropical γ_L, −0.39 with extratropical γ_L), but the framework's reported truth (baseline × Πη + Σδ) excludes the biases, so the posterior correlation of the land truths is 0.01 to 0.04 either way. In this structure the cross-model β–γ covariance does not reach the TCRE estimate. (Joint fit: r̂ 1.001, bulk ESS > 2500, 8 divergences in 4000 draws.)
+- Retaining the TCR–carbon covariance does matter: imposing the deck's cross-model rank correlations (TCR–β −0.15, TCR–γ +0.56 [90 % CI 0.06, 0.84], β–γ −0.44; n = 11) on the TCR prior and carbon posteriors lowers the 95th percentile from 2.58 to 2.35 and the HDI upper bound from 2.71 to 2.51. With the misaligned hard-coded α the same procedure moves the upper tail the other way.
+- Which covariances survive substituting the assessed TCR: only TCR–γ is distinguishable from zero across 11 models, and only at the 90 % level. Imposing it assumes the cross-model relationship reflects a physical link that also holds for the real world; it is reported as a sensitivity, not a preferred estimate.
 
 ## M4 / A4. Perfect-model test of the upstream framework (`scripts/m4_perfect_model.py`)
 
