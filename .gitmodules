@@ -4,3 +4,6 @@
 [submodule "external/esm-deck"]
 	path = external/esm-deck
 	url = https://github.com/benmsanderson/esm-deck
+[submodule "note"]
+	path = note
+	url = https://github.com/benmsanderson/tcre_bayes_paper.git
