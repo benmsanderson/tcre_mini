@@ -1,0 +1,60 @@
+{
+ "beta_land_coubgc": {
+  "mean_with_N": 1.039600485514513,
+  "mean_without_N": 1.4279907432110546,
+  "n_with": 6,
+  "n_without": 5,
+  "ratio_with_over_without": 0.7280162637306828,
+  "welch_p": 0.09738380615537875,
+  "perm_p": 0.0495975201239938
+ },
+ "beta_land_sheet": {
+  "mean_with_N": 0.9314785000000001,
+  "mean_without_N": 1.4080428,
+  "n_with": 8,
+  "n_without": 5,
+  "ratio_with_over_without": 0.6615413253063046,
+  "welch_p": 0.09441758978259408,
+  "perm_p": 0.04009799510024499
+ },
+ "H_land": {
+  "mean_with_N": 42.18805734525431,
+  "mean_without_N": 36.9675570252378,
+  "n_with": 8,
+  "n_without": 4,
+  "ratio_with_over_without": 1.1412184288091438,
+  "welch_p": 0.8641375286354035,
+  "perm_p": 0.8383080845957702
+ },
+ "H_ocean": {
+  "mean_with_N": 88.69853280584343,
+  "mean_without_N": 88.15753190988124,
+  "n_with": 8,
+  "n_without": 4,
+  "ratio_with_over_without": 1.0061367518377808,
+  "welch_p": 0.8752840537601523,
+  "perm_p": 0.8633568321583921
+ },
+ "gamma_land_coubgc": {
+  "mean_with_N": -21.689667270010204,
+  "mean_without_N": -47.84587040423091,
+  "n_with": 6,
+  "n_without": 5,
+  "ratio_with_over_without": 0.4533237056147741,
+  "welch_p": 0.3007020537726852,
+  "perm_p": 0.2564871756412179
+ },
+ "R": {
+  "mean_with_N": 0.9090501940235377,
+  "mean_without_N": 0.8549414400438993,
+  "n_with": 6,
+  "n_without": 5,
+  "ratio_with_over_without": 1.0632894271411852,
+  "welch_p": 0.14159298933106068,
+  "perm_p": 0.10529473526323684
+ },
+ "corr_beta_land_H_land": {
+  "r": 0.23530540024840754,
+  "n": 10
+ }
+}
