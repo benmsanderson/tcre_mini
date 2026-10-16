@@ -1,0 +1,142 @@
+{
+ "truth": {
+  "eta": 0.73,
+  "beta_L": 1.0438999999999998,
+  "R": 0.9267741817394904,
+  "gamma_L": -35.0
+ },
+ "settings": {
+  "nrep": 4000,
+  "nbayes": 6,
+  "tau": 20.0,
+  "phi": 0.5,
+  "sd_u": 0.25,
+  "sd_v": 25.0,
+  "H_obs": 7.511999999999986,
+  "luc_mean": 55.0
+ },
+ "aggregate": [
+  {
+   "scenario": "no development effects",
+   "eta_hat": 0.737638094227791,
+   "eta_sd": 0.10531368354731523,
+   "beta_allon": 1.047260005126039,
+   "R_allon": 0.9264022400033537,
+   "R_raw": 0.892027416025009,
+   "R_e2e": 0.9249100245442864,
+   "R_e2e_sd": 0.026770433412940726,
+   "nrecal": 0.0,
+   "R_allon_bias_pct": -0.04013294106215426,
+   "R_raw_bias_pct": -3.7492159793731217,
+   "R_e2e_bias_pct": -0.20114470514329685,
+   "eta_bias": 0.007638094227791048,
+   "beta_allon_bias_pct": 0.3218704019579688
+  },
+  {
+   "scenario": "FACE calibration",
+   "eta_hat": 0.8572690984086869,
+   "eta_sd": 0.060217639136785045,
+   "beta_allon": 1.0445321269360652,
+   "R_allon": 0.9265678694108647,
+   "R_raw": 0.911352608987726,
+   "R_e2e": 0.9272839849389531,
+   "R_e2e_sd": 0.017751445471187264,
+   "nrecal": 0.0,
+   "R_allon_bias_pct": -0.022261337517903712,
+   "R_raw_bias_pct": -1.6640054347240474,
+   "R_e2e_bias_pct": 0.05500835149570005,
+   "eta_bias": 0.12726909840868694,
+   "beta_allon_bias_pct": 0.060554357320175
+  },
+  {
+   "scenario": "recalibration of turnover",
+   "eta_hat": 1.1183038489984345,
+   "eta_sd": 0.2603048346393775,
+   "beta_allon": 1.0661433927232153,
+   "R_allon": 0.932681639861275,
+   "R_raw": 0.9251642537250855,
+   "R_e2e": 0.9236559829908338,
+   "R_e2e_sd": 0.02389672194456163,
+   "nrecal": 7.4655,
+   "R_allon_bias_pct": 0.637421524917392,
+   "R_raw_bias_pct": -0.17371308417151177,
+   "R_e2e_bias_pct": -0.33645723090860447,
+   "eta_bias": 0.3883038489984345,
+   "beta_allon_bias_pct": 2.130797272077367
+  },
+  {
+   "scenario": "recalibration of allocation",
+   "eta_hat": 1.0040687619683242,
+   "eta_sd": 0.17317480373535674,
+   "beta_allon": 1.0099256270570238,
+   "R_allon": 0.9356610758139123,
+   "R_raw": 0.928445152945541,
+   "R_e2e": 0.9295830409537846,
+   "R_e2e_sd": 0.01840597545854746,
+   "nrecal": 7.5085,
+   "R_allon_bias_pct": 0.9589060905583091,
+   "R_raw_bias_pct": 0.18029971474973205,
+   "R_e2e_bias_pct": 0.30307913941043374,
+   "eta_bias": 0.2740687619683242,
+   "beta_allon_bias_pct": -3.254562021551488
+  },
+  {
+   "scenario": "FACE + turnover recalibration",
+   "eta_hat": 1.0654810242979995,
+   "eta_sd": 0.22679913914089228,
+   "beta_allon": 1.0531917023606443,
+   "R_allon": 0.9271233395266846,
+   "R_raw": 0.9262299727213548,
+   "R_e2e": 0.9264658627808151,
+   "R_e2e_sd": 0.019048899745747968,
+   "nrecal": 5.6745,
+   "R_allon_bias_pct": 0.037674526769704286,
+   "R_raw_bias_pct": -0.05872077889721439,
+   "R_e2e_bias_pct": -0.03326797020787309,
+   "eta_bias": 0.33548102429799953,
+   "beta_allon_bias_pct": 0.8900950628072168
+  },
+  {
+   "scenario": "turnover recalibration, target 25 PgC too high",
+   "eta_hat": 1.1154122636356822,
+   "eta_sd": 0.2262897831307795,
+   "beta_allon": 1.4965832299763204,
+   "R_allon": 0.8760595844964576,
+   "R_raw": 0.8532747013284487,
+   "R_e2e": 0.851419069474399,
+   "R_e2e_sd": 0.022651062082754945,
+   "nrecal": 7.94775,
+   "R_allon_bias_pct": -5.472163364310068,
+   "R_raw_bias_pct": -7.930678460753871,
+   "R_e2e_bias_pct": -8.130903271782463,
+   "eta_bias": 0.38541226363568226,
+   "beta_allon_bias_pct": 43.3646163402932
+  }
+ ],
+ "bayes_check": [
+  {
+   "scenario": "no development effects",
+   "eta_ols": 0.783875299431084,
+   "eta_bayes": 0.7858108125942275,
+   "beta_land_bayes": 0.9044190943736732,
+   "rhat_max": 1.0054597464200525,
+   "divergences": 0
+  },
+  {
+   "scenario": "recalibration of turnover",
+   "eta_ols": 1.1186533295292818,
+   "eta_bayes": 1.0346625590185918,
+   "beta_land_bayes": 0.9678478950796178,
+   "rhat_max": 1.0055492395050658,
+   "divergences": 0
+  },
+  {
+   "scenario": "FACE + turnover recalibration",
+   "eta_ols": 1.0509903854549612,
+   "eta_bayes": 0.9760920786419085,
+   "beta_land_bayes": 0.8511400025579808,
+   "rhat_max": 1.0062349911894544,
+   "divergences": 0
+  }
+ ]
+}
