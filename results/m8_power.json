@@ -1,0 +1,136 @@
+{
+ "n_models": 13,
+ "flag_counts": {
+  "nitrogen": 8,
+  "permafrost": 3,
+  "fire": 7,
+  "veg": 4
+ },
+ "flag_correlation": {
+  "nitrogen": {
+   "nitrogen": 1.0,
+   "permafrost": 0.43,
+   "fire": 0.22,
+   "veg": 0.18
+  },
+  "permafrost": {
+   "nitrogen": 0.43,
+   "permafrost": 1.0,
+   "fire": 0.51,
+   "veg": -0.37
+  },
+  "fire": {
+   "nitrogen": 0.22,
+   "permafrost": 0.51,
+   "fire": 1.0,
+   "veg": 0.28
+  },
+  "veg": {
+   "nitrogen": 0.18,
+   "permafrost": -0.37,
+   "fire": 0.28,
+   "veg": 1.0
+  }
+ },
+ "vif": {
+  "nitrogen": 2.546063581203396,
+  "permafrost": 1.4279090747842116,
+  "fire": 1.784197143070037,
+  "veg": 1.7461599179819283
+ },
+ "gamma_land": {
+  "residual_sd": 28.704583016690343,
+  "ols_coef": {
+   "nitrogen": 14.27,
+   "permafrost": 13.216,
+   "fire": 0.578,
+   "veg": 9.522
+  },
+  "se_current": {
+   "nitrogen": 21.0,
+   "permafrost": 34.517,
+   "fire": 24.088,
+   "veg": 26.387
+  }
+ },
+ "log_beta_land": {
+  "residual_sd": 0.3836198551156553,
+  "ols_coef": {
+   "nitrogen": -0.275,
+   "permafrost": -0.327,
+   "fire": -0.074,
+   "veg": -0.068
+  },
+  "se_current": {
+   "nitrogen": 0.281,
+   "permafrost": 0.461,
+   "fire": 0.322,
+   "veg": 0.353
+  }
+ },
+ "power": [
+  {
+   "target": "gamma_land",
+   "process": "nitrogen",
+   "effect": 10.0,
+   "residual_sd": 28.704583016690343,
+   "se_now": 20.99973751484466,
+   "n_needed_same_design": 234,
+   "n_needed_balanced": 138
+  },
+  {
+   "target": "gamma_land",
+   "process": "permafrost",
+   "effect": 30.0,
+   "residual_sd": 28.704583016690343,
+   "se_now": 34.51729855071289,
+   "n_needed_same_design": 78,
+   "n_needed_balanced": 20
+  },
+  {
+   "target": "gamma_land",
+   "process": "fire",
+   "effect": 5.0,
+   "residual_sd": 28.704583016690343,
+   "se_now": 24.088350965286274,
+   "n_needed_same_design": 1209,
+   "n_needed_balanced": 532
+  },
+  {
+   "target": "gamma_land",
+   "process": "veg",
+   "effect": 5.0,
+   "residual_sd": 28.704583016690343,
+   "se_now": 26.387466393577267,
+   "n_needed_same_design": 1456,
+   "n_needed_balanced": 532
+  },
+  {
+   "target": "log_beta_land",
+   "process": "nitrogen",
+   "effect": 0.31471074483970024,
+   "residual_sd": 0.3836198551156553,
+   "se_now": 0.280649130427269,
+   "n_needed_same_design": 52,
+   "n_needed_balanced": 28
+  },
+  {
+   "target": "log_beta_land",
+   "process": "fire",
+   "effect": 0.1,
+   "residual_sd": 0.3836198551156553,
+   "se_now": 0.32192663108553465,
+   "n_needed_same_design": 546,
+   "n_needed_balanced": 240
+  },
+  {
+   "target": "log_beta_land",
+   "process": "veg",
+   "effect": 0.1,
+   "residual_sd": 0.3836198551156553,
+   "se_now": 0.3526529554143823,
+   "n_needed_same_design": 650,
+   "n_needed_balanced": 240
+  }
+ ]
+}

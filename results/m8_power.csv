@@ -1,0 +1,8 @@
+target,process,effect,residual_sd,se_now,n_needed_same_design,n_needed_balanced
+gamma_land,nitrogen,10,28.7,21,234,138
+gamma_land,permafrost,30,28.7,34.5,78,20
+gamma_land,fire,5,28.7,24.1,1209,532
+gamma_land,veg,5,28.7,26.4,1456,532
+log_beta_land,nitrogen,0.315,0.384,0.281,52,28
+log_beta_land,fire,0.1,0.384,0.322,546,240
+log_beta_land,veg,0.1,0.384,0.353,650,240
