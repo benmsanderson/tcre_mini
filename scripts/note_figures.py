@@ -1,7 +1,8 @@
 """Figures for the LaTeX technical note (note/). Reads saved results only; no sampling, so no seed is needed.
 
-Outputs note/figures/{nitrogen,perfect_model,development_bias}.pdf from
-results/m7_nitrogen_historical.csv, results/m4_scores.csv and results/m9_tuning_selection.json.
+Outputs note/figures/{nitrogen,perfect_model,development_bias,completeness}.pdf from
+results/m7_nitrogen_historical.csv, results/m4_scores.csv, results/m9_tuning_selection.json and
+results/m11_completeness.json.
 """
 import json
 from pathlib import Path
@@ -88,9 +89,36 @@ def development_bias():
     pl.save(fig, OUT / "development_bias.pdf")
 
 
+def completeness():
+    d = json.load(open(RESULTS / "m11_completeness.json"))
+    B = pd.DataFrame(d["budget"])
+    B = B[(B.source == "development inputs") & (B.dropped == "none")]
+    labels = {"log_beta_land": r"log $\beta_L$", "gamma_land": r"$\gamma_L$",
+              "gamma_land_tropics": r"$\gamma_L$ tropics", "gamma_land_extratropics": r"$\gamma_L$ extratropics"}
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.2, 2.7))
+    x = np.arange(len(B))
+    a1.bar(x - 0.2, B.r2, 0.4, color=pl.SERIES[0], label="in sample ($R^2$)")
+    a1.bar(x + 0.2, B.loo_q2, 0.4, color=pl.SERIES[1], label="leave one model out")
+    a1.axhline(0, color=pl.TEXT2, lw=0.8)
+    a1.set_xticks(x, [labels[q] for q in B.quantity], fontsize=7.5)
+    a1.set_ylabel("share of variance explained by flags")
+    a1.legend(fontsize=7, loc="lower left")
+    a1.grid(axis="x", visible=False)
+    c = {float(k): v for k, v in d["u0_cov90_by_unrep"].items()}
+    a2.plot(list(c), list(c.values()), "o-", color=pl.SERIES[0], ms=4)
+    a2.axhline(0.9, color=pl.TEXT2, lw=0.8, ls="--")
+    a2.set_xlabel("effect on $\\gamma_L$ present in the real world only (PgC K$^{-1}$)")
+    a2.set_ylabel("coverage of 90 % interval")
+    a2.set_ylim(0, 1.05)
+    a2.invert_xaxis()
+    fig.tight_layout()
+    pl.save(fig, OUT / "completeness.pdf")
+
+
 if __name__ == "__main__":
     pl.style()
     nitrogen()
     perfect_model()
     development_bias()
+    completeness()
     print("wrote", *sorted(p.name for p in OUT.glob("*.pdf")))

@@ -142,6 +142,13 @@ Main findings, in order of weight for the TCRE assessment:
 
 Lines (ii) to (v) all use TCR ~ N(1.7, 0.36) K; line (i) uses each model's own TCR (mean 1.96 K), so (i) and (iv) differ mainly through TCR, not the carbon factor. The difference between (ii) and (iv), 0.27 K EgC⁻¹ in the mean at the same TCR prior, is the framework's adjustment of the carbon factor above the CMIP6 ensemble (item 2 of the overview). The historical attribution line refers to the realised historical pathway; the 1pctCO2-to-flat10 difference in 7 models is +0.05 ± 0.09 K EgC⁻¹, so most of the gap between (vi) and the 1pctCO2-based lines is not a pathway effect of that kind. Perfect-model skill: (ii) −3.92 (0 of 9 models better than the raw ensemble); (v) −0.29 when R is conditioned on TCR and H, +0.00 when on H alone; (iii) was not tested out of sample.
 
+## M11. Process completeness (`scripts/m11_completeness.py`)
+
+- Residual budget (development-code inputs, 13 models): the four flags explain 20 % of the variance in γ_L (adjusted −0.20, leave-one-out −0.70) and 40 % in log β_L (0.11, −0.35); tropics 0.30 / −0.82, extratropics 0.08 / −0.75. Without BCC-CSM2-MR, γ_L leave-one-out −1.76; esm-deck γ_L (11 models) 0.17 / −0.77. Vegetation-flagged models span −1 to −44 PgC K⁻¹.
+- Real-data fit of the single-variable γ_L process model: σ_struct 47 PgC K⁻¹ (prior mean 32), ρ 0.48 (prior 0.50), σ_common 33 [16, 56]; real-world γ_L −47 ± 43 (r̂ 1.005, no divergences).
+- Synthetic (20 replicates each): an effect present in the real world only is covered by the 90 % interval in all replicates up to −40 PgC K⁻¹ and in half at −60. An unflagged −20 PgC K⁻¹ effect in 1 or 3 models leaves the flagged δs within 2.2 PgC K⁻¹ and shifts the real-world estimate by −4.7 (3-model case), about its ensemble share. r̂ ≤ 1.004 for reported quantities; 10 divergences in 6 of 60 fits.
+- Unrepresented-process term on γ_L added to the configuration posterior: none 1.78 [1.07, 2.61]; N(0, 30) 1.78 [1.07, 2.65]; −|N(0, 10/20/30)| 1.80 / 1.83 / 1.86 with 95th percentile 2.67 / 2.75 / 2.81 K EgC⁻¹.
+
 ## Caveats and open items
 
 - Small ensembles throughout: 11 models for the deck feedbacks, 9 to 10 for the perfect-model tests, 7 for flat10. Per-model results are in the CSV files; leave-one-family-out variants use an approximate family table (`src/tcre_evidence/perfect_model.py`).
