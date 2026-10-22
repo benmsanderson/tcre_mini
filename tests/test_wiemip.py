@@ -94,3 +94,16 @@ def test_real_extraction():
     assert fb.dT.iloc[0] == pytest.approx(1.742, abs=1e-3)
     assert fb.dCa.iloc[0] == pytest.approx(280.0, abs=0.5)
     assert set(wm.values_table(fb, "ukesm").model) >= {"CLM", "CLM_FATES", "JULES", "LPJ_GUESS"}
+
+
+def test_factorial_flags(synth):
+    cl, _, _ = synth
+    f = wm.factorial_flags(cl)
+    assert f.loc["A", "nitrogen"] == 1 and np.isnan(f.loc["B", "nitrogen"])
+
+
+def test_design_se_factor_balanced():
+    from tcre_evidence import process_tests as pt
+    # one flag, half the models flagged: se factor = sqrt(1/k + 1/(n-k)) = 2/sqrt(n)
+    assert pt.design_se_factor(16, 8, 0) == pytest.approx(0.5)
+    assert pt.design_se_factor(18, 3, 3) > pt.design_se_factor(18, 9, 3)

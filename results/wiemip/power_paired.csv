@@ -1,0 +1,9 @@
+quantity,scale,process,n_pairs,mean_effect,sd_between_models,se_paired,models,n_needed_sd_r2_0.0,n_needed_sd_r2_0.2,n_needed_robust_sd_r2_0.0,n_needed_robust_sd_r2_0.2
+gamma_land_coubgc,linear,bvoc,1,-1.153,,,VISIT_UT,,,,
+gamma_land_coubgc,linear,fire,10,5.095,8.136,2.573,BiomeE CLASSIC CLM_FATES DVM_DOS_TEM EDv3 JSBACH LPJ_EOSIM LPJ_GUESS LPX_Bern VISIT_UT,736,590,512,410
+gamma_land_coubgc,linear,nitrogen,7,38.36,41.18,15.56,BiomeE CLASSIC CLM DVM_DOS_TEM JSBACH LPJ_EOSIM LPJmL6,18,14,12,12
+gamma_land_coubgc,linear,permafrost,2,13.34,15.22,10.76,LPJ_EOSIM LPX_Bern,110,90,78,62
+beta_land_coubgc,log,bvoc,1,-0.01102,,,VISIT_UT,,,,
+beta_land_coubgc,log,fire,10,-0.08974,0.1175,0.03715,BiomeE CLASSIC CLM_FATES DVM_DOS_TEM EDv3 JSBACH LPJ_EOSIM LPJ_GUESS LPX_Bern VISIT_UT,662,532,262,212
+beta_land_coubgc,log,nitrogen,7,-0.4743,0.6138,0.232,BiomeE CLASSIC CLM DVM_DOS_TEM JSBACH LPJ_EOSIM LPJmL6,26,22,14,12
+beta_land_coubgc,log,permafrost,2,-0.009528,0.009341,0.006605,LPJ_EOSIM LPX_Bern,inf,inf,inf,inf

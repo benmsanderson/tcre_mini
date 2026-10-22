@@ -65,6 +65,9 @@ python -m pytest                                                             # 9
 - **Feedbacks.** `src/tcre_evidence/wiemip.py` and `scripts/wiemip_values.py` write `results/wiemip/`: values tables (UKESM pattern and pattern mean), a long table and paired factorial effects.
   - ΔT is the FaIR median GMST, the same for every pattern; ΔT_BGC = 0.
   - Both directories are committed (about 1.5 MB). The repository is private; share it only with WIEMIP authors.
+- **Power before the flag table.** `scripts/wiemip_power.py` writes `results/wiemip/power_*.csv` and `flags_from_factorials.csv`.
+  - It compares the cross-model standard error on hypothetical designs (18 models, k flagged) with the precision of the paired factorial effects.
+  - The flag budget and the regression against real flags wait for the full flag table.
 - **Known data issues.**
   - The JULES noFire_noNitrogen run has non-finite values (dropped).
   - The BEPS ctrl drifts by 62 PgC per century.

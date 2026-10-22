@@ -136,6 +136,17 @@ def values_table(fb: pd.DataFrame, pattern: str = "ukesm", factorial: str = "bas
     return t.reset_index()
 
 
+def factorial_flags(cl: pd.DataFrame) -> pd.DataFrame:
+    """Process flags implied by the factorials each model ran: 1 where a model switched a process off.
+
+    Absence of a factorial says nothing (a model may have the process and not have run it off), so the
+    other cells are NaN, not 0. This is a cross-check for a full flag table, not a substitute.
+    """
+    procs = cl.groupby("model").factorial.unique().map(lambda fs: set().union(*map(processes, fs)))
+    cols = sorted(set().union(*procs))
+    return pd.DataFrame({p: procs.map(lambda s: 1.0 if p in s else np.nan) for p in cols}).rename_axis("model")
+
+
 def paired_effects(fb: pd.DataFrame) -> pd.DataFrame:
     """Process effects from pairs of factorials of the same model that differ by one process.
 

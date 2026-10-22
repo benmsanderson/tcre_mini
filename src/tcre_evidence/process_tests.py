@@ -264,6 +264,24 @@ def detection_power(values: pd.Series, flags: pd.DataFrame, effects: dict[str, f
     return pd.DataFrame(rows)
 
 
+def design_se_factor(n_models: int, n_flagged: int, n_other_flags: int, seed: int = 0, ndraw: int = 200) -> float:
+    """se_factor of one flag in a hypothetical design, for when the real flag table is not yet known.
+
+    n_flagged of n_models have the flag; each of n_other_flags further flags is set independently with
+    probability 0.5. Returns the median over `ndraw` random designs (skipping rank-deficient ones), so
+    standard error = residual sd x this value.
+    """
+    rng = np.random.default_rng(seed)
+    out = []
+    while len(out) < ndraw:
+        f = np.zeros(n_models)
+        f[rng.choice(n_models, n_flagged, replace=False)] = 1
+        X = np.c_[np.ones(n_models), f, rng.integers(0, 2, (n_models, n_other_flags))]
+        if np.linalg.matrix_rank(X) == X.shape[1]:
+            out.append(se_factor(X)[0])
+    return float(np.median(out))
+
+
 # ----------------------------------------------------------------------------------------------------
 # Test 3: has the ensemble updated the priors?
 # ----------------------------------------------------------------------------------------------------
