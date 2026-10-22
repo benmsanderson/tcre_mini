@@ -59,6 +59,17 @@ python -m pytest                                                             # 9
 
 ## Next steps for WIEMIP
 
+**Done on the hub (2026-10-22):**
+- **Environment.** The `tcre-evidence` env is at `~/.conda/envs/tcre-evidence` (Python 3.14, PyMC 5.28.5, ArviZ 0.23.4) and is registered as a Jupyter kernel; pytest passes.
+- **Extraction.** `scripts/wiemip_extract.py` runs under the hub Python, which has the maintained `wiemip_registry`; the copy in `/opt/wiemip-data-processing` is older. It writes the global land carbon of all 208 1pctCO2 runs to `data/wiemip/`.
+- **Feedbacks.** `src/tcre_evidence/wiemip.py` and `scripts/wiemip_values.py` write `results/wiemip/`: values tables (UKESM pattern and pattern mean), a long table and paired factorial effects.
+  - ΔT is the FaIR median GMST, the same for every pattern; ΔT_BGC = 0.
+  - Both directories are committed (about 1.5 MB). The repository is private; share it only with WIEMIP authors.
+- **Known data issues.**
+  - The JULES noFire_noNitrogen run has non-finite values (dropped).
+  - The BEPS ctrl drifts by 62 PgC per century.
+  - The open `data-quality` issues on `WIEMIP/wiemip-data-registry` have not yet been read (private repository, no `gh` on the hub).
+
 1. **Build the values table** from WIEMIP global means: one row per model, columns such as
    `gamma_land_coubgc`, `beta_land_coubgc` (and, if possible, R = TCRE/TCR).
    - The formulas are in `docs/new_ensemble.md`; `tcre_evidence.feedbacks.diagnose()` implements them for
@@ -77,7 +88,7 @@ python -m pytest                                                             # 9
    `python scripts/precompute.py --name wiemip --values <values.csv> --flags <flags.csv> --quantities gamma_land_coubgc:additive beta_land_coubgc:multiplicative --jobs <n>`.
    - Use `--quick` first.
    - A full run took about 2.5 hours on 4 cores for two quantities and 13 models.
-   - Commit `results/precomputed/wiemip/` if the input data may be shared; otherwise commit only the
+   - Commit `results/precomputed/wiemip/` (lightweight WIEMIP data may go in this private repository); otherwise commit only the
      summaries.
 5. **The demography question** (raised by Rosie Fisher and Becky):
    - Are demographic models' γ_L larger in magnitude?
