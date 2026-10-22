@@ -1,6 +1,6 @@
 # Results summary: TCRE lines-of-evidence testbed
 
-Status as of 2026-10-13. Every number below is produced by the script named in its section, from files in `data/` with fixed seeds; the JSON/CSV files in `results/` hold the full values. Findings describe the behaviour of methods and inputs; they are not conclusions about the authors of the upstream framework, and they should be checked with Ben before being communicated.
+Status as of 2026-10-22 (M0 to M11). Every number below is produced by the script named in its section, from files in `data/` with fixed seeds; the JSON/CSV files in `results/` hold the full values. Findings describe the behaviour of methods and inputs; they are not conclusions about the authors of the upstream framework, and they should be checked with Ben before being communicated.
 
 Conventions: β in PgC ppm⁻¹, γ in PgC K⁻¹, α in K ppm⁻¹, TCRE in K EgC⁻¹, R = TCRE / TCR in EgC⁻¹. "COU−BGC" is the C4MIP convention (Arora et al. 2020 2×2 solve); "RAD" uses 1pctCO2-rad; ε = ΔC_COU − ΔC_BGC − ΔC_RAD. Default diagnosis: esm-deck C4MIP global means, 20-year mean over simulation years 61–80 (2×CO₂), temperature and carbon fluxes relative to a linear fit of piControl.
 
@@ -141,6 +141,27 @@ Main findings, in order of weight for the TCRE assessment:
 | (vi) historical attribution (upstream DAMIP notebook output, quoted) | 1.39 | 1.24 | 1.30 | 1.39 | 1.47 | 1.53 |
 
 Lines (ii) to (v) all use TCR ~ N(1.7, 0.36) K; line (i) uses each model's own TCR (mean 1.96 K), so (i) and (iv) differ mainly through TCR, not the carbon factor. The difference between (ii) and (iv), 0.27 K EgC⁻¹ in the mean at the same TCR prior, is the framework's adjustment of the carbon factor above the CMIP6 ensemble (item 2 of the overview). The historical attribution line refers to the realised historical pathway; the 1pctCO2-to-flat10 difference in 7 models is +0.05 ± 0.09 K EgC⁻¹, so most of the gap between (vi) and the 1pctCO2-based lines is not a pathway effect of that kind. Perfect-model skill: (ii) −3.92 (0 of 9 models better than the raw ensemble); (v) −0.29 when R is conditioned on TCR and H, +0.00 when on H alone; (iii) was not tested out of sample.
+
+## M7. Nitrogen flag groups (`scripts/m7_nitrogen_historical.py`)
+
+- esm-deck 1pctCO2 (6 nitrogen-limited against 5 other models): β_L (COU−BGC) 1.04 against 1.43 PgC ppm⁻¹, ratio 0.73 (permutation p 0.05, Welch p 0.10); γ_L −21.7 against −47.8 PgC K⁻¹ (p 0.26); R = TCRE/TCR 0.909 against 0.855, ratio 1.063 (p 0.11). Development sheet β_L (8 against 5): ratio 0.66 (p 0.04).
+- Historical 1960–2014 (8 against 4 models): net land flux 42.2 against 37.0 PgC (p 0.84), ocean sink 88.7 against 88.2 PgC; correlation of β_L with the historical land flux 0.24 (n = 10).
+
+## M8. Ensemble size for detection (`scripts/m8_power.py`)
+
+- Residual scatter after the four flags: 28.7 PgC K⁻¹ for γ_L, 0.38 for log β_L. Standard errors with 13 models and models needed for a two-standard-error detection (current flag mix / balanced flags): nitrogen on log β_L (0.32): 0.28, 52 / 28; permafrost on γ_L (30): 34.5, 78 / 20; nitrogen on γ_L (10): 21.0, 234 / 138; fire, vegetation on γ_L (5): 24.1 to 26.4, 1209 to 1456 / 532.
+- The calculations are `process_tests.flag_budget` and `detection_power`; `scripts/process_tests.py` runs them on any ensemble.
+
+## M9. Calibration and recalibration (`scripts/m9_tuning_selection.py`)
+
+- Synthetic ensembles on the real nitrogen flags, true η_N = 0.73, 4000 replicates per scenario, recalibration tolerance 20 PgC. Flag-regression η_N: no development effects 0.74; FACE calibration 0.86; recalibration of turnover 1.12; of allocation 1.00; FACE plus turnover recalibration 1.07; turnover recalibration towards a target 25 PgC too high 1.12.
+- Bias in R (raw ensemble / all processes on / end to end): no development effects −3.7 / −0.0 / −0.2 %; recalibration with the correct target within ±1 %; target 25 PgC too high −7.9 / −5.5 / −8.1 %.
+- Bayesian β_L model check on a few replicates: η_N 0.79 with no development effects, 1.03 with turnover recalibration, 0.98 with FACE plus recalibration (r̂ ≤ 1.006, no divergences).
+
+## M10. The configuration's nitrogen decomposition (`scripts/m10_nitrogen_decomposition.py`)
+
+- Predicted ratio of group-mean R (nitrogen-flagged over other esm-deck models) from the configuration's own process models: 1.075 (5–95 % 1.015 to 1.139) against the observed 1.063; with the paired-experiment ν evidence on γ_L, 1.098 (1.046 to 1.156). η_N = 0.72; δ_N on γ_L 18.6 ± 10.5 PgC K⁻¹ (7.0 ± 2.4 with ν). The pure nitrogen effect on R (flag switched on for every model) is 1.052 with both routes and 1.086 through β_L alone, so δ_N offsets about 40 % of the β_L route.
+- Split of the all-processes-on β_L (`--beta-split`): baseline U = 1.22, η_N = 0.72, η_fire = 0.86, η_veg = 0.98; U × η_N = 0.88 (the nitrogen-limited CMIP mean is 0.93), all on 0.74; CMIP mean 1.11. All fits r̂ ≤ 1.002, no divergences.
 
 ## M11. Process completeness (`scripts/m11_completeness.py`)
 

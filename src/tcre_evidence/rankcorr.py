@@ -22,6 +22,7 @@ def iman_conover(X: np.ndarray, C: np.ndarray, seed: int = 0) -> np.ndarray:
 
 
 def fisher_ci(r: float, n: int, level: float = 0.90) -> tuple[float, float]:
+    """Confidence interval for a correlation from n pairs (Fisher z transform)."""
     z, se = np.arctanh(r), 1 / np.sqrt(n - 3)
     q = stats.norm.ppf(0.5 + level / 2)
     return float(np.tanh(z - q * se)), float(np.tanh(z + q * se))

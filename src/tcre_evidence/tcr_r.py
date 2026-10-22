@@ -43,6 +43,7 @@ def mvt_conditional(Z: np.ndarray, idx_t: list[int], idx_c: list[int], x_c: np.n
 
 
 def sample_t(loc, scale, dof, size, rng):
+    """Draws from a multivariate Student-t with the given location, scale matrix and degrees of freedom."""
     loc, scale = np.atleast_1d(loc), np.atleast_2d(scale)
     z = rng.multivariate_normal(np.zeros(len(loc)), scale, size)
     w = rng.chisquare(dof, size) / dof

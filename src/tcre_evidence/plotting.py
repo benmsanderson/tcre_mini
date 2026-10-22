@@ -8,6 +8,7 @@ TEXT, TEXT2, GRID, SURFACE = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 
 
 def style():
+    """Apply the shared figure style."""
     mpl.rcParams.update({
         "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "savefig.facecolor": SURFACE,
         "axes.edgecolor": GRID, "axes.labelcolor": TEXT, "xtick.color": TEXT2, "ytick.color": TEXT2,
@@ -19,6 +20,7 @@ def style():
 
 
 def save(fig, path):
+    """Save a figure (creating its directory) and close it."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path)
     plt.close(fig)

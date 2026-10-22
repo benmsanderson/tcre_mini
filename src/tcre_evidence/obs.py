@@ -45,6 +45,7 @@ PPM_TO_PGC = 2.124
 
 # ------------------------------------------------------------------ download
 def download_all(raw: Path = RAW) -> None:
+    """Download the raw observational files (GCB, NOAA CO2, HadCRUT5) into `raw`."""
     import requests
 
     raw.mkdir(parents=True, exist_ok=True)

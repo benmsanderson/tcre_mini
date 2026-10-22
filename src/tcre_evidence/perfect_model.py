@@ -37,10 +37,12 @@ NITROGEN_OBS_MODEL = ["ACCESS-ESM1-5", "UKESM1-0-LL"]  # sources of the paired e
 
 
 def family(m: str) -> str:
+    """Shared-code family of model m (the model itself if it has none)."""
     return FAMILIES.get(m, m)
 
 
 def holdout_set(m: str, mode: str, models) -> list[str]:
+    """Models removed from training when m plays the real world: m alone (loo) or its family (lfo)."""
     if mode == "loo":
         return [m]
     if mode == "lfo":
@@ -122,6 +124,8 @@ def flag_predictive(m: str, gl, bl, pri_g: dict, pri_b: dict, seed: int = 0) -> 
 
 
 def fit_heldout(m: str, mode: str, alpha: float, seed: int = 0, sampler=None) -> dict:
+    """Refit the full configuration without m (or its family) and return posterior draws of every component,
+    the real-world and own-flag land estimates, TCRE, and sampler diagnostics."""
     inp = build_inputs(m, mode)
     gl = up.fit_gamma_land(inp, seed=seed + 1, sampler=sampler)
     bl = up.fit_beta_land(inp, pri=inp["priors_beta_land"], seed=seed + 2, sampler=sampler)

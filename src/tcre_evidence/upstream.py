@@ -24,6 +24,7 @@ SAMPLER_DEFAULTS = dict(draws=1000, tune=1000, chains=4, target_accept=0.99)
 
 @dataclass
 class FitResult:
+    """One fitted component: its name, the ArviZ InferenceData and sampler diagnostics."""
     name: str
     idata: az.InferenceData
     diagnostics: dict = field(default_factory=dict)
@@ -66,6 +67,7 @@ def inputs(iav_obs=None, alpha_prior=None) -> dict:
 
 
 def fit_gamma_land(inp, pri=None, seed=1, sampler=None, progressbar=False) -> FitResult:
+    """Land carbon-climate feedback: additive process model for tropics and extratropics, with the IAV constraint."""
     d = inp["gamma_land_data"]
     m = model_builders.build_gamma_land_model(
         d["gamma_land_tropics"], d["gamma_land_extratropics"], d["lookup_table"],
@@ -75,6 +77,7 @@ def fit_gamma_land(inp, pri=None, seed=1, sampler=None, progressbar=False) -> Fi
 
 
 def fit_beta_land(inp, pri=None, seed=2, sampler=None, progressbar=False) -> FitResult:
+    """Land carbon-concentration feedback: multiplicative process model with the paired nitrogen runs."""
     d = inp["beta_land_data"]
     m = model_builders.build_beta_land_model(d["beta_land"], d["lookup_table"], pri or priors.beta_land)
     idata = _sample(m, seed, sampler, progressbar)
@@ -82,6 +85,7 @@ def fit_beta_land(inp, pri=None, seed=2, sampler=None, progressbar=False) -> Fit
 
 
 def fit_ocean(inp, pri=None, seed=3, sampler=None, progressbar=False) -> FitResult:
+    """Ocean beta and gamma: joint emergent constraint on AMOC, sea-surface salinity and chemical uptake capacity."""
     ec = inp["ec"]
     m = model_builders.build_joint_ocean_model(
         inp["beta_ocean"], inp["gamma_ocean"], ec["O_m"], ec["O_obs"], ec["O_obs_unc"], pri or priors.joint_ocean)
@@ -90,6 +94,7 @@ def fit_ocean(inp, pri=None, seed=3, sampler=None, progressbar=False) -> FitResu
 
 
 def flat(idata, var) -> np.ndarray:
+    """All posterior draws of a scalar variable as one array (chains concatenated)."""
     return idata.posterior[var].values.reshape(-1)
 
 
@@ -105,6 +110,7 @@ def combine(gl: FitResult, bl: FitResult, oc: FitResult, alpha: dict, seed=4) ->
 
 
 def summarise_tcre(tcre: np.ndarray) -> dict:
+    """Mean, sd, 95 % HDI and 5-95 % range of TCRE draws (K/EgC)."""
     lo, hi = az.hdi(tcre, hdi_prob=0.95)
     return dict(mean=float(tcre.mean()), sd=float(tcre.std()), hdi95_lo=float(lo), hdi95_hi=float(hi),
                 p05=float(np.percentile(tcre, 5)), p95=float(np.percentile(tcre, 95)))

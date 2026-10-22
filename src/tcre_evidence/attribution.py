@@ -22,6 +22,8 @@ ALLOCATIONS = ("coubgc", "courad", "symmetric")
 
 
 def components(tab: pd.DataFrame, allocation: str) -> pd.DataFrame:
+    """Split each model's carbon term into CO2 (B_x) and warming (G_x = alpha*gamma) parts, x = land, ocean,
+    with gamma taken from COU-BGC, RAD (courad) or their mean (symmetric)."""
     out = pd.DataFrame(index=tab.index)
     for x in ("land", "ocean"):
         S_x = tab[f"dC_{x}_cou"] / tab.dCa
@@ -39,6 +41,7 @@ def components(tab: pd.DataFrame, allocation: str) -> pd.DataFrame:
 
 
 def shares(comp: pd.DataFrame) -> pd.DataFrame:
+    """Share of the variance of the summed carbon term from each component: covariance share and independent share."""
     S = comp.sum(axis=1)
     cov = pd.Series({c: np.cov(comp[c], S)[0, 1] for c in comp}) / S.var()
     ind = comp.var() / comp.var().sum()

@@ -71,6 +71,7 @@ def read_run(model: str, run: str) -> pd.DataFrame:
 
 
 def read_model(model: str) -> dict[str, pd.DataFrame]:
+    """All C4MIP runs (COU, BGC, RAD, piControl) for one esm-deck model, keyed by run name."""
     return {r: read_run(model, r) for r in RUNS}
 
 

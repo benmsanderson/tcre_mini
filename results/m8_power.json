@@ -33,18 +33,18 @@
   }
  },
  "vif": {
-  "nitrogen": 2.546063581203396,
-  "permafrost": 1.4279090747842116,
-  "fire": 1.784197143070037,
-  "veg": 1.7461599179819283
+  "nitrogen": 1.6468039003250272,
+  "permafrost": 3.336944745395449,
+  "fire": 2.275189599133262,
+  "veg": 2.340195016251354
  },
  "gamma_land": {
-  "residual_sd": 28.704583016690343,
+  "residual_sd": 28.70458301669034,
   "ols_coef": {
-   "nitrogen": 14.27,
-   "permafrost": 13.216,
-   "fire": 0.578,
-   "veg": 9.522
+   "nitrogen": 14.2703,
+   "permafrost": 13.2164,
+   "fire": 0.5784,
+   "veg": 9.5217
   },
   "se_current": {
    "nitrogen": 21.0,
@@ -54,12 +54,12 @@
   }
  },
  "log_beta_land": {
-  "residual_sd": 0.3836198551156553,
+  "residual_sd": 0.38361985511565533,
   "ols_coef": {
-   "nitrogen": -0.275,
-   "permafrost": -0.327,
-   "fire": -0.074,
-   "veg": -0.068
+   "nitrogen": -0.2751,
+   "permafrost": -0.3266,
+   "fire": -0.0737,
+   "veg": -0.0678
   },
   "se_current": {
    "nitrogen": 0.281,
@@ -73,8 +73,8 @@
    "target": "gamma_land",
    "process": "nitrogen",
    "effect": 10.0,
-   "residual_sd": 28.704583016690343,
-   "se_now": 20.99973751484466,
+   "residual_sd": 28.70458301669034,
+   "se_now": 20.999737514844657,
    "n_needed_same_design": 234,
    "n_needed_balanced": 138
   },
@@ -82,8 +82,8 @@
    "target": "gamma_land",
    "process": "permafrost",
    "effect": 30.0,
-   "residual_sd": 28.704583016690343,
-   "se_now": 34.51729855071289,
+   "residual_sd": 28.70458301669034,
+   "se_now": 34.51729855071288,
    "n_needed_same_design": 78,
    "n_needed_balanced": 20
   },
@@ -91,8 +91,8 @@
    "target": "gamma_land",
    "process": "fire",
    "effect": 5.0,
-   "residual_sd": 28.704583016690343,
-   "se_now": 24.088350965286274,
+   "residual_sd": 28.70458301669034,
+   "se_now": 24.08835096528627,
    "n_needed_same_design": 1209,
    "n_needed_balanced": 532
   },
@@ -100,8 +100,8 @@
    "target": "gamma_land",
    "process": "veg",
    "effect": 5.0,
-   "residual_sd": 28.704583016690343,
-   "se_now": 26.387466393577267,
+   "residual_sd": 28.70458301669034,
+   "se_now": 26.387466393577263,
    "n_needed_same_design": 1456,
    "n_needed_balanced": 532
   },
@@ -109,8 +109,8 @@
    "target": "log_beta_land",
    "process": "nitrogen",
    "effect": 0.31471074483970024,
-   "residual_sd": 0.3836198551156553,
-   "se_now": 0.280649130427269,
+   "residual_sd": 0.38361985511565533,
+   "se_now": 0.2806491304272691,
    "n_needed_same_design": 52,
    "n_needed_balanced": 28
   },
@@ -118,8 +118,8 @@
    "target": "log_beta_land",
    "process": "fire",
    "effect": 0.1,
-   "residual_sd": 0.3836198551156553,
-   "se_now": 0.32192663108553465,
+   "residual_sd": 0.38361985511565533,
+   "se_now": 0.3219266310855347,
    "n_needed_same_design": 546,
    "n_needed_balanced": 240
   },
@@ -127,7 +127,7 @@
    "target": "log_beta_land",
    "process": "veg",
    "effect": 0.1,
-   "residual_sd": 0.3836198551156553,
+   "residual_sd": 0.38361985511565533,
    "se_now": 0.3526529554143823,
    "n_needed_same_design": 650,
    "n_needed_balanced": 240

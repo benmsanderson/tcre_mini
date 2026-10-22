@@ -29,6 +29,7 @@ import xarray as xr
 from joblib import Parallel, delayed
 
 from tcre_evidence import plotting as pl
+from tcre_evidence import process_tests as pt
 from tcre_evidence import upstream as up
 from tcre_evidence import upstream_data as ud
 from tcre_evidence.paths import RESULTS
@@ -46,20 +47,10 @@ SAMPLER = dict(draws=1000, tune=1000, chains=4, cores=1, target_accept=0.99, pro
 
 
 # ---------------------------------------------------------------- (1) residual budget
-def ols_budget(y, F):
-    X = np.column_stack([np.ones(len(y)), F])
-    n, p = X.shape
-    b, *_ = np.linalg.lstsq(X, y, rcond=None)
-    r = y - X @ b
-    r2 = 1 - (r ** 2).sum() / ((y - y.mean()) ** 2).sum()
-    loo = []
-    for i in range(n):
-        m = np.arange(n) != i
-        bb, *_ = np.linalg.lstsq(X[m], y[m], rcond=None)
-        loo.append(y[i] - X[i] @ bb)
-    q2 = 1 - np.sum(np.square(loo)) / np.sum(np.square(y - y.mean()))
-    return dict(n=n, sd=float(y.std(ddof=1)), r2=float(r2), adj_r2=float(1 - (1 - r2) * (n - 1) / (n - p)),
-                loo_q2=float(q2), resid_sd=float(np.sqrt((r ** 2).sum() / (n - p))))
+def _budget(y, F):
+    """process_tests.flag_budget on plain arrays, without the coefficients."""
+    b = pt.flag_budget(pd.Series(y), pd.DataFrame(F, columns=PROC))
+    return {k: v for k, v in b.items() if k != "coef"}
 
 
 def residual_budget():
@@ -72,12 +63,12 @@ def residual_budget():
         k = ~D.index.isin(drop)
         for q in ["log_beta_land", "gamma_land", "gamma_land_tropics", "gamma_land_extratropics"]:
             rows.append(dict(source="development inputs", quantity=q, dropped=",".join(drop) or "none",
-                             **ols_budget(D.loc[k, q].values, F.loc[k].values)))
+                             **_budget(D.loc[k, q].values, F.loc[k].values)))
     E = pd.read_csv(RESULTS / "m7_nitrogen_historical.csv").set_index("model").dropna(subset=["gamma_land_coubgc"])
     Fe = ud.lookup_table().to_pandas().T.reindex(E.index)[PROC]
     for q, col in [("log_beta_land", "beta_land_coubgc"), ("gamma_land", "gamma_land_coubgc")]:
         y = np.log(E[col].values) if q.startswith("log") else E[col].values
-        rows.append(dict(source="esm-deck 1pctCO2", quantity=q, dropped="none", **ols_budget(y, Fe.values)))
+        rows.append(dict(source="esm-deck 1pctCO2", quantity=q, dropped="none", **_budget(y, Fe.values)))
     groups = {p: dict(models=list(F.index[F[p] == 1]), gamma_land=D.gamma_land[F[p] == 1].round(1).tolist())
               for p in PROC}
     return pd.DataFrame(rows), groups

@@ -40,12 +40,14 @@ def resample(values: dict, scheme: str, n: int = 400_000, seed: int = 0) -> dict
 
 
 def summary(draws: dict) -> dict:
+    """Spread of the airborne fraction and TCRE summary statistics from resampled draws."""
     t = draws["tcre"]
     return dict(sd_af=float(np.std(draws["af"])), tcre_mean=float(t.mean()), tcre_sd=float(t.std()),
                 tcre_p05=float(np.percentile(t, 5)), tcre_p95=float(np.percentile(t, 95)))
 
 
 def pair_correlations(v: dict) -> dict:
+    """Correlations across models between the pairs of components that matter for TCRE."""
     a, bL, gL, bO, gO = (np.asarray(v[c]) for c in COMPONENTS)
     c = lambda x, y: float(np.corrcoef(x, y)[0, 1])
     return {"beta_L,gamma_L": c(bL, gL), "beta,alpha*gamma": c(bL + bO, a * (gL + gO)),

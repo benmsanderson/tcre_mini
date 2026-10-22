@@ -40,6 +40,8 @@ def _delta(spec, name):
 def build_joint_land_model(beta_land: xr.DataArray, gamma_t: xr.DataArray, gamma_x: xr.DataArray,
                            lookup_table: xr.DataArray, iav_df, iav_obs_mean, iav_obs_sigma,
                            pri_beta: dict, pri_gamma: dict, lkj_eta: float = 2.0) -> pm.Model:
+    """beta_L and gamma_L (tropics, extratropics) fitted together, with per-model biases correlated across
+    the three through an LKJ prior; otherwise as the development code's separate builders."""
     models = list(beta_land.model.values)
     assert list(gamma_t.model.values) == models == list(gamma_x.model.values)
     lt = lookup_table.sel(model=models)

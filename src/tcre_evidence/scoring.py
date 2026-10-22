@@ -6,11 +6,13 @@ from scipy import stats
 
 
 def covered(samples: np.ndarray, truth: float, level: float) -> bool:
+    """Is truth inside the central `level` interval of the samples?"""
     lo, hi = np.percentile(samples, [50 * (1 - level), 50 * (1 + level)])
     return bool(lo <= truth <= hi)
 
 
 def pit(samples: np.ndarray, truth: float) -> float:
+    """Probability integral transform: share of samples below the truth."""
     return float(np.mean(samples < truth))
 
 
@@ -25,6 +27,7 @@ def crps_samples(samples: np.ndarray, truth: float) -> float:
 
 
 def crps_gaussian(mu: float, sd: float, truth: float) -> float:
+    """Closed-form CRPS of a normal forecast."""
     z = (truth - mu) / sd
     return float(sd * (z * (2 * stats.norm.cdf(z) - 1) + 2 * stats.norm.pdf(z) - 1 / np.sqrt(np.pi)))
 
@@ -35,6 +38,7 @@ def logscore_samples(samples: np.ndarray, truth: float) -> float:
 
 
 def summarise(samples: np.ndarray, truth: float) -> dict:
+    """Mean, spread, coverage and scores of a predictive sample against one true value."""
     return dict(truth=float(truth), mean=float(np.mean(samples)), sd=float(np.std(samples)),
                 p05=float(np.percentile(samples, 5)), p95=float(np.percentile(samples, 95)),
                 pit=pit(samples, truth), cov66=covered(samples, truth, 0.66), cov90=covered(samples, truth, 0.90),

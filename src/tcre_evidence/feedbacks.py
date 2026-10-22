@@ -53,6 +53,7 @@ def anomalies(runs: dict, baseline: str = "picontrol") -> dict[str, pd.DataFrame
 
 
 def window_means(an: dict, level: str = "2x") -> dict[str, pd.Series]:
+    """Mean anomalies over the averaging window for a forcing level (2x: years 61-80)."""
     a, b = WINDOWS[level]
     res = {}
     for r, df in an.items():
@@ -90,5 +91,6 @@ def diagnose(model: str, level: str = "2x", baseline: str = "picontrol") -> dict
 
 
 def table(level: str = "2x", baseline: str = "picontrol", models=None) -> pd.DataFrame:
+    """diagnose() for every esm-deck model, one row per model (CMIP6 name as index)."""
     models = models or list(c4mip.MODELS)
     return pd.DataFrame([diagnose(m, level, baseline) for m in models]).set_index("model")

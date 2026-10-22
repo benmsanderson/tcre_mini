@@ -41,6 +41,7 @@ def _deck_ctrl_land(model):
 
 
 def model_observables(model: str, G: float, window=WINDOW) -> dict:
+    """Cumulative historical land and ocean sinks and airborne fraction for one model over `window`."""
     h = _series("historical", model)
     out = dict(model=model)
     if h is None:
@@ -66,6 +67,7 @@ def model_observables(model: str, G: float, window=WINDOW) -> dict:
 
 
 def observed(window=WINDOW) -> dict:
+    """The same observables from the Global Carbon Budget over `window`."""
     g = obs.gcb()
     a, b = window
     s = g.loc[a:b]
@@ -81,6 +83,7 @@ def observed(window=WINDOW) -> dict:
 
 
 def table(window=WINDOW) -> pd.DataFrame:
+    """model_observables() for every model with a downloaded historical run."""
     o = observed(window)
     models = sorted(p.stem for p in (CMIP / "historical").glob("*.csv"))
     return pd.DataFrame([model_observables(m, o["G"], window) for m in models]).set_index("model")
