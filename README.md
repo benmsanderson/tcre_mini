@@ -65,7 +65,8 @@ python scripts/precompute.py --name wiemip --values my_values.csv --flags my_fla
 | `note/` | LaTeX technical note (submodule); figures from `scripts/note_figures.py`. |
 | `docs/` | `guide.md` (concepts), `new_ensemble.md` (applying the tests elsewhere). |
 | `tests/` | `python -m pytest`; add `-m slow` for the MCMC tests. |
-| `HANDOVER.md`, `CLAUDE.md` | Original project brief and working rules (historical; not needed to use the code). |
+| `STATUS.md` | Current state, setup on a new machine, next steps and open items. |
+| `HANDOVER.md`, `CLAUDE.md` | Original project brief and working rules. |
 
 ## Analyses
 
