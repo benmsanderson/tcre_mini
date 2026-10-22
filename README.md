@@ -20,6 +20,9 @@ so the notebooks run in seconds; `REFIT = True` samples live instead.
    effects from pseudo-data, and whether the real-world estimate predicts held-out models.
 3. `03_other_ensembles.ipynb`: the same tests on any other ensemble (for example WIEMIP), using the
    packaged functions.
+4. `04_wiemip.ipynb`: what the WIEMIP 1pctCO2 land runs already show (β_L, γ_L, climate pattern,
+   paired factorial process effects, detection power); built by `scripts/make_notebook_04.py` from
+   `results/wiemip/`.
 
 The technical note in `note/` (a submodule, `benmsanderson/tcre_bayes_paper`) covers the wider set of
 analyses (`m*` scripts below); `results/SUMMARY.md` lists every number and the script it comes from.

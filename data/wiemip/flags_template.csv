@@ -1,0 +1,19 @@
+model,nitrogen,fire,permafrost,veg,demography,bvoc,family,source
+BEPS,,,,,,,,to be filled by group
+BiomeE,1,1,,,,,,1s from factorial runs; rest to be filled by group
+CLASSIC,1,1,,,,,,1s from factorial runs; rest to be filled by group
+CLM,1,,,,,,,1s from factorial runs; rest to be filled by group
+CLM_FATES,,1,,,,,,1s from factorial runs; rest to be filled by group
+CoLM,,,,,,,,to be filled by group
+DLEM,,,,,,,,to be filled by group
+DVM_DOS_TEM,1,1,,,,,,1s from factorial runs; rest to be filled by group
+EDv3,,1,,,,,,1s from factorial runs; rest to be filled by group
+ELM,,1,,,,,,1s from factorial runs; rest to be filled by group
+JSBACH,1,1,,,,,,1s from factorial runs; rest to be filled by group
+JULES,1,1,,,,,,1s from factorial runs; rest to be filled by group
+LPJ_EOSIM,1,1,1,,,,,1s from factorial runs; rest to be filled by group
+LPJ_GUESS,,1,,,,,,1s from factorial runs; rest to be filled by group
+LPJmL6,1,,,,,,,1s from factorial runs; rest to be filled by group
+LPX_Bern,,1,1,,,,,1s from factorial runs; rest to be filled by group
+TEM,,,,,,,,to be filled by group
+VISIT_UT,,1,,,,1,,1s from factorial runs; rest to be filled by group

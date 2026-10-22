@@ -32,6 +32,7 @@ sampling; `scripts/process_tests.py` is a command-line front end.
 - `notebooks/01_process_model.ipynb`
 - `notebooks/02_what_the_ensemble_can_measure.ipynb`
 - `notebooks/03_other_ensembles.ipynb` (the template for WIEMIP)
+- `notebooks/04_wiemip.ipynb` (WIEMIP summary without a flag table; text in `scripts/make_notebook_04.py`)
 
 They are executed against the committed CMIP6 cache in `results/precomputed/cmip6/` (full-length runs,
 all fits r̂ ≤ 1.005, no divergences).
@@ -83,8 +84,9 @@ python -m pytest                                                             # 9
    - Check which experiments WIEMIP provides: COU, BGC and RAD give both γ conventions; with RAD only, use
      `gamma_rad` and say so.
 2. **Build the flags table:** one 0/1 column per process, with `demography` separate from dynamic
-   vegetation (`veg`), plus `family` for shared land-model code. Becky Varney is compiling this from the
-   WIEMIP modellers and the WIEMIP protocol table.
+   vegetation (`veg`), plus `family` for shared land-model code. As of 2026-10-22 no such table is known
+   to exist. `data/wiemip/flags_template.csv` lists the registry models with the flags the factorial runs
+   prove (1 where a model ran noX) and blanks to be filled by the modelling groups.
 3. **Explore** with `notebooks/03_other_ensembles.ipynb`: set the paths at the top and run the cheap
    tests.
 4. **Precompute:**
