@@ -1,0 +1,98 @@
+{
+ "quantity": "gamma_land_coubgc",
+ "kind": "additive",
+ "values": "/home/user/tcre_mini/data/examples/cmip6_land_feedbacks.csv",
+ "flags": "/home/user/tcre_mini/data/examples/cmip6_process_flags.csv",
+ "n_models": 13,
+ "processes": [
+  "nitrogen",
+  "permafrost",
+  "fire",
+  "veg"
+ ],
+ "seed": 0,
+ "nrep": 12,
+ "sampler": "default",
+ "priors": {
+  "kind": "additive",
+  "baseline": {
+   "dist": "Normal",
+   "mu": 0.0,
+   "sigma": 100.0
+  },
+  "delta": {
+   "nitrogen": {
+    "dist": "LogNormal",
+    "mu": 2.302585092994046,
+    "sigma": 1.0
+   },
+   "permafrost": {
+    "dist": "NegLogNormal",
+    "mu": 3.4011973816621555,
+    "sigma": 1.0
+   },
+   "fire": {
+    "dist": "Normal",
+    "mu": 0.0,
+    "sigma": 10.0
+   },
+   "veg": {
+    "dist": "Normal",
+    "mu": 0.0,
+    "sigma": 10.0
+   }
+  },
+  "sigma_process_struct": {
+   "nitrogen": 5.0,
+   "permafrost": 100.0,
+   "fire": 30.0,
+   "veg": 50.0
+  },
+  "sigma_struct": {
+   "sigma": 40.0
+  },
+  "likelihood_noise": 5.0
+ },
+ "scenarios": {
+  "effects": {
+   "nitrogen": 13.12,
+   "permafrost": -13.12,
+   "fire": 13.12,
+   "veg": 13.12
+  },
+  "no_effects": {
+   "nitrogen": 0.0,
+   "permafrost": 0.0,
+   "fire": 0.0,
+   "veg": 0.0
+  }
+ },
+ "date": "2026-10-22",
+ "versions": {
+  "pymc": "5.28.5",
+  "arviz": "0.23.4",
+  "numpy": "2.4.6"
+ },
+ "diagnostics": {
+  "prior_vs_posterior": {
+   "rhat_max": 1.0016474913472393,
+   "ess_bulk_min": 2721.2484540275073,
+   "ess_tail_min": 2151.996586712873,
+   "divergences": 0,
+   "n_draws": 4000
+  },
+  "synthetic_effects": {
+   "rhat_max": 1.0027343317062776,
+   "divergences": 0
+  },
+  "synthetic_no_effects": {
+   "rhat_max": 1.0043849308670865,
+   "divergences": 0
+  },
+  "loo": {
+   "rhat_max": 1.0030749253579043,
+   "divergences": 0,
+   "held_out": "family"
+  }
+ }
+}

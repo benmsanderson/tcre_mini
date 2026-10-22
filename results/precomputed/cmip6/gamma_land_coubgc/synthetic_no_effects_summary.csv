@@ -1,0 +1,6 @@
+term,truth,mean_estimate,spread_between_reps,post_sd,cov90,rhat_max,divergences
+nitrogen,0,10.35,3.403,8.058,0,1.004,0
+permafrost,0,-30.6,2.132,24.04,0,1.004,0
+fire,0,-0.1053,2.15,9.406,1,1.004,0
+veg,0,-0.9952,1.426,9.587,1,1.004,0
+real_world,-26.2,-44.01,6.957,39.57,1,1.004,0

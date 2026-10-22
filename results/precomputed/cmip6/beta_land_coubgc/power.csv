@@ -1,0 +1,5 @@
+process,effect,residual_sd,se_now,n_models_now,n_needed_same_mix,n_needed_balanced
+nitrogen,0.2877,0.3836,0.2807,13,52,32
+permafrost,0.2877,0.3836,0.4613,13,143,34
+fire,0.2877,0.3836,0.3219,13,78,32
+veg,0.2877,0.3836,0.3527,13,91,32

@@ -1,0 +1,4 @@
+method,crps,bias,cov66,cov90,mean_sd,crps_skill
+all_processes_on,22.47,-26.52,0.4615,1,47.56,-0.4065
+own_flags,25.28,-14.4,0.6923,0.9231,67.43,-0.5823
+raw_ensemble,15.98,-1.498,0.8462,0.9231,32.2,0
