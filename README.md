@@ -9,34 +9,48 @@ It also builds a simpler line of evidence, TCRE = TCR × R.
 The findings are written up in the technical note in `note/` (a submodule,
 `benmsanderson/tcre_bayes_paper`). `results/SUMMARY.md` lists every number and the script it comes from.
 
-**New here?** Read `docs/guide.md` for the background (about 15 minutes). To run the tests on a new
-ensemble such as WIEMIP, follow `docs/new_ensemble.md`.
+**New here?** Start with the three notebooks in `notebooks/`. They run in seconds, because the slow
+sampling is cached in `results/precomputed/`:
+
+1. `01_framework_tour.ipynb`: how the process model reads an ensemble (CMIP6 land β and γ).
+2. `02_what_can_flags_learn.ipynb`: which process effects the ensemble can measure, and whether the
+   real-world estimate predicts held-out models.
+3. `03_your_ensemble.ipynb`: a template for running the same tests on your own tables (e.g. WIEMIP).
+
+`docs/guide.md` gives the background in more depth, and `docs/new_ensemble.md` the input format.
 
 ## Quick start
 
 ```bash
 git clone --recurse-submodules https://github.com/benmsanderson/tcre_mini
 cd tcre_mini
-conda env create -f environment.yml && conda activate tcre-evidence   # or: pip install -e ".[test]"
+conda env create -f environment.yml && conda activate tcre-evidence   # or: pip install -e ".[test,notebooks]"
 python -m pytest                           # fast tests, under a minute
-python scripts/process_tests.py --quantity gamma_land_coubgc --kind additive --tests budget power
+jupyter lab notebooks/                     # or open the notebooks in VS Code
 ```
 
-The last command runs the two cheapest tests on the CMIP6 land carbon-climate feedback. It shows that the
-four process flags explain about 20 % of the spread in γ_L between models and predict left-out models
-worse than the ensemble mean. Add `prior synthetic loo` to `--tests` for the Bayesian tests (minutes to
-an hour; `--quick` and `--jobs 4` help).
+To redo the cached sampling, or to run it for another ensemble:
+
+```bash
+python scripts/precompute.py --jobs 4                     # CMIP6 example, about an hour
+python scripts/precompute.py --name wiemip --values my_values.csv --flags my_flags.csv \
+    --quantities gamma_land_coubgc:additive --jobs 4     # your ensemble; --quick for a first look
+```
+
+`scripts/process_tests.py` runs the same tests from the command line without the notebooks.
 
 ## Repository map
 
 | Path | What it holds |
 |---|---|
 | `src/tcre_evidence/` | The package. All logic lives here; scripts are thin. |
-| `src/tcre_evidence/process_tests.py` | **Start here.** The five process-model tests, for any ensemble. |
+| `notebooks/` | **Start here.** Three short notebooks; they read cached results and call the package. |
+| `src/tcre_evidence/process_tests.py` | The process-model tests, for any ensemble. |
+| `src/tcre_evidence/process_plots.py` | The notebooks' figures. |
 | `src/tcre_evidence/upstream_patched/` | The development code's model builders, patched only so that they construct (diff and reasons inside). |
 | `src/tcre_evidence/upstream.py`, `upstream_data.py` | The full development configuration (land, ocean, TCRE) and its frozen inputs. |
 | `scripts/` | One script per analysis; each writes to `results/` and uses a fixed seed. |
-| `results/` | Outputs and `SUMMARY.md`. |
+| `results/` | Outputs and `SUMMARY.md`; `results/precomputed/` holds the notebooks' cache. |
 | `data/examples/` | CMIP6 input tables in the format `process_tests.py` reads. |
 | `data/upstream_snapshot/` | Frozen copy of the development code's inputs (Google Sheet tabs and `DATA/`). |
 | `data/c4mip/`, `data/flat10/` | C4MIP 1pctCO2 BGC/COU/RAD and flat10 global means for 11 CMIP6 models (copied from esm-deck at eef04dc; read through `tcre_evidence.c4mip`). |
@@ -54,7 +68,8 @@ Scripts that sample with PyMC pin BLAS to one thread; `TCRE_JOBS` sets the numbe
 
 | Script | Question | Note section | Runtime |
 |---|---|---|---|
-| `process_tests.py` | Do process flags explain, identify and predict? (any ensemble) | 1, 3, 6, 7 | seconds to 1 h |
+| `precompute.py` | Sampling for the notebooks: prior against posterior, synthetic recovery, leave one out (any ensemble) | 1, 3, 6, 7 | 1 h |
+| `process_tests.py` | The same tests from the command line | 1, 3, 6, 7 | seconds to 1 h |
 | `m0_reproduce_upstream.py` | Does the development configuration reproduce its own headline (1.77 K/EgC)? | Context | 20 min |
 | `m1_covariance_check.py` | Are its inputs aligned and is its covariance argument right? | Methods | seconds |
 | `m2_feedbacks_closure.py` | Which β/γ convention are the inputs in, and do they close to each model's TCRE? | Methods | seconds |

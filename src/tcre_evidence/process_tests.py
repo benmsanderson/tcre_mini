@@ -269,7 +269,7 @@ def detection_power(values: pd.Series, flags: pd.DataFrame, effects: dict[str, f
 # ----------------------------------------------------------------------------------------------------
 
 def prior_vs_posterior(values: pd.Series, flags: pd.DataFrame, priors: dict, seed: int = 0,
-                       sampler: dict | None = None, paired: dict | None = None) -> tuple[pd.DataFrame, dict]:
+                       sampler: dict | None = None, paired: dict | None = None, return_draws: bool = False):
     """Prior and posterior of each process effect, the real-world value and the shared-bias terms.
 
     width_ratio = width of the posterior 90 % interval / width of the prior's: near 1 means the ensemble
@@ -278,19 +278,21 @@ def prior_vs_posterior(values: pd.Series, flags: pd.DataFrame, priors: dict, see
     Quantiles are used because several priors are skewed (permafrost, nitrogen) and their standard
     deviations are set by long tails. A narrower posterior can also mean only that the data rule out
     the prior's tail; synthetic_recovery is the direct test of whether a term is identified.
+
+    Returns (table, diagnostics), plus {term: (prior draws, posterior draws)} if return_draws.
     """
     model = build(values, flags, priors, paired=paired)
     with model:
         prior = pm.sample_prior_predictive(draws=4000, random_seed=seed).prior
     idata, diag = fit(model, seed=seed, sampler=sampler)
-    rows = []
     eff = effect_name(priors["kind"])
-    for i, p in enumerate(flags.columns):
-        rows.append(_compare(f"{eff}[{p}]", prior[eff].values[..., i].ravel(), _draws(idata, eff)[:, i]))
+    draws = {f"{eff}[{p}]": (prior[eff].values[..., i].ravel(), _draws(idata, eff)[:, i])
+             for i, p in enumerate(flags.columns)}
     for v in (VAR, f"{VAR}_sigma_struct", f"{VAR}_rho", f"{VAR}_sigma_common"):
         if v in idata.posterior:
-            rows.append(_compare(v, prior[v].values.ravel(), _draws(idata, v)))
-    return pd.DataFrame(rows), diag
+            draws[v] = (prior[v].values.ravel(), _draws(idata, v))
+    table = pd.DataFrame([_compare(term, pr, po) for term, (pr, po) in draws.items()])
+    return (table, diag, draws) if return_draws else (table, diag)
 
 
 def _compare(term, pr, po) -> dict:
@@ -404,3 +406,31 @@ def leave_one_out(values: pd.Series, flags: pd.DataFrame, priors: dict, groups: 
                                 cov90=("cov90", "mean"), mean_sd=("sd", "mean")).reset_index()
     S["crps_skill"] = 1 - S.crps / float(S.loc[S.method == "raw_ensemble", "crps"].iloc[0])
     return R, S
+
+
+# ----------------------------------------------------------------------------------------------------
+# Summary across tests
+# ----------------------------------------------------------------------------------------------------
+
+def evidence_table(prior_table: pd.DataFrame, synth_effects: pd.DataFrame, synth_none: pd.DataFrame,
+                   power: pd.DataFrame) -> pd.DataFrame:
+    """One row per process, combining the tests:
+
+    models_needed  two-standard-error detection with the current flag mix (power test)
+    tracking       how far the estimate follows the truth between the two synthetic scenarios:
+                   (estimate with effects - estimate without) / (true difference). 1 = follows the truth,
+                   0 = ignores it (the answer comes from the prior)
+    width_ratio    posterior over prior 90 % width on the real ensemble (1 = not informed)
+    """
+    a, b = synth_effects.set_index("term"), synth_none.set_index("term")
+    procs = [p for p in a.index if p != "real_world"]
+    width = prior_table.assign(process=prior_table.term.str.extract(r"\[(.*)\]")[0]).set_index("process")
+    P = power.set_index("process")
+    rows = []
+    for p in procs:
+        dt = a.loc[p, "truth"] - b.loc[p, "truth"]
+        rows.append(dict(process=p, models_available=int(P.loc[p, "n_models_now"]),
+                         models_needed=P.loc[p, "n_needed_same_mix"],
+                         tracking=(a.loc[p, "mean_estimate"] - b.loc[p, "mean_estimate"]) / dt if dt else np.nan,
+                         width_ratio=width.loc[p, "width_ratio"]))
+    return pd.DataFrame(rows)

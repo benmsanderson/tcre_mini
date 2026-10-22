@@ -12,6 +12,8 @@ dependencies:
   - matplotlib
   - joblib
   - pytest
+  - jupyterlab
+  - ipykernel
   - intake-esm
   - gcsfs
   - zarr
