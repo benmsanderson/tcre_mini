@@ -417,9 +417,12 @@ def evidence_table(prior_table: pd.DataFrame, synth_effects: pd.DataFrame, synth
     """One row per process, combining the tests:
 
     models_needed  two-standard-error detection with the current flag mix (power test)
-    tracking       how far the estimate follows the truth between the two synthetic scenarios:
-                   (estimate with effects - estimate without) / (true difference). 1 = follows the truth,
-                   0 = ignores it (the answer comes from the prior)
+    tracking       how far the estimate follows the truth between the two synthetic scenarios, averaged
+                   over replicates: (estimate with effects - estimate without) / (true difference).
+                   1 = follows the truth, 0 = ignores it (the answer comes from the prior)
+    sd_over_effect posterior sd of one fit / the true difference. Tracking is an average over many
+                   pseudo-ensembles; this says whether a single ensemble resolves the effect. Above about
+                   0.5 the effect is not detected at two standard deviations
     width_ratio    posterior over prior 90 % width on the real ensemble (1 = not informed)
     """
     a, b = synth_effects.set_index("term"), synth_none.set_index("term")
@@ -432,5 +435,6 @@ def evidence_table(prior_table: pd.DataFrame, synth_effects: pd.DataFrame, synth
         rows.append(dict(process=p, models_available=int(P.loc[p, "n_models_now"]),
                          models_needed=P.loc[p, "n_needed_same_mix"],
                          tracking=(a.loc[p, "mean_estimate"] - b.loc[p, "mean_estimate"]) / dt if dt else np.nan,
+                         sd_over_effect=0.5 * (a.loc[p, "post_sd"] + b.loc[p, "post_sd"]) / abs(dt) if dt else np.nan,
                          width_ratio=width.loc[p, "width_ratio"]))
     return pd.DataFrame(rows)
