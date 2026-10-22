@@ -90,10 +90,10 @@ def table(window=WINDOW) -> pd.DataFrame:
 
 
 def flat10_tcre() -> pd.DataFrame:
-    """flat10 TCRE at 1000 PgC from esm-deck output (temperature anomaly, mean of years 91-110)."""
-    from .paths import ESM_DECK
-    T = pd.read_csv(ESM_DECK / "output" / "temperatures_flat10.csv")
+    """flat10 TCRE at 1000 PgC (temperature anomaly, mean of years 91-110), from data/flat10/."""
+    from .paths import FLAT10_DATA
+    T = pd.read_csv(FLAT10_DATA / "temperatures_flat10.csv")
     name = {"UKESM": "UKESM1-0-LL", "GISS": "GISS-E2-1-G"}
     t = T.iloc[90:110].mean().rename(index=lambda c: name.get(c, c))
-    met = pd.read_csv(ESM_DECK / "esm_metrics_flat10.csv", index_col=0).rename(index=lambda c: name.get(c, c))
+    met = pd.read_csv(FLAT10_DATA / "esm_metrics_flat10.csv", index_col=0).rename(index=lambda c: name.get(c, c))
     return pd.DataFrame(dict(tcre_flat10=t, tcre_flat10_esmdeck=met.tcre.reindex(t.index)))

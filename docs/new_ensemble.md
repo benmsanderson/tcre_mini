@@ -24,7 +24,8 @@ ACCESS-ESM1-5,0.7042,-10.1079,-14.3683,4.2604
       beta_coubgc  = (ΔC_BGC − gamma_coubgc · ΔT_BGC) / ΔCa
       gamma_rad    = ΔC_RAD / ΔT_RAD
 
-  `tcre_evidence.feedbacks.diagnose()` does this for the esm-deck format, including the sign checks.
+  `tcre_evidence.feedbacks.diagnose()` does this for the C4MIP ascii files in `data/c4mip/`, including the
+  sign checks; for other formats, compute the same quantities from your own global means.
   COU−BGC matches the development code. RAD differs from it by the non-linear term ε, so do not mix
   the two in one column.
 - **End-to-end quantities.** If you can, also include TCRE/TCR (the carbon factor R) or the airborne

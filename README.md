@@ -39,9 +39,9 @@ an hour; `--quick` and `--jobs 4` help).
 | `results/` | Outputs and `SUMMARY.md`. |
 | `data/examples/` | CMIP6 input tables in the format `process_tests.py` reads. |
 | `data/upstream_snapshot/` | Frozen copy of the development code's inputs (Google Sheet tabs and `DATA/`). |
+| `data/c4mip/`, `data/flat10/` | C4MIP 1pctCO2 BGC/COU/RAD and flat10 global means for 11 CMIP6 models (copied from esm-deck at eef04dc; read through `tcre_evidence.c4mip`). |
 | `data/derived/`, `data/obs/` | Feedbacks diagnosed from C4MIP runs; observational series (GCB, NOAA, HadCRUT5). |
 | `external/TCRE_Assessment` | Development code, pinned at 98c74cb. Never edited. |
-| `external/esm-deck` | C4MIP 1pctCO2 BGC/COU/RAD and flat10 global means, pinned at eef04dc. |
 | `note/` | LaTeX technical note (submodule); figures from `scripts/note_figures.py`. |
 | `docs/` | `guide.md` (concepts), `new_ensemble.md` (applying the tests elsewhere). |
 | `tests/` | `python -m pytest`; add `-m slow` for the MCMC tests. |

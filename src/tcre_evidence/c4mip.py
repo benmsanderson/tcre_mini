@@ -1,6 +1,7 @@
-"""Reader for the esm-deck C4MIP CMIP6 global-mean ascii files (1pctCO2 BGC/COU/RAD, piControl).
+"""Reader for the C4MIP CMIP6 global-mean ascii files (1pctCO2 BGC/COU/RAD, piControl) for 11 models.
 
-Files: external/esm-deck/C4MIP_data/c4mip_cmip6_ascii_files_11_models/<model>/<model>_{1pc_BGC,1pc_COU,1pc_RAD,PI_CONTROL}.txt
+Files: data/c4mip/c4mip_cmip6_ascii_files_11_models/<model>/<model>_{1pc_BGC,1pc_COU,1pc_RAD,PI_CONTROL}.txt
+(copied unchanged from the esm-deck repository at commit eef04dc; provenance in data/c4mip/README.md)
 
 Harmonisation (HANDOVER §6.0), all explicit in MODELS below:
 - column names normalised (quoted headers, HETERES, UKESM 'Year' and lower-case piControl header);
@@ -17,9 +18,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from .paths import ESM_DECK
-
-C4MIP_DIR = ESM_DECK / "C4MIP_data" / "c4mip_cmip6_ascii_files_11_models"
+from .paths import C4MIP_DATA as C4MIP_DIR
 RUNS = {"bgc": "1pc_BGC", "cou": "1pc_COU", "rad": "1pc_RAD", "ctrl": "PI_CONTROL"}
 
 
