@@ -6,18 +6,24 @@ This repository tests the Bayesian process framework that the TCRE assessment is
 about 13 Earth system models, learn process effects from the ensemble or mainly express their priors.
 It also builds a simpler line of evidence, TCRE = TCR × R.
 
-The findings are written up in the technical note in `note/` (a submodule,
-`benmsanderson/tcre_bayes_paper`). `results/SUMMARY.md` lists every number and the script it comes from.
+## The analysis, in notebooks
 
-**New here?** Start with the three notebooks in `notebooks/`. They run in seconds, because the slow
-sampling is cached in `results/precomputed/`:
+The notebooks in `notebooks/` are the main presentation of the process-model analysis and the place to
+explore it. The data, the regression, the synthetic experiments and every figure are written out in the
+cells, so tables, flags, priors and effect sizes can be changed and rerun directly. Only the development
+code's model builder and the sampler are imported. Sampling results are cached in `results/precomputed/`,
+so the notebooks run in seconds; `REFIT = True` samples live instead.
 
-1. `01_framework_tour.ipynb`: how the process model reads an ensemble (CMIP6 land β and γ).
-2. `02_what_can_flags_learn.ipynb`: which process effects the ensemble can measure, and whether the
-   real-world estimate predicts held-out models.
-3. `03_your_ensemble.ipynb`: a template for running the same tests on your own tables (e.g. WIEMIP).
+1. `01_process_model.ipynb`: the CMIP6 land feedbacks by process flag, the process model and its priors,
+   and how far the 13 models move each term away from its prior.
+2. `02_what_the_ensemble_can_measure.ipynb`: the flag regression, detection power, recovery of known
+   effects from pseudo-data, and whether the real-world estimate predicts held-out models.
+3. `03_other_ensembles.ipynb`: the same tests on any other ensemble (for example WIEMIP), using the
+   packaged functions.
 
-`docs/guide.md` gives the background in more depth, and `docs/new_ensemble.md` the input format.
+The technical note in `note/` (a submodule, `benmsanderson/tcre_bayes_paper`) covers the wider set of
+analyses (`m*` scripts below); `results/SUMMARY.md` lists every number and the script it comes from.
+`docs/guide.md` gives the background and `docs/new_ensemble.md` the input format for other ensembles.
 
 ## Quick start
 
@@ -44,9 +50,9 @@ python scripts/precompute.py --name wiemip --values my_values.csv --flags my_fla
 | Path | What it holds |
 |---|---|
 | `src/tcre_evidence/` | The package. All logic lives here; scripts are thin. |
-| `notebooks/` | **Start here.** Three short notebooks; they read cached results and call the package. |
+| `notebooks/` | The analysis of the process model, as editable notebooks (see above). |
 | `src/tcre_evidence/process_tests.py` | The process-model tests, for any ensemble. |
-| `src/tcre_evidence/process_plots.py` | The notebooks' figures. |
+| `src/tcre_evidence/process_plots.py` | Figures for `03_other_ensembles.ipynb`. |
 | `src/tcre_evidence/upstream_patched/` | The development code's model builders, patched only so that they construct (diff and reasons inside). |
 | `src/tcre_evidence/upstream.py`, `upstream_data.py` | The full development configuration (land, ocean, TCRE) and its frozen inputs. |
 | `scripts/` | One script per analysis; each writes to `results/` and uses a fixed seed. |

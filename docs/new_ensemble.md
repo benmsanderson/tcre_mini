@@ -4,9 +4,9 @@ This walks through running `scripts/process_tests.py` on an ensemble other than 
 CSV files and a few minutes for the cheap tests; the Bayesian tests take longer. Read `docs/guide.md`
 first if the process model is new to you.
 
-The quickest route is `notebooks/03_your_ensemble.ipynb`: set the paths at the top, run the cheap tests,
-run the precompute command it prints, and the remaining cells show the same figures as notebook 2 for
-your ensemble. This page describes the input format and the command-line route in more detail.
+The quickest route is `notebooks/03_other_ensembles.ipynb`: set the paths at the top, run the cheap
+tests, run the precompute command it prints, and the remaining cells show the same figures as notebook 2
+for your ensemble. This page describes the input format and the command-line route in more detail.
 
 ## 1. The values table
 

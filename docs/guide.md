@@ -1,8 +1,8 @@
 # Guide: the TCRE process framework and how this repository tests it
 
-This guide is for someone who knows the carbon cycle and Earth system models but not necessarily
-Bayesian statistics. It explains what the framework does, where it lives in the code, and how to read
-each test. The technical note in `note/` has the results.
+This guide explains what the framework does, where it lives in the code, and how to read each test,
+with the statistical terms spelled out. The notebooks in `notebooks/` carry out the analysis, and the
+technical note in `note/` has the wider results.
 
 ## 1. TCRE from feedback parameters
 
