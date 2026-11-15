@@ -170,3 +170,19 @@ def paired_effects(fb: pd.DataFrame) -> pd.DataFrame:
                                  delta_gamma_land_coubgc=on.gamma_land_coubgc - off.gamma_land_coubgc,
                                  delta_gamma_land_rad=on.gamma_land_rad - off.gamma_land_rad))
     return pd.DataFrame(rows).sort_values(["process", "model", "background", "pattern"]).reset_index(drop=True)
+
+
+def paired_by_model(pe: pd.DataFrame, column: str, background: str = "") -> dict[str, list[float]]:
+    """One paired value per model and process, for process_tests.build(paired=...).
+
+    The three climate patterns of one model are not independent experiments (beta does not depend on
+    the pattern at all), so they are averaged: the arithmetic mean for delta, the geometric mean for eta.
+    Only pairs with the given `background` are used ('' = baseline against noX). Non-finite values are
+    dropped. Returns {process: [value per model]} in model order.
+    """
+    d = pe[(pe.background.fillna("") == background) & np.isfinite(pe[column])]
+    if column.startswith("eta_"):
+        agg = d.groupby(["process", "model"])[column].agg(lambda x: float(np.exp(np.log(x).mean())))
+    else:
+        agg = d.groupby(["process", "model"])[column].mean()
+    return {p: agg.loc[p].tolist() for p in agg.index.get_level_values("process").unique()}

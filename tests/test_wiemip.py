@@ -107,3 +107,12 @@ def test_design_se_factor_balanced():
     # one flag, half the models flagged: se factor = sqrt(1/k + 1/(n-k)) = 2/sqrt(n)
     assert pt.design_se_factor(16, 8, 0) == pytest.approx(0.5)
     assert pt.design_se_factor(18, 3, 3) > pt.design_se_factor(18, 9, 3)
+
+
+def test_paired_by_model_one_value_per_model():
+    pe = pd.DataFrame(dict(model=["A", "A", "A", "B"], pattern=["ukesm", "gfdl", "ipsl", "ukesm"],
+                           process="fire", background="", eta_beta_land=[0.5, 0.5, 2.0, 0.8],
+                           delta_gamma_land_coubgc=[1.0, 2.0, 3.0, np.nan]))
+    assert wm.paired_by_model(pe, "delta_gamma_land_coubgc") == {"fire": [2.0]}
+    eta = wm.paired_by_model(pe, "eta_beta_land")["fire"]
+    assert eta == pytest.approx([0.5 ** (2 / 3) * 2.0 ** (1 / 3), 0.8])

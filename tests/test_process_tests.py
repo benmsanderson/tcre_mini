@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import pytest
+from scipy import stats
 
 from tcre_evidence import process_tests as pt
 from tcre_evidence.paths import DATA
@@ -72,3 +73,35 @@ def test_fit_and_own_flags_predictive(gamma):
     assert diag["rhat_max"] < 1.05
     pred = pt.own_flags_predictive(idata, flags.loc["CESM2"], priors)
     assert pred.shape == (600,) and np.isfinite(pred).all()
+
+
+@pytest.mark.parametrize("kind", [pt.ADDITIVE, pt.MULTIPLICATIVE])
+def test_build_paired_spread_modes(gamma, kind):
+    y, flags, _ = gamma
+    pr = pt.default_priors(kind, list(flags.columns))
+    vals = {"fire": [5.0, -3.0]} if kind == pt.ADDITIVE else {"fire": [0.9, 1.05]}
+    m0 = pt.build(y, flags, pr, paired=vals)
+    assert f"{pt.VAR}_fire_1" not in m0.named_vars          # upstream label: delta_fire_1 / eta_fire_1
+    m1 = pt.build(y, flags, pr, paired=vals, paired_spread="struct")
+    assert f"{pt.VAR}_paired_fire" in m1.named_vars and f"{pt.VAR}_paired_tau_fire" not in m1.named_vars
+    m2 = pt.build(y, flags, pr, paired=vals, paired_spread="estimate")
+    assert f"{pt.VAR}_paired_tau_fire" in m2.named_vars
+    obs = m2[f"{pt.VAR}_paired_fire"]
+    expect = vals["fire"] if kind == pt.ADDITIVE else np.log(vals["fire"])
+    assert np.allclose(m2.rvs_to_values[obs].data, expect)
+    with pytest.raises(ValueError, match="paired_spread"):
+        pt.build(y, flags, pr, paired=vals, paired_spread="fixed")
+    with pytest.raises(ValueError, match="not a flag column"):
+        pt.build(y, flags, pr, paired={"demography": [1.0]}, paired_spread="struct")
+
+
+def test_paired_struct_observation_sd(gamma):
+    """In "struct" mode the paired likelihood sd is sqrt(sigma_process_struct^2 + paired_sigma^2)."""
+    y, flags, _ = gamma
+    pr = pt.default_priors(pt.ADDITIVE, list(flags.columns))
+    m = pt.build(y, flags, pr, paired={"fire": [4.0]}, paired_spread="struct", paired_sigma=2.0)
+    pt_ = m.compile_logp(vars=[m[f"{pt.VAR}_paired_fire"]], sum=True)
+    point = m.initial_point()
+    d = float(point[f"{pt.VAR}_fire"])                    # fire's prior is Normal, so its value is untransformed
+    sd = np.hypot(pr["sigma_process_struct"]["fire"], 2.0)
+    assert float(pt_(point)) == pytest.approx(stats.norm.logpdf(4.0, d, sd), rel=1e-6)

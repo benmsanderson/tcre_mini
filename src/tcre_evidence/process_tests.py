@@ -116,14 +116,34 @@ def default_priors(kind: str, processes: list[str]) -> dict:
 # The Bayesian process model
 # ----------------------------------------------------------------------------------------------------
 
+PAIRED_SPREADS = (None, "struct", "estimate")
+
+
 def build(values: pd.Series, flags: pd.DataFrame, priors: dict,
-          paired: dict[str, list[float]] | None = None, paired_sigma: float | None = None) -> pm.Model:
+          paired: dict[str, list[float]] | None = None, paired_sigma: float | None = None,
+          paired_spread: str | None = None, paired_tau_scale: float | dict | None = None) -> pm.Model:
     """PyMC process model for one quantity, built with the development code's builder.
 
     paired : optional evidence from paired process experiments (the same model with a process on and
-             off), as {process: [values]}; values are delta (additive) or eta (multiplicative). In the
-             development code these are, for example, beta_land nitrogen eta = [0.69, 0.77].
+             off), as {process: [values]}, one value per model; values are delta (additive) or eta
+             (multiplicative). In the development code these are, for example, beta_land nitrogen
+             eta = [0.69, 0.77].
+    paired_spread : how a paired value relates to the ensemble-mean effect.
+        None        the development code's treatment: each value observes delta_p (or eta_p) directly
+                    with error paired_sigma (default 5 PgC/K, or 0.1 on eta). n values then narrow the
+                    posterior to about paired_sigma / sqrt(n) however much the values disagree.
+        "struct"    each value is that model's own effect, delta_p + e_mp, with e_mp drawn from the
+                    process scatter the regression already uses (sigma_process_struct, or
+                    sigma_mult_struct in log eta): value ~ N(delta_p, sqrt(struct_p^2 + paired_sigma^2)).
+        "estimate"  as "struct", but the between-model scatter tau_p ~ HalfNormal(paired_tau_scale) is
+                    estimated from the paired values (default scale 30 PgC/K, or 0.5 in log eta).
+                    With one or two values per process tau_p is set mostly by its prior.
+        In both hierarchical modes multiplicative values are compared in log eta, and paired_sigma is
+        the measurement error of one model's value (default 2 PgC/K, or 0.02 in log eta; the spread
+        between the three WIEMIP climate patterns is 0.2 to 5 PgC/K for gamma and 0 for beta).
     """
+    if paired_spread not in PAIRED_SPREADS:
+        raise ValueError(f"paired_spread must be one of {PAIRED_SPREADS}")
     procs = list(flags.columns)
     y = xr.DataArray(values.values, coords=dict(model=values.index.values), dims="model")
     lt = xr.DataArray(flags.T.values.astype(float), coords=dict(process=procs, model=values.index.values),
@@ -138,13 +158,36 @@ def build(values: pd.Series, flags: pd.DataFrame, priors: dict,
         model = CMIP_process.build_vectorized_process_model(
             y, lt, multiplicative_processes=procs, eta_priors=priors["eta"],
             sigma_mult_struct=priors["sigma_mult_struct"], **common)
-    if paired:
+    if paired and paired_spread is None:
         sigma = paired_sigma if paired_sigma is not None else (5.0 if priors["kind"] == ADDITIVE else 0.1)
         with model:
             for p, vals in paired.items():
                 CMIP_process.add_process_information(model, p, np.asarray(vals, float), process_sigma=sigma,
                                                      process_iteration=1, var_name=VAR)
+    elif paired:
+        _add_paired_hierarchical(model, priors, procs, paired, paired_sigma, paired_spread, paired_tau_scale)
     return model
+
+
+def _add_paired_hierarchical(model, priors, procs, paired, paired_sigma, paired_spread, paired_tau_scale):
+    additive = priors["kind"] == ADDITIVE
+    sigma = paired_sigma if paired_sigma is not None else (2.0 if additive else 0.02)
+    struct = priors["sigma_process_struct"] if additive else priors["sigma_mult_struct"]
+    scale = paired_tau_scale if paired_tau_scale is not None else (30.0 if additive else 0.5)
+    with model:
+        for p, vals in paired.items():
+            if p not in procs:
+                raise ValueError(f"paired process {p!r} is not a flag column; flags are {procs}")
+            vals = np.asarray(vals, float)
+            i = procs.index(p)
+            mu = model[f"{VAR}_delta"][i] if additive else model[f"{VAR}_log_eta"][i]
+            obs = vals if additive else np.log(vals)
+            if paired_spread == "struct":
+                sd = float(np.hypot(struct[p], sigma))
+            else:
+                tau = pm.HalfNormal(f"{VAR}_paired_tau_{p}", sigma=scale[p] if isinstance(scale, dict) else scale)
+                sd = pm.math.sqrt(tau ** 2 + sigma ** 2)
+            pm.Normal(f"{VAR}_paired_{p}", mu=mu, sigma=sd, observed=obs)
 
 
 def fit(model: pm.Model, seed: int = 0, sampler: dict | None = None):
@@ -154,7 +197,8 @@ def fit(model: pm.Model, seed: int = 0, sampler: dict | None = None):
     multiprocess sampling in the parent process breaks later joblib workers.
     """
     idata = up._sample(model, seed, {"cores": 1, **(sampler or {})}, progressbar=False)
-    names = [VAR] + [v for v in (f"{VAR}_delta", f"{VAR}_eta") if v in idata.posterior]
+    names = [VAR] + [v for v in idata.posterior.data_vars
+                     if v in (f"{VAR}_delta", f"{VAR}_eta") or v.startswith(f"{VAR}_paired_tau_")]
     return idata, up.diagnostics(idata, names)
 
 
@@ -287,7 +331,8 @@ def design_se_factor(n_models: int, n_flagged: int, n_other_flags: int, seed: in
 # ----------------------------------------------------------------------------------------------------
 
 def prior_vs_posterior(values: pd.Series, flags: pd.DataFrame, priors: dict, seed: int = 0,
-                       sampler: dict | None = None, paired: dict | None = None, return_draws: bool = False):
+                       sampler: dict | None = None, paired: dict | None = None, return_draws: bool = False,
+                       **paired_kw):
     """Prior and posterior of each process effect, the real-world value and the shared-bias terms.
 
     width_ratio = width of the posterior 90 % interval / width of the prior's: near 1 means the ensemble
@@ -297,16 +342,18 @@ def prior_vs_posterior(values: pd.Series, flags: pd.DataFrame, priors: dict, see
     deviations are set by long tails. A narrower posterior can also mean only that the data rule out
     the prior's tail; synthetic_recovery is the direct test of whether a term is identified.
 
+    paired_kw (paired_sigma, paired_spread, paired_tau_scale) are passed to build().
     Returns (table, diagnostics), plus {term: (prior draws, posterior draws)} if return_draws.
     """
-    model = build(values, flags, priors, paired=paired)
+    model = build(values, flags, priors, paired=paired, **paired_kw)
     with model:
         prior = pm.sample_prior_predictive(draws=4000, random_seed=seed).prior
     idata, diag = fit(model, seed=seed, sampler=sampler)
     eff = effect_name(priors["kind"])
     draws = {f"{eff}[{p}]": (prior[eff].values[..., i].ravel(), _draws(idata, eff)[:, i])
              for i, p in enumerate(flags.columns)}
-    for v in (VAR, f"{VAR}_sigma_struct", f"{VAR}_rho", f"{VAR}_sigma_common"):
+    taus = [f"{VAR}_paired_tau_{p}" for p in flags.columns]
+    for v in (VAR, f"{VAR}_sigma_struct", f"{VAR}_rho", f"{VAR}_sigma_common", *taus):
         if v in idata.posterior:
             draws[v] = (prior[v].values.ravel(), _draws(idata, v))
     table = pd.DataFrame([_compare(term, pr, po) for term, (pr, po) in draws.items()])

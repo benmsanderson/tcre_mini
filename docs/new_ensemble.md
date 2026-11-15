@@ -113,7 +113,20 @@ table, diagnostics = pt.prior_vs_posterior(y, flags, priors)
 # paired experiments (same model, process on minus off) as direct evidence on delta
 model = pt.build(y, flags, priors, paired={"demography": [-15.0]}, paired_sigma=5.0)
 idata, diagnostics = pt.fit(model)
+
+# the same, with each paired value treated as one model's own effect and the scatter between
+# models estimated (one value per model: average the climate patterns first)
+model = pt.build(y, flags, priors, paired={"demography": [-15.0, -2.0, -30.0]}, paired_spread="estimate")
 ```
+
+By default (`paired_spread=None`, the development code's treatment) each paired value observes the
+ensemble-mean effect directly with error `paired_sigma`. With n values the posterior then narrows to about
+`paired_sigma / sqrt(n)` however much the values disagree. A single value at the default 5 PgC/K carries
+four times the precision of a N(0, 10) prior. `paired_spread="struct"` adds the regression's own process
+scatter (`sigma_process_struct`, `sigma_mult_struct`) to each value's error, and `"estimate"` estimates
+that scatter from the paired values. For WIEMIP, `wiemip.paired_by_model` gives one value per model;
+the three climate patterns of a model are not independent experiments. `scripts/wiemip_paired_spread.py`
+compares the treatments.
 
 Prior specifications follow the development code (`external/TCRE_Assessment/config/priors.py`):
 - **delta:** `Normal`, `LogNormal` or `NegLogNormal`, with `mu` and `sigma`;
