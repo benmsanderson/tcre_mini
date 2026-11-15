@@ -74,6 +74,41 @@ python -m pytest                                                             # 9
   - The BEPS ctrl drifts by 62 PgC per century.
   - The open `data-quality` issues on `WIEMIP/wiemip-data-registry` have not yet been read (private repository, no `gh` on the hub).
 
+**Done on the hub (2026-11-15):**
+- **Paired factorials, hierarchical.** `process_tests.build(paired_spread=...)`: `None` keeps the development
+  code's treatment (each factorial observes the mean effect with a fixed sigma, so n values narrow the
+  posterior to sigma/sqrt(n) however much they disagree); `"estimate"` treats each factorial as one model's
+  own effect and estimates the between-model scatter tau_p. `"struct"` uses the prior process scatter and is
+  not usable for beta (`sigma_mult_struct` = 0.01 against an observed 0.1 to 0.6 in log eta).
+  `wiemip.paired_by_model` gives one value per model (the three patterns are not independent).
+- **Flag table.** `data/wiemip/process_inclusion_sheet.csv` is the 'WIEMIP process inclusion' tab of the
+  WIEMIP spreadsheet as downloaded on 2026-11-15, unchanged. `wiemip.read_flag_sheet` harmonises names, sets
+  '?' to unknown and fills it with 1 where the model ran noX; no cell contradicts the factorials. Resolved
+  flags: `results/wiemip/flags_resolved.csv`. No demography or family column yet.
+- **Re-extraction (2026-11-15).** The registry (code hash 27460c3b29d530f9) no longer exposes BEPS,
+  DVM_DOS_TEM, JULES, VISIT_UT or ORCHIDEE_MICT_CALIPSO, although their files are under `/srv/wiemip`
+  (JULES has been reorganised as `JULESwiemipV2_*` with several permafrost variants). 182 runs, against 208
+  on 2026-10-22; the earlier extraction is in git history (commit 303c67a). Models still exposed are
+  unchanged except the re-uploaded LPJmL6 (beta) and LPX_Bern (gamma). New: CARDAMOM_JPL, noDynVeg for
+  LPJ_EOSIM and LPJ_GUESS (flag `veg`).
+- **Comparison.** `scripts/wiemip_paired_spread.py --ensemble {cmip6,wiemip}` writes
+  `results/wiemip/paired_spread[_wiemip].csv`. On WIEMIP (13 models with complete flags and values), with tau
+  estimated, only fire stays constrained; nitrogen on gamma_L and veg return close to prior width. The
+  permafrost factorials give about zero effect on gamma_L (-0.4 PgC/K from two models; +13 before the
+  LPX_Bern re-upload), a value the NegLogNormal prior (median -30) excludes, so the narrow upstream
+  posterior just below zero reflects the prior's bound, not the data. In WIEMIP the same models give the regression values and
+  the factorials, so the two are not independent. The upstream every-pattern-row gamma fit has 2
+  divergences (kept as the comparison case).
+- **Spreadsheet differences to raise with Becky** (not yet raised): JSBACH beta 1.30 in the sheet against
+  1.10 from the registry; CARDAMOM_JPL beta 0.56 against 0.95; JULES pairs mix backgrounds (fire is
+  baseline vs noFire, nitrogen and veg use noFire as "on").
+- **Power tables** regenerated on the new extraction (15 baseline models). `wiemip_power.py` now skips
+  designs with a flag on every model (they never reach full rank, and `design_se_factor` looped forever).
+- **Stale:** `notebooks/04_wiemip.ipynb` and the text in `scripts/make_notebook_04.py` quote numbers from the
+  2026-10-22 extraction (18 models, fire +5.1 +/- 2.6 PgC/K); regenerate and re-execute before sharing.
+- **Next:** add `paired_spread` to `synthetic_recovery` and `leave_one_out`; re-extract when the registry
+  restores the missing models.
+
 1. **Build the values table** from WIEMIP global means: one row per model, columns such as
    `gamma_land_coubgc`, `beta_land_coubgc` (and, if possible, R = TCRE/TCR).
    - The formulas are in `docs/new_ensemble.md`; `tcre_evidence.feedbacks.diagnose()` implements them for

@@ -1,12 +1,12 @@
 {
- "created": "2026-10-22T21:31:36+00:00",
+ "created": "2026-11-15T15:09:47+00:00",
  "data_root": "/srv/wiemip",
  "csv_cache": "/srv/wiemip-csv",
  "registry_path": "/opt/tljh/user/lib/python3.12/site-packages/wiemip_registry",
- "registry_py_sha256_16": "23b31211d9f04cce",
+ "registry_py_sha256_16": "27460c3b29d530f9",
  "co2_file": "/srv/wiemip/1pctCO2/input/co2/WIEMIP_1pctco2_FaIR_input_20260331.txt",
  "fair_config": 1051936,
  "probe_variable": "cVeg",
- "n_runs": 208,
+ "n_runs": 182,
  "note": "Global land carbon from wiemip_registry.land_carbon_stock, annual means. Unpublished WIEMIP output: share only with WIEMIP authors."
 }

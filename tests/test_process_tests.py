@@ -105,3 +105,8 @@ def test_paired_struct_observation_sd(gamma):
     d = float(point[f"{pt.VAR}_fire"])                    # fire's prior is Normal, so its value is untransformed
     sd = np.hypot(pr["sigma_process_struct"]["fire"], 2.0)
     assert float(pt_(point)) == pytest.approx(stats.norm.logpdf(4.0, d, sd), rel=1e-6)
+
+
+def test_design_se_factor_rejects_flag_on_every_model():
+    with pytest.raises(ValueError, match="n_flagged"):
+        pt.design_se_factor(15, 15, 3)

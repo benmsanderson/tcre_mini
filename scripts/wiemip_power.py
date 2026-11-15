@@ -3,7 +3,7 @@
 The full flag table (which models include each process) is being compiled separately, so the real flag
 budget cannot be run yet. Detection power depends on the flag table only through how many models are
 flagged and how the flags overlap, so it is computed here on hypothetical designs:
-- 18 baseline models (UKESM pattern), one flag set for k of them, plus 3 further flags set at random;
+- the baseline models (UKESM pattern), one flag set for k < n of them, plus 3 further flags set at random;
 - residual scatter = the WIEMIP ensemble sd times sqrt(1 - r2), for r2 = 0 (flags explain nothing) and
   0.2 (about the share the four flags explained for gamma_L in CMIP6); also with a robust sd (1.4826 MAD),
   which limits the weight of single outlying models.
@@ -31,6 +31,9 @@ QUANTS = {"gamma_land_coubgc": ("delta_gamma_land_coubgc", False), "beta_land_co
 
 def n_needed(s: float, eff: float, max_models: int = 4000) -> float:
     """Smallest balanced ensemble (each flag p = 0.5) with standard error <= |eff| / 2."""
+    n_max = max_models - 2 if max_models % 2 == 0 else max_models - 1  # last n the scan below reaches
+    if s * pt.design_se_factor(n_max, n_max // 2, N_OTHER_FLAGS, seed=SEED, ndraw=50) > abs(eff) / 2:
+        return np.inf  # not reached within max_models (se falls with n), so skip the scan
     for n in range(8, max_models, 2):
         if s * pt.design_se_factor(n, n // 2, N_OTHER_FLAGS, seed=SEED, ndraw=50) <= abs(eff) / 2:
             return n
@@ -62,7 +65,7 @@ def main():
             paired.append(row)
         for sname, sd in sds.items():
             for r2 in R2S:
-                for k in KS:
+                for k in (k for k in KS if k < n):  # a flag on every model is the intercept
                     designs.append(dict(quantity=q, scale="log" if log else "linear", scatter=sname, r2=r2,
                                         n_models=n, n_flagged=k, resid_sd=sd * np.sqrt(1 - r2),
                                         se_cross_model=sd * np.sqrt(1 - r2) *

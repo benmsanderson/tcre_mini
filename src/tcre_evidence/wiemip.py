@@ -178,11 +178,37 @@ def paired_by_model(pe: pd.DataFrame, column: str, background: str = "") -> dict
     The three climate patterns of one model are not independent experiments (beta does not depend on
     the pattern at all), so they are averaged: the arithmetic mean for delta, the geometric mean for eta.
     Only pairs with the given `background` are used ('' = baseline against noX). Non-finite values are
-    dropped. Returns {process: [value per model]} in model order.
+    dropped. Processes are named as flag columns (FLAG_NAMES). Returns {process: [value per model]} in
+    model order.
     """
     d = pe[(pe.background.fillna("") == background) & np.isfinite(pe[column])]
     if column.startswith("eta_"):
         agg = d.groupby(["process", "model"])[column].agg(lambda x: float(np.exp(np.log(x).mean())))
     else:
         agg = d.groupby(["process", "model"])[column].mean()
-    return {p: agg.loc[p].tolist() for p in agg.index.get_level_values("process").unique()}
+    return {FLAG_NAMES.get(p, p): agg.loc[p].tolist() for p in agg.index.get_level_values("process").unique()}
+
+
+FLAG_SHEET = WIEMIP_DATA / "process_inclusion_sheet.csv"
+SHEET_NAMES = {"LPX-Bem": "LPX_Bern"}  # spelling in the WIEMIP spreadsheet -> registry name
+FLAG_NAMES = {"dynveg": "veg"}          # process switched off by a factorial (noDynVeg) -> flag column
+
+
+def read_flag_sheet(path=FLAG_SHEET, factorial_flags: pd.DataFrame | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Process flags from the WIEMIP 'process inclusion' sheet, with registry model names.
+
+    Cells marked '?' are unknown (NaN). With `factorial_flags` (from factorial_flags()), an unknown cell is
+    set to 1 where the model ran the noX factorial, since a model can only switch off a process it has.
+    Returns (flags, conflicts); conflicts lists cells the sheet sets to 0 although the model ran noX.
+    """
+    F = pd.read_csv(path, dtype=str).set_index("model")
+    F.index = [SHEET_NAMES.get(m, m.replace("-", "_")) for m in F.index]
+    F = F.apply(pd.to_numeric, errors="coerce").rename_axis("model")
+    conflicts = []
+    if factorial_flags is not None:
+        factorial_flags = factorial_flags.rename(columns=FLAG_NAMES)
+        for p in F.columns.intersection(factorial_flags.columns):
+            ran = factorial_flags[p].reindex(F.index) == 1
+            conflicts += [dict(model=m, process=p, sheet=0) for m in F.index[ran & (F[p] == 0)]]
+            F.loc[ran & F[p].isna(), p] = 1.0
+    return F, pd.DataFrame(conflicts, columns=["model", "process", "sheet"])

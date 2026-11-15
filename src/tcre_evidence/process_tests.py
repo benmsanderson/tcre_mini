@@ -315,6 +315,8 @@ def design_se_factor(n_models: int, n_flagged: int, n_other_flags: int, seed: in
     probability 0.5. Returns the median over `ndraw` random designs (skipping rank-deficient ones), so
     standard error = residual sd x this value.
     """
+    if not 0 < n_flagged < n_models:
+        raise ValueError(f"n_flagged must be between 1 and n_models - 1 ({n_models - 1}); got {n_flagged}")
     rng = np.random.default_rng(seed)
     out = []
     while len(out) < ndraw:

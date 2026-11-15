@@ -93,7 +93,7 @@ def test_real_extraction():
     fb = wm.feedbacks(cl, fc, "2x")
     assert fb.dT.iloc[0] == pytest.approx(1.742, abs=1e-3)
     assert fb.dCa.iloc[0] == pytest.approx(280.0, abs=0.5)
-    assert set(wm.values_table(fb, "ukesm").model) >= {"CLM", "CLM_FATES", "JULES", "LPJ_GUESS"}
+    assert set(wm.values_table(fb, "ukesm").model) >= {"CLM", "CLM_FATES", "LPJ_EOSIM", "LPJ_GUESS"}  # JULES left the registry in Nov 2026
 
 
 def test_factorial_flags(synth):
@@ -116,3 +116,13 @@ def test_paired_by_model_one_value_per_model():
     assert wm.paired_by_model(pe, "delta_gamma_land_coubgc") == {"fire": [2.0]}
     eta = wm.paired_by_model(pe, "eta_beta_land")["fire"]
     assert eta == pytest.approx([0.5 ** (2 / 3) * 2.0 ** (1 / 3), 0.8])
+
+
+def test_read_flag_sheet_fills_unknown_from_factorials(tmp_path):
+    p = tmp_path / "sheet.csv"
+    p.write_text("model,nitrogen,veg\nLPX-Bem,1.0,?\nA-B,0.0,?\nC,0.0,1.0\n")
+    ff = pd.DataFrame({"dynveg": [1.0, np.nan], "nitrogen": [np.nan, 1.0]}, index=["LPX_Bern", "C"])
+    F, conflicts = wm.read_flag_sheet(p, factorial_flags=ff)
+    assert list(F.index) == ["LPX_Bern", "A_B", "C"]
+    assert F.loc["LPX_Bern", "veg"] == 1.0 and np.isnan(F.loc["A_B", "veg"])
+    assert conflicts.to_dict("records") == [dict(model="C", process="nitrogen", sheet=0)]
