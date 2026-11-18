@@ -172,21 +172,23 @@ def paired_effects(fb: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values(["process", "model", "background", "pattern"]).reset_index(drop=True)
 
 
-def paired_by_model(pe: pd.DataFrame, column: str, background: str = "") -> dict[str, list[float]]:
+def paired_by_model(pe: pd.DataFrame, column: str, background: str = "",
+                    as_series: bool = False) -> dict[str, list[float]] | dict[str, pd.Series]:
     """One paired value per model and process, for process_tests.build(paired=...).
 
     The three climate patterns of one model are not independent experiments (beta does not depend on
     the pattern at all), so they are averaged: the arithmetic mean for delta, the geometric mean for eta.
     Only pairs with the given `background` are used ('' = baseline against noX). Non-finite values are
     dropped. Processes are named as flag columns (FLAG_NAMES). Returns {process: [value per model]} in
-    model order.
+    model order, or {process: pd.Series indexed by model} if as_series (for process_tests.leave_one_out).
     """
     d = pe[(pe.background.fillna("") == background) & np.isfinite(pe[column])]
     if column.startswith("eta_"):
         agg = d.groupby(["process", "model"])[column].agg(lambda x: float(np.exp(np.log(x).mean())))
     else:
         agg = d.groupby(["process", "model"])[column].mean()
-    return {FLAG_NAMES.get(p, p): agg.loc[p].tolist() for p in agg.index.get_level_values("process").unique()}
+    procs = agg.index.get_level_values("process").unique()
+    return {FLAG_NAMES.get(p, p): (agg.loc[p] if as_series else agg.loc[p].tolist()) for p in procs}
 
 
 FLAG_SHEET = WIEMIP_DATA / "process_inclusion_sheet.csv"

@@ -214,20 +214,22 @@ def effect_name(kind: str) -> str:
 
 def own_flags_predictive(idata, flag_row: pd.Series, priors: dict, seed: int = 0) -> np.ndarray:
     """Posterior predictive for a new model with the given flags (the model's own generative structure):
-    fresh process scatter e, model bias b_m ~ N(0, sigma_m) and likelihood noise, plus the shared bias."""
+    fresh process scatter e, model bias b_m ~ N(0, sigma_m) and likelihood noise, plus the shared bias.
+    The scatter of process p is its fixed prior value (sigma_process_struct / sigma_mult_struct), or the
+    posterior draws of tau_p where the fit estimated it from paired factorials (paired_spread="estimate")."""
     rng = np.random.default_rng(seed)
     L = flag_row.values.astype(float)
     procs = list(flag_row.index)
     U = _draws(idata, f"{VAR}_unscaled")
     n = U.shape[0]
+    struct = priors["sigma_process_struct"] if priors["kind"] == ADDITIVE else priors["sigma_mult_struct"]
+    sd = np.column_stack([_draws(idata, f"{VAR}_paired_tau_{p}") if f"{VAR}_paired_tau_{p}" in idata.posterior
+                          else np.full(n, struct[p]) for p in procs])
+    e = rng.normal(0, 1, sd.shape) * sd
     if priors["kind"] == ADDITIVE:
-        d = _draws(idata, f"{VAR}_delta")
-        e = rng.normal(0, [priors["sigma_process_struct"][p] for p in procs], d.shape)
-        core = U + ((d + e) * L).sum(1)
+        core = U + ((_draws(idata, f"{VAR}_delta") + e) * L).sum(1)
     else:
-        log_eta = _draws(idata, f"{VAR}_log_eta")
-        e = rng.normal(0, [priors["sigma_mult_struct"][p] for p in procs], log_eta.shape)
-        core = U * np.exp(((log_eta + e) * L).sum(1))
+        core = U * np.exp(((_draws(idata, f"{VAR}_log_eta") + e) * L).sum(1))
     return (core + _draws(idata, f"{VAR}_bias_common") + rng.normal(0, 1, n) * _draws(idata, f"{VAR}_sigma_m")
             + rng.normal(0, priors["likelihood_noise"], n))
 
@@ -393,11 +395,31 @@ def synthetic_ensemble(flags: pd.DataFrame, kind: str, baseline: float, effects:
     return pd.Series(y, index=flags.index)
 
 
-def _recover_one(flags, priors, baseline, effects, scatter_sd, common_sd, rep, seed, sampler):
+def synthetic_paired(kind: str, effects: dict[str, float], design: dict[str, tuple[int, float]],
+                     meas_sd: float = 0.0, rng=None) -> dict[str, list[float]]:
+    """Pseudo paired factorials with known effects: for process p, design[p] = (n models, tau), and
+
+    additive:       value_mp = effects[p] + u_mp + v_mp
+    multiplicative: value_mp = effects[p] * exp(u_mp + v_mp)   (tau and meas_sd in log units)
+    with u_mp ~ N(0, tau) the model's departure from the ensemble-mean effect and v_mp ~ N(0, meas_sd)
+    measurement error. A process missing from `effects` has no effect (0, or 1 for eta).
+    """
+    rng = rng or np.random.default_rng(0)
+    out = {}
+    for p, (n, tau) in design.items():
+        e = effects.get(p, 0.0 if kind == ADDITIVE else 1.0)
+        u = rng.normal(0, tau, n) + rng.normal(0, meas_sd, n)
+        out[p] = list(e + u if kind == ADDITIVE else e * np.exp(u))
+    return out
+
+
+def _recover_one(flags, priors, baseline, effects, scatter_sd, common_sd, rep, seed, sampler,
+                 paired_design=None, paired_meas_sd=0.0, paired_kw=None):
     kind = priors["kind"]
-    y = synthetic_ensemble(flags, kind, baseline, effects, scatter_sd, common_sd,
-                           rng=np.random.default_rng(10_000 * (seed + 1) + rep))
-    idata, diag = fit(build(y, flags, priors), seed=seed + rep, sampler=sampler)
+    rng = np.random.default_rng(10_000 * (seed + 1) + rep)
+    y = synthetic_ensemble(flags, kind, baseline, effects, scatter_sd, common_sd, rng=rng)
+    paired = synthetic_paired(kind, effects, paired_design, paired_meas_sd, rng=rng) if paired_design else None
+    idata, diag = fit(build(y, flags, priors, paired=paired, **(paired_kw or {})), seed=seed + rep, sampler=sampler)
     est = _draws(idata, effect_name(kind))
     truth_rw = (baseline + sum(effects.values())) if kind == ADDITIVE else baseline * np.prod(list(effects.values()))
     rows = []
@@ -415,16 +437,24 @@ def _estimate(s, truth) -> dict:
 
 def synthetic_recovery(flags: pd.DataFrame, priors: dict, baseline: float, effects: dict[str, float],
                        scatter_sd: float, common_sd: float = 0.0, nrep: int = 12, seed: int = 0,
-                       sampler: dict | None = None, n_jobs: int = 1) -> tuple[pd.DataFrame, pd.DataFrame]:
+                       sampler: dict | None = None, n_jobs: int = 1,
+                       paired_design: dict[str, tuple[int, float]] | None = None, paired_meas_sd: float = 0.0,
+                       paired_kw: dict | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Fit the process model to `nrep` synthetic ensembles with known effects.
 
     Choose scatter_sd from flag_budget(...)['resid_sd'] on the real data so that the pseudo-data are as
     noisy as the real ensemble. Returns (per-replicate rows, summary by term). In the summary,
     post_sd close to the prior sd and an estimate near the prior mean, whatever the truth, mean the
     term is not identified.
+
+    With paired_design ({process: (n models, tau)}), each replicate also draws pseudo paired factorials
+    (synthetic_paired) and the fit uses them, treated as paired_kw says (paired_spread, paired_sigma,
+    paired_tau_scale; passed to build). cov90 then shows whether that treatment's intervals hold when
+    the factorials scatter between models by tau.
     """
     res = Parallel(n_jobs=n_jobs)(delayed(_recover_one)(flags, priors, baseline, effects, scatter_sd, common_sd,
-                                                        r, seed, sampler) for r in range(nrep))
+                                                        r, seed, sampler, paired_design, paired_meas_sd, paired_kw)
+                                  for r in range(nrep))
     R = pd.DataFrame([x for r in res for x in r])
     S = (R.groupby("term", sort=False)
          .agg(truth=("truth", "first"), mean_estimate=("post_mean", "mean"), spread_between_reps=("post_mean", "std"),
@@ -437,10 +467,15 @@ def synthetic_recovery(flags: pd.DataFrame, priors: dict, baseline: float, effec
 # Test 5: is each held-out model predicted?
 # ----------------------------------------------------------------------------------------------------
 
-def _loo_one(values, flags, groups, priors, m, seed, sampler):
+def _loo_one(values, flags, groups, priors, m, seed, sampler, paired=None, paired_kw=None):
     out = groups.index[groups == groups[m]] if groups is not None else [m]
     train = [x for x in values.index if x not in out]
-    idata, diag = fit(build(values[train], flags.loc[train], priors), seed=seed, sampler=sampler)
+    paired_train = None
+    if paired:
+        paired_train = {p: s.drop([x for x in out if x in s.index]).tolist() for p, s in paired.items()}
+        paired_train = {p: v for p, v in paired_train.items() if v}
+    idata, diag = fit(build(values[train], flags.loc[train], priors, paired=paired_train or None, **(paired_kw or {})),
+                      seed=seed, sampler=sampler)
     truth = float(values[m])
     yt = values[train].values
     rng = np.random.default_rng(seed + 1)
@@ -453,7 +488,9 @@ def _loo_one(values, flags, groups, priors, m, seed, sampler):
 
 
 def leave_one_out(values: pd.Series, flags: pd.DataFrame, priors: dict, groups: pd.Series | None = None,
-                  seed: int = 0, sampler: dict | None = None, n_jobs: int = 1) -> tuple[pd.DataFrame, pd.DataFrame]:
+                  seed: int = 0, sampler: dict | None = None, n_jobs: int = 1,
+                  paired: dict[str, pd.Series] | None = None,
+                  paired_kw: dict | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Each model in turn plays the real world; it (or its whole family, if `groups` is given) is removed
     from training, and three predictions of its value are scored:
 
@@ -464,8 +501,12 @@ def leave_one_out(values: pd.Series, flags: pd.DataFrame, priors: dict, groups: 
     Returns (per-model scores, summary). In the summary, crps_skill = 1 - CRPS / CRPS(raw_ensemble):
     negative means worse than the raw ensemble. cov66 and cov90 are the shares of held-out values inside
     the central 66 % and 90 % intervals.
+
+    paired : optional paired factorials as {process: pd.Series indexed by model}. The held-out model's (or
+             family's) own factorials are removed with it, so its value does not reach the fit. paired_kw
+             (paired_spread, paired_sigma, paired_tau_scale) is passed to build.
     """
-    res = Parallel(n_jobs=n_jobs)(delayed(_loo_one)(values, flags, groups, priors, m, seed, sampler)
+    res = Parallel(n_jobs=n_jobs)(delayed(_loo_one)(values, flags, groups, priors, m, seed, sampler, paired, paired_kw)
                                   for m in values.index)
     R = pd.DataFrame([x for r in res for x in r])
     R["error"] = R["mean"] - R["truth"]

@@ -110,3 +110,42 @@ def test_paired_struct_observation_sd(gamma):
 def test_design_se_factor_rejects_flag_on_every_model():
     with pytest.raises(ValueError, match="n_flagged"):
         pt.design_se_factor(15, 15, 3)
+
+
+def test_synthetic_paired_known_spread():
+    rng = np.random.default_rng(1)
+    v = pt.synthetic_paired(pt.ADDITIVE, {"fire": 5.0}, {"fire": (4000, 8.0), "veg": (3, 0.0)}, rng=rng)
+    assert np.mean(v["fire"]) == pytest.approx(5.0, abs=0.5) and np.std(v["fire"]) == pytest.approx(8.0, rel=0.05)
+    assert v["veg"] == [0.0, 0.0, 0.0]                      # no effect given: 0 for delta
+    e = pt.synthetic_paired(pt.MULTIPLICATIVE, {"fire": 0.9}, {"fire": (4000, 0.1), "veg": (2, 0.0)}, rng=rng)
+    assert np.std(np.log(e["fire"])) == pytest.approx(0.1, rel=0.05) and e["veg"] == [1.0, 1.0]
+
+
+def test_loo_removes_held_out_factorials(gamma, monkeypatch):
+    y, flags, groups = gamma
+    seen = {}
+
+    def fake_build(values, flags_, priors, paired=None, **kw):
+        seen.update(paired=paired, kw=kw)
+        raise StopIteration
+
+    monkeypatch.setattr(pt, "build", fake_build)
+    paired = {"fire": pd.Series([1.0, 2.0, 3.0], index=["CESM2", "NorESM2-LM", "UKESM1-0-LL"]),
+              "veg": pd.Series([4.0], index=["CESM2"])}
+    pr = pt.default_priors(pt.ADDITIVE, list(flags.columns))
+    with pytest.raises(StopIteration):
+        pt._loo_one(y, flags, groups, pr, "CESM2", 0, None, paired, {"paired_spread": "estimate"})
+    assert seen["paired"] == {"fire": [3.0]}                 # CESM2 and NorESM2-LM (family NCAR) removed
+    assert seen["kw"] == {"paired_spread": "estimate"}
+
+
+def test_own_flags_predictive_uses_estimated_tau():
+    import arviz as az
+    n = 20000
+    post = {"y_unscaled": np.zeros((1, n)), "y_delta": np.zeros((1, n, 2)), "y_bias_common": np.zeros((1, n)),
+            "y_sigma_m": np.zeros((1, n))}
+    pr = dict(kind=pt.ADDITIVE, sigma_process_struct={"a": 5.0, "b": 1.0}, likelihood_noise=1e-9)
+    row = pd.Series([1, 0], index=["a", "b"])
+    fixed = pt.own_flags_predictive(az.from_dict(posterior=post), row, pr)
+    tau = pt.own_flags_predictive(az.from_dict(posterior={**post, "y_paired_tau_a": np.full((1, n), 40.0)}), row, pr)
+    assert np.std(fixed) == pytest.approx(5.0, rel=0.03) and np.std(tau) == pytest.approx(40.0, rel=0.03)

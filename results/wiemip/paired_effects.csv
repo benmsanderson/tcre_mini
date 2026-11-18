@@ -1,4 +1,7 @@
 model,pattern,process,background,factorial_on,factorial_off,eta_beta_land,delta_gamma_land_coubgc,delta_gamma_land_rad
+JULES,gfdl,dynveg,,baseline,noDynVeg,1.28072,-4.20141,0.323587
+JULES,ipsl,dynveg,,baseline,noDynVeg,1.28072,0.817625,2.64572
+JULES,ukesm,dynveg,,baseline,noDynVeg,1.28072,-0.486687,2.34144
 LPJ_EOSIM,gfdl,dynveg,,baseline,noDynVeg,1.29174,-14.3818,-67.8488
 LPJ_EOSIM,ipsl,dynveg,,baseline,noDynVeg,1.29174,-13.9657,-50.0824
 LPJ_EOSIM,ukesm,dynveg,,baseline,noDynVeg,1.29174,-14.6243,-58.0945
@@ -33,14 +36,14 @@ JSBACH,ukesm,nitrogen,,baseline,noNitrogen,0.95613,-0.0147307,
 LPJ_EOSIM,gfdl,nitrogen,,baseline,noNitrogen,1.11268,21.0155,-3.53437
 LPJ_EOSIM,ipsl,nitrogen,,baseline,noNitrogen,1.11268,17.1468,1.13855
 LPJ_EOSIM,ukesm,nitrogen,,baseline,noNitrogen,1.11268,27.5252,4.48187
-LPJ_GUESS,ukesm,nitrogen,,baseline,noNitrogen,1.00741,-0.848989,
+LPJ_GUESS,ukesm,nitrogen,,baseline,noNitrogen,1.00741,-0.848998,
 LPJmL6,ukesm,nitrogen,,baseline,noNitrogen,0.170988,104.639,
 LPJ_EOSIM,gfdl,permafrost,,baseline,noPermafrost,0.983997,0.66973,4.52871
 LPJ_EOSIM,ipsl,permafrost,,baseline,noPermafrost,0.983997,2.69813,5.90297
 LPJ_EOSIM,ukesm,permafrost,,baseline,noPermafrost,0.983997,2.57732,5.95574
 LPX_Bern,gfdl,permafrost,,baseline,noPermafrost,0.998577,-2.42582,
-LPX_Bern,ipsl,permafrost,,baseline,noPermafrost,0.998577,-3.33618,
+LPX_Bern,ipsl,permafrost,,baseline,noPermafrost,0.998577,-3.3362,
 LPX_Bern,ukesm,permafrost,,baseline,noPermafrost,0.998577,-3.41528,
-LPX_Bern,gfdl,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-2.07181,
-LPX_Bern,ipsl,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-2.94641,
-LPX_Bern,ukesm,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-3.08662,
+LPX_Bern,gfdl,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-2.07184,
+LPX_Bern,ipsl,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-2.94642,
+LPX_Bern,ukesm,permafrost,fire,noFire,noFire_noPermafrost,0.999352,-3.08665,

@@ -91,23 +91,32 @@ python -m pytest                                                             # 9
   on 2026-10-22; the earlier extraction is in git history (commit 303c67a). Models still exposed are
   unchanged except the re-uploaded LPJmL6 (beta) and LPX_Bern (gamma). New: CARDAMOM_JPL, noDynVeg for
   LPJ_EOSIM and LPJ_GUESS (flag `veg`).
+- **Re-extraction (2026-11-17).** JULES is exposed again (baseline, noDynVeg, noFire_noNitrogen; beta 1.20,
+  gamma -34.0, as on 2026-10-22); BEPS, DVM_DOS_TEM, VISIT_UT and ORCHIDEE_MICT_CALIPSO are still missing.
+  206 runs. The LPJ_EOSIM noDynVeg ctrl drifts by 133 PgC/century (anomalies are taken from its own ctrl,
+  but one of three veg factorials rests on it).
 - **Comparison.** `scripts/wiemip_paired_spread.py --ensemble {cmip6,wiemip}` writes
-  `results/wiemip/paired_spread[_wiemip].csv`. On WIEMIP (13 models with complete flags and values), with tau
+  `results/wiemip/paired_spread[_wiemip].csv`. On WIEMIP (14 models with complete flags and values), with tau
   estimated, only fire stays constrained; nitrogen on gamma_L and veg return close to prior width. The
   permafrost factorials give about zero effect on gamma_L (-0.4 PgC/K from two models; +13 before the
   LPX_Bern re-upload), a value the NegLogNormal prior (median -30) excludes, so the narrow upstream
   posterior just below zero reflects the prior's bound, not the data. In WIEMIP the same models give the regression values and
   the factorials, so the two are not independent. The upstream every-pattern-row gamma fit has 2
-  divergences (kept as the comparison case).
+  divergences on 2026-11-15; on 2026-11-17 three WIEMIP gamma fits have 1 or 2 divergences (upstream rows,
+  upstream models, estimate; r-hat <= 1.004).
 - **Spreadsheet differences to raise with Becky** (not yet raised): JSBACH beta 1.30 in the sheet against
   1.10 from the registry; CARDAMOM_JPL beta 0.56 against 0.95; JULES pairs mix backgrounds (fire is
-  baseline vs noFire, nitrogen and veg use noFire as "on").
-- **Power tables** regenerated on the new extraction (15 baseline models). `wiemip_power.py` now skips
+  baseline vs noFire, nitrogen and veg use noFire as "on"); the sheet's JULES baseline (beta 0.94, gamma
+  -59.7) is not the registry's baseline (1.20, -34.0).
+- **Power tables** regenerated on the new extraction (16 baseline models on 2026-11-17). `wiemip_power.py` now skips
   designs with a flag on every model (they never reach full rank, and `design_se_factor` looped forever).
 - **Stale:** `notebooks/04_wiemip.ipynb` and the text in `scripts/make_notebook_04.py` quote numbers from the
   2026-10-22 extraction (18 models, fire +5.1 +/- 2.6 PgC/K); regenerate and re-execute before sharing.
-- **Next:** add `paired_spread` to `synthetic_recovery` and `leave_one_out`; re-extract when the registry
-  restores the missing models.
+- **Recovery and leave one out with factorials.** `synthetic_recovery(paired_design=...)` draws pseudo
+  factorials with known between-model scatter (`synthetic_paired`); `leave_one_out(paired=...)` removes the
+  held-out model's (or family's) factorials; `own_flags_predictive` uses the estimated tau where present.
+  `scripts/wiemip_paired_tests.py {synthetic,loo}` writes `results/wiemip/paired_tests_*.csv` (full runs pending).
+- **Next:** re-extract when the registry restores the missing models; a family column for the flag table.
 
 1. **Build the values table** from WIEMIP global means: one row per model, columns such as
    `gamma_land_coubgc`, `beta_land_coubgc` (and, if possible, R = TCRE/TCR).

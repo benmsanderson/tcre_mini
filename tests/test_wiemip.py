@@ -126,3 +126,10 @@ def test_read_flag_sheet_fills_unknown_from_factorials(tmp_path):
     assert list(F.index) == ["LPX_Bern", "A_B", "C"]
     assert F.loc["LPX_Bern", "veg"] == 1.0 and np.isnan(F.loc["A_B", "veg"])
     assert conflicts.to_dict("records") == [dict(model="C", process="nitrogen", sheet=0)]
+
+
+def test_paired_by_model_series():
+    pe = pd.DataFrame(dict(model=["A", "B"], pattern="ukesm", process="dynveg", background="",
+                           delta_gamma_land_coubgc=[1.0, 3.0]))
+    s = wm.paired_by_model(pe, "delta_gamma_land_coubgc", as_series=True)["veg"]
+    assert s.to_dict() == {"A": 1.0, "B": 3.0}
