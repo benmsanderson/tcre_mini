@@ -66,7 +66,7 @@ python scripts/precompute.py --name wiemip --values my_values.csv --flags my_fla
 | `data/derived/`, `data/obs/` | Feedbacks diagnosed from C4MIP runs; observational series (GCB, NOAA, HadCRUT5). |
 | `external/TCRE_Assessment` | Development code, pinned at 98c74cb. Never edited. |
 | `note/` | LaTeX technical note (submodule); figures from `scripts/note_figures.py`. |
-| `docs/` | `guide.md` (concepts), `new_ensemble.md` (applying the tests elsewhere). |
+| `docs/` | `guide.md` (concepts), `new_ensemble.md` (applying the tests elsewhere), `off_hub.md` (WIEMIP data and runs without the JupyterHub). |
 | `tests/` | `python -m pytest`; add `-m slow` for the MCMC tests. |
 | `STATUS.md` | Current state, setup on a new machine, next steps and open items. |
 | `HANDOVER.md`, `CLAUDE.md` | Original project brief and working rules. |
