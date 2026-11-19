@@ -115,7 +115,16 @@ python -m pytest                                                             # 9
 - **Recovery and leave one out with factorials.** `synthetic_recovery(paired_design=...)` draws pseudo
   factorials with known between-model scatter (`synthetic_paired`); `leave_one_out(paired=...)` removes the
   held-out model's (or family's) factorials; `own_flags_predictive` uses the estimated tau where present.
-  `scripts/wiemip_paired_tests.py {synthetic,loo}` writes `results/wiemip/paired_tests_*.csv` (full runs pending).
+  `scripts/wiemip_paired_tests.py {synthetic,loo}` writes `results/wiemip/paired_tests_*.csv`. Full runs 2026-11-18 (16 replicates; 4 x 1000 draws; r-hat <= 1.008;
+  gamma fits only: 5 of 160 synthetic and 7 of 84 leave-one-out fits have 1 to 3 divergences).
+  - Synthetic, factorials scattered as observed: 90 % coverage for upstream is 0.19 (nitrogen) and 0.56
+    (fire) on gamma_L, 0.25 and 0.75 on beta_L; for estimate 0.69, 0.94, 0.75, 0.94. With tau = 0 both
+    are calibrated and estimate is sharper (posterior sd 0.8 against 1.6 PgC/K for fire on gamma_L).
+  - Permafrost on gamma_L: coverage 0 in every treatment. The truth (-0.5 PgC/K) lies where the
+    NegLogNormal prior has almost no mass, so no treatment of the factorials recovers it.
+  - Leave one out: no treatment predicts held-out WIEMIP models clearly better than the raw ensemble (best
+    crps_skill 0.06 for gamma_L, 0.14 for beta_L); with upstream, the all-processes estimate is biased by
+    +22 PgC/K on gamma_L and covers 57 % at 90 %.
 - **Next:** re-extract when the registry restores the missing models; a family column for the flag table.
 
 1. **Build the values table** from WIEMIP global means: one row per model, columns such as
